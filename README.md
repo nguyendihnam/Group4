@@ -1,2 +1,1 @@
-# Group4
-# The Coffe & Cookie
+# Group4 : The Coffee & Cookie
