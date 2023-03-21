@@ -1,0 +1,77 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 19 Mar 2023 21:16:43 at https://thecoffeehouse.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://thecoffeehouse.com/ -O1 "D:\Httrack\Demo1" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+21:33:03	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://thecoffeehouse.com/)
+21:40:19	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/collections/cau-toan-keo-thom (from https://thecoffeehouse.com/)
+21:53:26	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/owl.video.play.png (from theme.hstatic.net/1000075078/1000989727/14/tch.min.css?v=49)
+21:53:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/c (from https://connect.facebook.net/en_US/fbevents.js)
+21:53:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/b (from https://connect.facebook.net/en_US/fbevents.js)
+21:53:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/POST (from https://connect.facebook.net/en_US/fbevents.js)
+21:58:15	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/coffee_story_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/chuyencaphe (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/phacaphe (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/phatra (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/cauchuyenvetra (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/inthemood (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/Review (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/HumanofTCH (from https://thecoffeehouse.com/pages/chuyen-ca-phe-va-tra)
+21:58:15	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/cloudfee-landing-page_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/cloudfee-the-he-ca-phe-moi)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/fb-messenger://share/?link=https://thecoffeehouse.com/pages/cloudfee-the-he-ca-phe-moi&app_id=363772567412181 (from https://thecoffeehouse.com/pages/cloudfee-the-he-ca-phe-moi)
+21:58:26	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/stores_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000674013 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683241 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000673996 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000677862 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000681365 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683141 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683159 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683168 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683217 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683219 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683220 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683221 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683229 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683231 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683271 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683272 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000683287 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:26	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/1000716873 (from https://thecoffeehouse.com/pages/danh-sach-cua-hang)
+21:58:36	Warning: 	file not stored in cache due to bogus state (broken size, expected 268688 got 0): file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9.jpg
+22:09:42	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/our-coffee_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/hat-ca-phe-the-coffee-house)
+22:09:42	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/store_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/our-stores)
+22:09:53	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 268688 expected)) at link file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cach-nhan-biet-huong-vi-ca-phe-robusta-nguyen-chat-de-dang-nhat)
+22:10:45	Warning: 	Retry after error -4 (No data (connection closed)) at link file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9_master.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cach-nhan-biet-huong-vi-ca-phe-robusta-nguyen-chat-de-dang-nhat)
+22:29:37	Warning: 	file not stored in cache due to bogus state (broken size, expected 241736 got 0): file.hstatic.net/1000075078/article/img_8538_master.jpg
+22:30:50	Warning: 	Retry after error -4 (No data (connection closed)) at link https://thecoffeehouse.com/blogs/coffeeholic?page=6 (from https://thecoffeehouse.com/blogs/coffeeholic?page=7)
+22:44:07	Warning: 	Retry after error -4 (Incorrect length (376141 Bytes, 853986 expected)) at link file.hstatic.net/1000075078/article/123232891_2820303564910318_4578047210373311456_n_699bea2973ec4087886ab888d5434de4.jpg (from https://thecoffeehouse.com/blogs/blog/le-tinh-nhan-cung-crush-di-dau)
+22:58:54	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/products/tra-sua-masala-chai-tran-chau-chai-fresh-500ml (from https://thecoffeehouse.com/blogs/blog/chai-fresh-luon-ben-ban-trong-moi-khoanh-khac)
+22:58:54	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/tet-khoi-dau-sung (from https://thecoffeehouse.com/blogs/blog/nam-moi-uong-khoi-dau-sung-nhan-li-xi-khung-tai-the-coffee-house)
+22:58:54	Error: 	"Not Found" (404) at link https://thecoffeehouse.com/pages/khoi-dau-sung (from https://thecoffeehouse.com/blogs/blog/nam-moi-uong-khoi-dau-sung-nhan-li-xi-khung-tai-the-coffee-house)
+22:58:54	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/14/all-store_fb_share.jpg?v=49 (from https://thecoffeehouse.com/pages/danh-sach-tat-ca-cua-hang)
+23:01:21	Warning: 	file not stored in cache due to bogus state (broken size, expected 155415 got 0): file.hstatic.net/1000075078/article/cold_brew_info_800x400_1491abc6c72f45708c81b99f6df5e713.jpg
+23:06:25	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 241736 expected)) at link file.hstatic.net/1000075078/article/img_8538_master.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cac-phuong-phap-so-che-ca-phe-pho-bien)
+23:06:52	Warning: 	Retry after error -4 (No data (connection closed)) at link file.hstatic.net/1000075078/article/img_4483_master.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cac-phuong-phap-so-che-ca-phe-pho-bien)
+23:06:57	Warning: 	file not stored in cache due to bogus state (broken size, expected 241736 got 131072): file.hstatic.net/1000075078/article/img_8538_master.jpg
+23:06:57	Warning: 	Retry after error -4 (Incorrect length (145097 Bytes, 447900 expected)) at link file.hstatic.net/1000075078/article/trong_ca_phe_56665ad4d1524292a18fc0c9c1204527.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/co-hoi-nghe-nghiep-trong-nganh-ca-phe-tai-viet-nam)
+23:07:10	Warning: 	file not stored in cache due to bogus state (broken size, expected 447900 got 145097): file.hstatic.net/1000075078/article/trong_ca_phe_56665ad4d1524292a18fc0c9c1204527.jpg
+23:07:41	Error: 	"Not Found" (404) at link theme.hstatic.net/1000075078/1000989727/images/overlay_lightbox.png (from theme.hstatic.net/1000075078/1000989727/14/flipbook.style.cssver2.20.css?v=49)
+23:33:28	Warning: 	file not stored in cache due to bogus state (broken size, expected 91661 got 0): file.hstatic.net/1000075078/file/_downloader.la_-61c2e5bc8d5b1_d5594fa6e6c34faa97ea5ab046149144_grande.jpg
+23:47:24	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 155415 expected)) at link file.hstatic.net/1000075078/article/cold_brew_info_800x400_1491abc6c72f45708c81b99f6df5e713.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cold-brew-nao-phai-ca-phe-da)
+23:47:37	Warning: 	Retry after error -4 (Incorrect length (131072 Bytes, 241736 expected)) at link file.hstatic.net/1000075078/article/img_8538_master.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/cac-phuong-phap-so-che-ca-phe-pho-bien)
+23:47:53	Warning: 	Retry after error -4 (Incorrect length (145097 Bytes, 447900 expected)) at link file.hstatic.net/1000075078/article/trong_ca_phe_56665ad4d1524292a18fc0c9c1204527.jpg (from https://thecoffeehouse.com/blogs/coffeeholic/co-hoi-nghe-nghiep-trong-nganh-ca-phe-tai-viet-nam)
+23:47:54	Warning: 	Retry after error -4 (No data (connection closed)) at link file.hstatic.net/1000075078/article/2_71ea9abcc3f042b49dcad73a597bec40_grande.jpg (from https://thecoffeehouse.com/blogs/coffeeholic?page=6)
+23:47:56	Warning: 	Retry after error -4 (Incorrect length (162982 Bytes, 557196 expected)) at link file.hstatic.net/1000075078/file/tearoma_day2_02544_13e90863d6414f56ab83bc77b77446c9_grande.png (from https://thecoffeehouse.com/blogs/teaholic/khi-chen-tra-la-dau-cau-chuyen)
+23:48:00	Warning: 	Retry after error -4 (Incorrect length (0 Bytes, 91661 expected)) at link file.hstatic.net/1000075078/file/_downloader.la_-61c2e5bc8d5b1_d5594fa6e6c34faa97ea5ab046149144_grande.jpg (from https://thecoffeehouse.com/blogs/blog/me-man-cac-mon-an-tu-tra-xanh)
+23:48:05	Warning: 	file not stored in cache due to bogus state (broken size, expected 557196 got 162982): file.hstatic.net/1000075078/file/tearoma_day2_02544_13e90863d6414f56ab83bc77b77446c9_grande.png
+23:48:05	Warning: 	Retry after error -4 (No data (connection closed)) at link file.hstatic.net/1000075078/file/matcha_latte_nong_334925ff7809463f810b14e73436592e_grande.jpg (from https://thecoffeehouse.com/blogs/blog/me-man-cac-mon-an-tu-tra-xanh)
+23:48:48	Warning: 	Retry after error -4 (Incorrect length (227117 Bytes, 455993 expected)) at link file.hstatic.net/1000075078/article/phuong__1__3f78d092423d450eabd7f54f9cc83bb8.jpg (from https://thecoffeehouse.com/blogs/blog/homie-va-lan-dau-tien-phong-van-tai-the-coffee-house)
+23:48:48	Warning: 	Retry after error -4 (Incorrect length (162982 Bytes, 557196 expected)) at link file.hstatic.net/1000075078/file/tearoma_day2_02544_13e90863d6414f56ab83bc77b77446c9_grande.png (from https://thecoffeehouse.com/blogs/teaholic/khi-chen-tra-la-dau-cau-chuyen)
+23:48:48	Warning: 	Retry after error -4 (No data (connection closed)) at link file.hstatic.net/1000075078/file/matcha_latte_nong_334925ff7809463f810b14e73436592e_grande.jpg (from https://thecoffeehouse.com/blogs/blog/me-man-cac-mon-an-tu-tra-xanh)
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 hours 32 minutes 32 seconds : 1341 links scanned, 1280 files written (270099300 bytes overall) [240921807 bytes received at 26324 bytes/sec], 47017445 bytes transferred using HTTP compression in 348 files, ratio 27%, 2.0 requests per connection
+(42 errors, 24 warnings, 0 messages)
