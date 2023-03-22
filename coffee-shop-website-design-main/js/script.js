@@ -18,7 +18,7 @@ document.querySelectorAll('.image-slider img').forEach(images => {
     };
 });
 
-var swiper = new Swiper(".review-slider", {
+var swiper = new Swiper(".Event-slider", {
     spaceBetween: 20,
     pagination: {
         el: ".swiper-pagination",
