@@ -29,6 +29,7 @@ html {
 
 section {
     padding: 2rem 9%;
+    text-align: center;
 }
 
 .heading {
@@ -178,6 +179,9 @@ section {
 }
 
 /* ABOUT */
+#about {
+    padding-top: 8rem;
+}
 
 .about .row {
     display: flex;
@@ -306,6 +310,61 @@ section {
     line-height: 1.8;
 }
 
+.menu-container {
+    min-height: 130vh;
+    padding-top: 10rem;
+}
+
+.menu-category {
+    display: block;
+    float: left;
+    width: 20rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    line-height: 4.8rem;
+    padding: 1.6rem;
+}
+
+.menu-header{
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.menu-list-item {
+    list-style: none;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 3.6rem;
+}
+
+.card-container {
+    display: block;
+}
+
+.card {
+    padding: 2rem;
+    border: .2rem solid #000;
+    width: calc(100% / 4);
+    float: left;
+    margin: 1.2rem;
+}
+
+.img-thumbnail {
+    width: 100%;
+}
+
+.card-item h2 {
+    font-size: 3.2rem;
+    letter-spacing: 0.2rem;
+}
+
+.card-price {
+    font-size: 2.4rem;
+}
+.card-description {
+    font-size: 1.0rem;
+}
+
 /* REVIEW */
 
 .review .review-slider {
@@ -392,6 +451,9 @@ section {
 }
 
 /* BOOK */
+#book {
+    padding-top: 8rem;
+}
 
 .book {
     background: url(../image/book-bg.jpg);
@@ -576,4 +638,16 @@ section {
         height: auto;
         width: 100%;
     }
+}
+/* ------------Hide Arrows From Input Number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
