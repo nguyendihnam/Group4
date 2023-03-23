@@ -339,6 +339,7 @@ section {
 
 .card-container {
     display: block;
+    overflow: auto;
 }
 
 .card {
