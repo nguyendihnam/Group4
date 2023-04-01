@@ -30,7 +30,7 @@
         $address = $_POST['txtAddress'];
         
         #8. Excute query (for update new data)
-        $query = "update User set UserName = '{$userName}', Email = '{$email}', PhoneNumber = '{$phone}', Address = '{$address}' where ID = '{$id}'";
+        $query = "update User set UserName = '{$userName}', Email = '{$email}', PhoneNumber = '{$phone}', Address = '{$address}', UpdateDate = now() where ID = '{$id}'";
         $rs = mysqli_query($conn, $query);
         if(!$rs):
             error_clear_last();
