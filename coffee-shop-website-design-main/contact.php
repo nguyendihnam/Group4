@@ -1,6 +1,6 @@
 <?php
     include'./header.php';
-    include'./slider.php';  
+    // include'./slider.php';  
 ?>
     <!-- Contact -->
     <section class="book" id="book">

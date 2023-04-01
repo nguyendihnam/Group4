@@ -1,6 +1,6 @@
 <?php
     include'./header.php';
-    include'./slider.php';  
+    // include'./slider.php';  
 ?>
     <!-- ABOUT -->
     <section class="about" id="about">

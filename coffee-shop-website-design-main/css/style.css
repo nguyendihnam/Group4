@@ -254,7 +254,6 @@ section {
     padding-top: 1rem;
     color: var(--main-color);
 }
-
 /* MENU */
 
 .menu {
@@ -336,10 +335,21 @@ section {
     font-style: italic;
     line-height: 3.6rem;
 }
+.menu-container-menu{
+    min-height: 130vh;
+    padding-top: 9rem;
+    float: center;
+}
 
 .card-container {
     display: block;
     overflow: auto;
+}
+.card-menu {
+    padding: 2rem;
+    border: .2rem solid #000;
+    float: center;
+    margin: auto;
 }
 
 .card {
@@ -353,6 +363,10 @@ section {
 .img-thumbnail {
     width: 100%;
 }
+.img-thumbnail-product {
+    width: 27.0rem;
+    height: 15.8rem;
+}
 
 .card-item h2 {
     font-size: 3.2rem;
@@ -365,6 +379,114 @@ section {
 .card-description {
     font-size: 1.0rem;
 }
+.img-thumbnail-menu {
+    width: 900px;
+    height: 500px;
+}
+
+.card-price-menu {
+    font-size: 2.0rem;
+}
+.card-description-menu {
+    font-size: 3.0rem;
+}
+/* MENU
+
+.menu {
+    background: url(../image/menu-bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.menu .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.menu .box-container .box {
+    flex: 1 1 42rem;
+    padding: 2rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 6rem;
+}
+
+.menu .box-container .box:hover {
+    border: var(--border-hover);
+    border-radius: var(--border-radius-hover);
+}
+
+.menu .box-container .box img {
+    height: 8rem;
+    margin-left: -6rem;
+}
+
+.menu .box-container .box .content h3 {
+    font-size: 2.2rem;
+    color: var(--main-color);
+    line-height: 1.8;
+}
+
+.menu .box-container .box .content p {
+    font-size: 1.6rem;
+    color: var(--main-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.menu .box-container .box .content span {
+    font-size: 2rem;
+    color: var(--main-color);
+    line-height: 1.8;
+}
+
+
+
+.menu-category {
+    display: block;
+    float: left;
+    width: 20rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    line-height: 4.8rem;
+    padding: 1.6rem;
+}
+
+.menu-header{
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.menu-list-item {
+    list-style: none;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 3.6rem;
+}
+
+.card-container {
+    display: block;
+    overflow: auto;
+}
+
+
+
+
+
+.card-item h2 {
+    font-size: 3.2rem;
+    letter-spacing: 0.2rem;
+}
+ */
+.card-name {
+    font-size: 5.0rem;
+}
+
 
 /* REVIEW */
 
