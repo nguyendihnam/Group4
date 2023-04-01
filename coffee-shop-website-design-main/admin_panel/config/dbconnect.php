@@ -3,8 +3,8 @@
 $server = "localhost";
 $user = "root";
 $password = "";
-$db = "swiss_collection";
-
+//$db = "swiss_collection";
+$db = "cofeeshopdb";
 $conn = mysqli_connect($server,$user,$password,$db);
 
 if(!$conn) {

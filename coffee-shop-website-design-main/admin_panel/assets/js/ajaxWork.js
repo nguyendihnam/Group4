@@ -20,9 +20,9 @@ function showCategory(){
         }
     });
 }
-function showSizes(){  
+function showProducts(){  
     $.ajax({
-        url:"./adminView/viewSizes.php",
+        url:"./adminView/viewProducts.php",
         method:"post",
         data:{record:1},
         success:function(data){
@@ -30,9 +30,9 @@ function showSizes(){
         }
     });
 }
-function showProductSizes(){  
+function showContact(){  
     $.ajax({
-        url:"./adminView/viewProductSizes.php",
+        url:"./adminView/viewContact.php",
         method:"post",
         data:{record:1},
         success:function(data){
@@ -41,9 +41,9 @@ function showProductSizes(){
     });
 }
 
-function showCustomers(){
+function showUsers(){
     $.ajax({
-        url:"./adminView/viewCustomers.php",
+        url:"./adminView/viewUser.php",
         method:"post",
         data:{record:1},
         success:function(data){
@@ -57,6 +57,16 @@ function showOrders(){
         url:"./adminView/viewAllOrders.php",
         method:"post",
         data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
+function viewDetailOrder(id){
+    $.ajax({
+        url:"./adminView/viewAllOrderDetail.php",
+        method:"post",
+        data:{orderID:id},
         success:function(data){
             $('.allContent-section').html(data);
         }
