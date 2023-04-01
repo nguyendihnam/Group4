@@ -4,7 +4,7 @@
   <table class="table ">
     <thead>
       <tr>
-        <th class="text-center">S.N.</th>
+        <th class="text-center">#</th>
         <th class="text-center">Category Name</th>
         <th class="text-center" colspan="2">Action</th>
       </tr>
@@ -19,9 +19,9 @@
     ?>
     <tr>
       <td><?=$count?></td>
-      <td><?=$row["category_name"]?></td>   
+      <td><?=$row["Name"]?></td>   
       <!-- <td><button class="btn btn-primary" >Edit</button></td> -->
-      <td><button class="btn btn-danger" style="height:40px" onclick="categoryDelete('<?=$row['category_id']?>')">Delete</button></td>
+      <td><button class="btn btn-danger" style="height:40px" onclick="categoryDelete('<?=$row['ID']?>')">Delete</button></td>
       </tr>
       <?php
             $count=$count+1;
