@@ -27,10 +27,10 @@
         <a href="#" class="logo">coffee & cake <i class="fas fa-mug-hot"></i></a>
 
         <nav class="navbar">
-            <a href="index.html">home</a>
-            <a href="menu.html">menu</a>
-            <a href="contact.html">contact</a>
-            <a href="about-us.html">about</a>
+            <a href="index.php">home</a>
+            <a href="menu.php">menu</a>
+            <a href="contact.php">contact</a>
+            <a href="about-us.php">about</a>
         </nav>
 
         <nav class="navbar">
@@ -201,8 +201,6 @@
             <div class="swiper-pagination"></div>
         </div>
     </section> -->
-
-
 
     <!-- FOOTER -->
     <section class="footer">
