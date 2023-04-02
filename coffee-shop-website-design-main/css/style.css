@@ -390,10 +390,16 @@ section {
 .menu-container {
     min-height: 130vh;
     padding-top: 10rem;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .menu-category {
-    display: block;
+    display: auto;
     float: left;
     width: 20rem;
     background-color: #fff;
@@ -418,6 +424,42 @@ section {
     padding-top: 9rem;
     float: center;
 }
+.menu {
+    margin-top: 5rem;
+    padding: 3rem 0;
+    background-color: #f9f9f9;
+  }
+  
+  .menu-category {
+    width: 20%;
+  }
+  
+  .menu-header {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #000;
+  }
+  
+  .menu-nav-list {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  
+  .menu-list-item {
+    margin-bottom: 1rem;
+  }
+  
+  .menu-item {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #000;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    color: #008CBA;
+  }
+
 
 .card-container {
     display: block;
@@ -469,6 +511,21 @@ section {
 .card-description-menu {
     font-size: 3.0rem;
 }
+.card-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18rem;
+    height: 18rem;
+    margin-right: 5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .img-thumbnail-product {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 .product-details {
     display: flex;
     flex-direction: row;
@@ -511,16 +568,6 @@ section {
     margin-bottom: 3.0rem;
   }
   
-  .card-thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 18rem;
-    height: 18rem;
-    margin-right: 5rem;
-    border-radius: 10px;
-    overflow: hidden;
-  }
   
   .img-thumbnail-product {
     max-width: 100%;
@@ -563,53 +610,9 @@ section {
   
   .card-btn:hover {
     background-color: #006F8F;
-  }
+  }*/
   
-  .menu {
-    margin-top: 5rem;
-    padding: 3rem 0;
-    background-color: #f9f9f9;
-  }
-  
-  .menu-container {
-    width: 100%;
-    max-width: 120rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .menu-category {
-    width: 20%;
-  }
-  
-  .menu-header {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
-    color: #000;
-  }
-  
-  .menu-nav-list {
-    list-style: none;
-    margin-bottom: 2rem;
-  }
-  
-  .menu-list-item {
-    margin-bottom: 1rem;
-  }
-  
-  .menu-item {
-    text-decoration: none;
-    font-size: 1.8rem;
-    color: #000;
-    transition: color 0.3s ease;
-  }
-  
-  .menu-item:hover {
-    color: #008CBA;
-  }
-   */
+ 
 .card-name {
     font-size: 5.0rem;
 }
