@@ -3,56 +3,39 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>O.N.</th>
-        <th>Customer</th>
-        <th>Contact</th>
+        <th>#</th>
+        <th>UserName</th>
+        <th>Note</th>
         <th>OrderDate</th>
-        <th>Payment Method</th>
-        <th>Order Status</th>
-        <th>Payment Status</th>
-        <th>More Details</th>
+        <th>Status</th>
+        <th>Action</th>
      </tr>
     </thead>
      <?php
       include_once "../config/dbconnect.php";
-      $sql="SELECT * from orders";
+      $sql="select 
+      ord.ID, 
+      us.UserName, 
+      ord.Note,
+      ord.OrderDate, 
+      case when ord.Status = 0 then 'Waiting Approve' 
+         when ord.Status = 1 then 'Approved' 
+      end StatusOrder 
+      from orders ord 
+      inner join user us on ord.UserID = us.ID";
       $result=$conn-> query($sql);
       
       if ($result-> num_rows > 0){
-        while ($row=$result-> fetch_assoc()) {
+        while ($row=$result-> fetch_assoc()){ 
     ?>
        <tr>
-          <td><?=$row["order_id"]?></td>
-          <td><?=$row["delivered_to"]?></td>
-          <td><?=$row["phone_no"]?></td>
-          <td><?=$row["order_date"]?></td>
-          <td><?=$row["pay_method"]?></td>
-           <?php 
-                if($row["order_status"]==0){
-                            
-            ?>
-                <td><button class="btn btn-danger" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Pending </button></td>
-            <?php
-                        
-                }else{
-            ?>
-                <td><button class="btn btn-success" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Delivered</button></td>
-        
-            <?php
-            }
-                if($row["pay_status"]==0){
-            ?>
-                <td><button class="btn btn-danger"  onclick="ChangePay('<?=$row['order_id']?>')">Unpaid</button></td>
-            <?php
-                        
-            }else if($row["pay_status"]==1){
-            ?>
-                <td><button class="btn btn-success" onclick="ChangePay('<?=$row['order_id']?>')">Paid </button></td>
-            <?php
-                }
-            ?>
-              
-        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewEachOrder.php?orderID=<?=$row['order_id']?>" href="javascript:void(0);">View</a></td>
+          <td><?=$row["ID"]?></td>
+          <td><?=$row["UserName"]?></td>
+          <td><?=$row["Note"]?></td>
+          <td><?=$row["OrderDate"]?></td>
+          <td><?=$row["StatusOrder"]?></td>
+                    
+        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewOrderDetail.php?orderID=<?=$row['ID']?>" href="javascript:void(0);">View</a></td>
         </tr>
     <?php
             

@@ -28,6 +28,7 @@
             <a href="menu.php">menu</a>
             <a href="contact.php">contact</a>
             <a href="about-us.php">about</a>
+            <a href="order.php" >order</a>
         </nav>
 
         <nav class="navbar">
