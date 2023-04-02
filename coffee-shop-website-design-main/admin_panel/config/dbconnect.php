@@ -4,7 +4,7 @@ $server = "localhost";
 $user = "root";
 $password = "";
 //$db = "swiss_collection";
-$db = "coffeeshopdb";
+$db = "cofeeshopdb";
 $conn = mysqli_connect($server,$user,$password,$db);
 
 if(!$conn) {
