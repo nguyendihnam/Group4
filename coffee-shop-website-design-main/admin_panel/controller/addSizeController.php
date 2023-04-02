@@ -6,7 +6,7 @@
        
         $size = $_POST['size'];
        
-         $insert = mysqli_query($conn,"INSERT INTO sizes
+         $insert = mysqli_query($conn,"INSERT INTO size
          (size_name)   VALUES ('$size')");
  
          if(!$insert)
