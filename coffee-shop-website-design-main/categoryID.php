@@ -38,7 +38,7 @@ else:
                 <?php endwhile; ?>
                 </ul>
             </nav>
-            <div>
+            <div  class="card-container">
             <?php
             // Loop through products and display
             if ($countProduct == 0):

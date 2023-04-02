@@ -42,7 +42,7 @@
                             ?>
                         <ul class="menu-nav-list">
                             <li class="menu-list-item">
-                                <a href="./categoryID.php" class="menu-item"><?= $fields[1] ?></a>
+                                <a href="./CategoryID.php" class="menu-item"><?= $fields[1] ?></a>
                             </li>
                         </ul>
                         <?php
@@ -50,7 +50,7 @@
                     endif;
                 ?>
             </nav>
-        <div>
+        <div  class="card-container">
             <?php
                 if ($count == 0):
                     echo 'Records not founds';

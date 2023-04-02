@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `swiss_collection`
 --
-CREATE DATABASE swiss_;
+CREATE DATABASE swiss_collection;
 USE swiss_collection;
 
 -- --------------------------------------------------------
