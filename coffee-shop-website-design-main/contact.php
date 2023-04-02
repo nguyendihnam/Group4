@@ -1,43 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee</title>
-    <!-- Font Awesome CDN Link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Custom CSS File Link  -->
-    <link rel="stylesheet" href="css/style.css">
-
-
-</head>
-
-<body>
-    <!-- HEADER -->
-    <header class="header">
-        <div id="menu-btn" class="fas fa-bars"></div>
-
-        <a href="#" class="logo">coffee & cake <i class="fas fa-mug-hot"></i></a>
-
-        <nav class="navbar">
-            <a href="index.php">home</a>
-            <a href="menu.php">menu</a>
-            <a href="contact.php">contact</a>
-            <a href="about-us.php">about</a>
-        </nav>
-
-        <nav class="navbar">
-            <a href="#" class="btn">
-                <i class="fa fa-cart-arrow-down"></i>
-            </a>
-            <a href="#" class="btn">Login</a>
-            <a href="#" class="btn">Register</a>
-        </nav>
-
-    </header>
+<?php
+    include'./header.php';
+    // include'./slider.php';  
+?>
     <!-- Contact -->
     <section class="book" id="book">
         <h1 class="heading">Contact <span>send us message</span></h1>
@@ -216,6 +180,9 @@
             return valid;
         };
     </script>
+    <?php
+        include'./footer.php';
+   ?>
 </body>
 
 </html>
