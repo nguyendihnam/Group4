@@ -3,7 +3,7 @@
     $server = "localhost"; //3306 (default) - 3308
     $account = "root";
     $password = "";
-    $database = "coffeeshopdb";
+    $database = "cofeeshopdb";
     #2. Database connection string
     $conn = mysqli_connect($server, $account, $password, $database);
     

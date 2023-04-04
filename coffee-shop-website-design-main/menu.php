@@ -20,7 +20,6 @@
     $countProduct = mysqli_num_rows($rsProduct);
     endif;
 
-
     $count = mysqli_num_rows($rsCategory); // Define $count here
             ?>
     <?php
