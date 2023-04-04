@@ -1,5 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+/* Including the file DBConnect.php. */
+include_once 'DBConnect.php';
+$db = $conn;
+$userErr = $emailErr = $phoneErr = $passErr = $pass2Err = "";
+
+/* Check form is submitted*/
+if (isset($_POST['btnSend'])):
+
+    $userName = $_POST['txtUserName'];
+    $email = $_POST['txtEmail'];
+    $phone = $_POST['txtPhone'];
+    $address = $_POST['txtAddress'];
+    $pass = $_POST['txtPassword'];
+    $valid = true;
+
+    //User valid
+    function uniqueUser($userName)
+    {
+        global $db;
+        $sql_u = "SELECT * FROM User WHERE UserName='{$userName}'";
+        $check = $db->query($sql_u);
+
+        if ($check->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function uniqueEmail($email)
+    {
+        global $db;
+        $sql_e = "SELECT * FROM User WHERE Email='{$email}'";
+        $check = $db->query($sql_e);
+
+        if ($check->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $checkUser = uniqueUser($userName);
+    $checkEmail = uniqueEmail($email);
+    if ($checkUser) {
+        $userErr = "User name is already exist";
+    } else if ($checkEmail) {
+        $emailErr = "Email is already exist";
+    } else {
+        $query =
+            "insert into User (UserName, Email, PhoneNumber, Address, Password, RoleID, CreateDate) values ('{$userName}', '{$email}', '{$phone}', '{$address}', '{$pass}', '2', NOW())";
+        $rs = mysqli_query($conn, $query);
+        if (!$rs):
+            die("Nothing to insert!");
+        endif;
+        header("location:register.php?success");
+    }
+    // $sql_u = "SELECT * FROM User WHERE UserName='{$userName}'";
+    // $res_u = mysqli_query($conn, $sql_u);        
+    // if (mysqli_num_rows($res_u)) {
+    //     $userErr = $userName . " is already taken";
+    //     return $valid = false;
+    // }
+    //Email valid
+    // $res_e = mysqli_query($conn, $sql_e);
+    // if (mysqli_num_rows($res_e)) {
+    //     $emailErr = "Email is already exist";
+    //     return $valid = false;
+    // }
+endif; //End check submit
+#Close connection
+mysqli_close($conn);
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -47,17 +122,22 @@
         endif;
         ?>
 
-        <form method="post" action="register_process.php" id="form" onsubmit="return validateInputs()">
+        <form method="post" id="form" onclick="return validateInputs()">
             <div class="input-control">
-                <input type="text" placeholder="User Name" class="box" name="txtUserName" id="userName" autocomplete="off">
-                <div class="error"></div>
+                <input type="text" placeholder="User Name" class="box" name="txtUserName" id="userName"
+                    autocomplete="off">
+                <div class="error">
+                    <?php echo $userErr ?>
+                </div>
             </div>
-            
+
             <div class="input-control">
                 <input type="text" placeholder="Email" class="box" name="txtEmail" id="email" autocomplete="off">
-                <div class="error"></div>
+                <div class="error">
+                    <?php echo $emailErr ?>
+                </div>
             </div>
-            
+
             <div class="input-control">
                 <input type="text" placeholder="Phone Number" class="box" name="txtPhone" id="phone" autocomplete="off">
                 <div class="error"></div>
@@ -69,12 +149,14 @@
             </div>
 
             <div class="input-control">
-                <input type="password" placeholder="Password" class="box" name="txtPassword" id="pass" autocomplete="off">
+                <input type="password" placeholder="Password" class="box" name="txtPassword" id="pass"
+                    autocomplete="off">
                 <div class="error"></div>
             </div>
 
             <div class="input-control">
-                <input type="password" placeholder="Confirm Password" class="box" name="txtPassword" id="pass2" autocomplete="off">
+                <input type="password" placeholder="Confirm Password" class="box" name="txtPassword" id="pass2"
+                    autocomplete="off">
                 <div class="error"></div>
             </div>
             <br>
@@ -182,8 +264,7 @@
             } else if (usernameValue.length > 25) {
                 setError(userName, 'User name only have below 25 characters');
                 valid = false;
-            } 
-            else {
+            } else {
                 setSuccess(userName);
             }
 
