@@ -30,7 +30,7 @@
         $address = $_POST['txtAddress'];
         
         #8. Excute query (for update new data)
-        $query = "update User set UserName = '{$userName}', Email = '{$email}', PhoneNumber = '{$phone}', Address = '{$address}', UpdateDate = now() where ID = '{$id}'";
+        $query = "update User set Email = '{$email}', PhoneNumber = '{$phone}', Address = '{$address}', UpdateDate = now() where ID = '{$id}'";
         $rs = mysqli_query($conn, $query);
         if(!$rs):
             error_clear_last();
@@ -90,21 +90,19 @@
 
         <form method="post" id="form" onsubmit="return validateInputs()">
             <div class="input-control">
-                <input type="text" placeholder="User Name" class="box" name="txtUserName" id="userName" autocomplete="off" value="<?= $fields[1] ?>">
-                <div class="error"></div>
-            </div>
-            
-            <div class="input-control">
+                <p class="input-name">Email: </p>
                 <input type="text" placeholder="Email" class="box" name="txtEmail" id="email" autocomplete="off" value="<?= $fields[2] ?>">
                 <div class="error"></div>
             </div>
             
             <div class="input-control">
+                <p class="input-name">Phone Number: </p>
                 <input type="text" placeholder="Phone Number" class="box" name="txtPhone" id="phone" autocomplete="off" value="<?= $fields[3] ?>">
                 <div class="error"></div>
             </div>
 
             <div class="input-control">
+                <p class="input-name">Address: </p>
                 <input type="text" placeholder="Address" class="box" name="txtAddress" id="address" autocomplete="off" value="<?= $fields[4] ?>">
                 <div class="error"></div>
             </div>
