@@ -22,3 +22,13 @@ document.querySelectorAll('.image-slider img').forEach(images => {
         document.querySelector('.main-home-image').src = src;
     };
 });
+function GetDetailOrder(id){
+    $.ajax({
+    url:"viewOrderDetail.php",
+    method:"POST",
+    data:{orderID: id},
+    success:function(data){
+            $('#OrderDetail').html(data);
+    }
+});
+}

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +11,13 @@
 
     <!-- Font Awesome CDN Link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <!-- J Query -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <!-- Custom CSS File Link  -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     
 </head>
 
@@ -28,15 +34,27 @@
             <a href="menu.php">menu</a>
             <a href="contact.php">contact</a>
             <a href="about-us.php">about</a>
-            <a href="order.php" >order</a>
+            <a href="UserOrder.php" >order</a>
         </nav>
 
         <nav class="navbar">
-            <a href="./index.php" class="btn">
+            <a href="./Order.php" class="btn">
                 <i class="fa fa-cart-arrow-down"></i>
             </a>
-            <a href="./admin_panel/index.php" class="btn">Login</a>
+            <?php 
+                if(isset($_SESSION['User'])){                   
+            ?>
+            <p>Xin chào <?= $_SESSION['User'] ?></p>
+            <a href='./Logout.php' clas="btn">Log out</a>
+            <?php
+            }
+            else {
+                ?>
+            <a href="./SignIn.php" class="btn">Login</a>
             <a href="./admin_panel/index.php" class="btn">Register</a>
+            <?php
+            }
+            ?>
         </nav>
         
     </header>
