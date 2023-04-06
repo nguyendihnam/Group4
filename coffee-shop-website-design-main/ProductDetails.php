@@ -17,30 +17,81 @@ $count = mysqli_num_rows($rs);
 <?php include './header.php'; ?>
 
 <section class="menu" id="menu">
+<div class="menu-container">
    <?php if ($count == 0): ?>
       <p>Records not found.</p>
    <?php else: ?>
       <?php while ($fields = mysqli_fetch_array($rs)): ?>
-         <div class="product-details">
-            <div class="product-image" >
-               <img src="image/<?= $fields[8] ?>" alt="<?= $fields[3] ?>" class="img-thumbnail-menu" style="width: 90rem;">
+      <div class="flex-box">
+         <div class="left" >
+            <div class="big-img" >
+               <img src="./image/<?= $fields[8] ?>.jpg" onclick="showImg(this.src)" >
             </div>
-            <div class="product-info">
-               <h2 class="card-name"><?= ucwords($fields[2]) ?></h2>
-               
-               <form action="order.php" method="post">
-                  <input type="hidden" name="product_id" value="<?= $id ?>">
-                  <div class="form-group">
-                     <label for="product-quantity">Số lượng:</label>
-                     <input type="number" name="product-quantity" id="product-quantity" class="form-control" value="1" min="1" max="10">
-                  </div>
-                  <div class="form-group">
-                     <button type="submit" class="btn btn-primary" style="height: 4.6rem; width: 57.0rem;">Thêm vào giỏ hàng</button>
-                  </div>
-               </form>
+            <div class="images" >
+               <div class="small-img" >
+                  <img src="./image/<?= $fields[8] ?>1.jpg" onclick="showImg(this.src)" >
+               </div>
+               <div class="small-img" >
+                  <img src="./image/<?= $fields[8] ?>2.jpg" onclick="showImg(this.src)" >
+               </div>
+               <div class="small-img" >
+                  <img src="./image/<?= $fields[8] ?>3.jpg" onclick="showImg(this.src)" >
+               </div>
+               <div class="small-img" >
+                  <img src="./image/<?= $fields[8] ?>.jpg" onclick="showImg(this.src)" >
+               </div>
             </div>
          </div>
+         <div class="right" >
+            <div class="url" >Home > Menu > <?= $fields[2] ?></div>
+            <div class="pname" ><?= $fields[2] ?></div>
+            <div class="ratings" >
+               <i class="fas fa-star" ></i>
+               <i class="fas fa-star" ></i>
+               <i class="fas fa-star" ></i>
+               <i class="fas fa-star" ></i>
+               <i class="fas fa-star-half-alt" ></i>
+            </div>
+            <p class="card-description-menu"><?= (substr($fields[4], 0, 100) . ' ... ' )?></p><br>  
+            <div class="size" > 
+            <div class="price">Size :</div>
+               <div class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" onclick="changeSize(this)">S : <?= $fields[9] ?> </div>
+               <div class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2" onclick="changeSize(this)">M : <?= $fields[10] ?> </div>
+               <div class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3" onclick="changeSize(this)">L : <?= $fields[11] ?> </div>
+            </div>
+            <div class="quantity" >
+               <p>Quantity :</p>
+               <input type="number" min="1" max="10" value="1">
+            </div>
+            <div class="btn-box" >
+               <button class="cart-btn" >Add To Cart</button>
+               <button class="buy-btn" >Buy Now</button>
+            </div>
+         </div>
+      </div>
+      <script>
+            let bigImg =document.querySelector('.big-img img');
+            function showImg(pic){
+               bigImg.src = pic;
+            }
+      </script>
+      <script>
+            let sizeButtons = document.querySelectorAll('.psize');
+
+            sizeButtons.forEach(button => {
+               button.addEventListener('click', function() {
+                  // Xóa class active của tất cả các nút size
+                  sizeButtons.forEach(btn => {
+                     btn.classList.remove('active');
+                  });
+
+                  // Thêm class active vào nút size được chọn
+                  this.classList.add('active');
+               });
+            });
+      </script>
       <?php endwhile; ?>
    <?php endif; ?>
+</div>
 </section>
-<?php include './footer.php'; ?>
+
