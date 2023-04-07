@@ -9,7 +9,7 @@ CREATE TABLE `User` (
   `Email` varchar(150),
   `PhoneNumber` varchar(13),
   `Address` varchar(200) NOT NULL,
-  `Password` varchar(32) NOT NULL,
+  `Password` varchar(13) NOT NULL,
   `RoleID` int,
   `CreateDate` datetime,
   `UpdateDate` datetime,
@@ -154,15 +154,6 @@ CREATE TABLE OrderDetails (
   FOREIGN KEY (ProductID) REFERENCES Product(ID)
 );
 
--- Chèn dữ liệu vào bảng Role
-INSERT INTO Role (Name) VALUES ('Admin'), ('User');
-
--- Chèn dữ liệu vào bảng User
-INSERT INTO User (UserName, Email, PhoneNumber, Address, Password, RoleID, CreateDate, UpdateDate, Deleted) VALUES
-  ('admin', 'admin@thecoffee.com', '0123456789', '123 Main Street, New York, NY', 'admin123', 1, NOW(), NOW(), 0),
-  ('user1', 'user1@thecoffee.com', '0123456789', '456 Broad Street, Los Angeles, CA', 'user1123', 2, NOW(), NOW(), 0),
-  ('user2', 'user2@thecoffee.com', '0123456789', '789 Market Street, San Francisco, CA', 'user2123', 2, NOW(), NOW(), 0);
-
 -- Chèn dữ liệu vào bảng Category
 INSERT INTO Category (Name) VALUES ('Coffee'), ('Tea'), ('Cake');
 
@@ -178,7 +169,3 @@ INSERT INTO Product (CategoryID, Name, Thumbnail, Description, CreatedDate, Upda
 (3, 'Coffee Beans', 'coffee-beans.jpg', 'Freshly roasted coffee beans from around the world.', NOW(), NOW(), 0, 'coffee-beans.jpg', 0, 0, 1),
 (3, 'Coffee Press', 'coffee-press.jpg', 'A stainless steel coffee press with a glass carafe.', NOW(), NOW(), 0, 'coffee-press.jpg', 1, 1, 0);
 
--- Chèn dữ liệu vào bảng Contact
-INSERT INTO Contact (Name, Email, PhoneNumber, SubjectName, Message) VALUES
-('John Doe', 'johndoe@thecoffee.com', '0123456789', 'Question about a product', 'Hello, I was wondering if you could tell me more about the espresso you offer.'),
-('Jane Smith', 'janesmith@thecoffee.com', '0123456789', 'Compliment', 'I just wanted to say that I had the best latte at your cafe this morning. Thank you!');
