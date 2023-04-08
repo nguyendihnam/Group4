@@ -55,16 +55,16 @@ $count = mysqli_num_rows($rs);
             <p class="card-description-menu"><?= (substr($fields[4], 0, 100) . ' ... ' )?></p><br>  
             <div class="size" > 
             <div class="price">Size :</div>
-               <div class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" onclick="changeSize(this)">S : <?= $fields[9] ?> </div>
-               <div class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2" onclick="changeSize(this)">M : <?= $fields[10] ?> </div>
-               <div class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3" onclick="changeSize(this)">L : <?= $fields[11] ?> </div>
+               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" onclick="changeSize(this)">S : <?= $fields[9] ?> </div>
+               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2" onclick="changeSize(this)">M : <?= $fields[10] ?> </div>
+               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3" onclick="changeSize(this)">L : <?= $fields[11] ?> </div>
             </div>
             <div class="quantity" >
                <p>Quantity :</p>
-               <input type="number" min="1" max="10" value="1">
+               <input id="Qty" type="number" min="1" max="10" value="1">
             </div>
             <div class="btn-box" >
-               <button class="cart-btn" >Add To Cart</button>
+               <button class="cart-btn" onclick="AddOrder(<?=$id?>)">Add To Cart</button>
                <button class="buy-btn" >Buy Now</button>
             </div>
          </div>

@@ -72,7 +72,8 @@ else{
         <div class="customer-info">
             <div id="OrderDetail"></div>
         </div>
-  </div> 
+  </div>
+   
 </section>
 
     <?php
@@ -80,7 +81,7 @@ else{
    ?>
 </body>
 
-<script type="text/javascript" src="./js/script.js"></script>   
+
 
 </html>
 
