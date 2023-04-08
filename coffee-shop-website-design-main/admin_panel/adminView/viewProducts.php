@@ -76,7 +76,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-        <form id="addProductForm" enctype='multipart/form-data' action="./controller/addProductController.php" method="POST">
+        <form id="addProductForm" enctype='multipart/form-data' action="./controller/addProduct.php" method="POST">
           <div class="form-group">
               <label for="productName">Name:</label>
               <input type="text" class="form-control" id="productName" name="productName" required>
@@ -146,7 +146,13 @@ function confirmAddProduct() {
     document.getElementById("addProductForm").submit();
   }
 }
+function sizeDelete(id) {
+    if (confirm("Are you sure you want to delete this product?")) {
+      window.location.href = "./controller/deleteProduct.php?id=" + id;
+    }
+  }
 </script>
+
 
 </div>
 

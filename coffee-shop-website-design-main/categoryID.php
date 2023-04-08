@@ -44,18 +44,18 @@ else:
             if ($countProduct == 0):
                 echo 'Records not found';
             else:
-                while ($product = mysqli_fetch_array($rsProduct)):
+                while ($fields = mysqli_fetch_array($rsProduct)):
             ?>
                 <div class="card">
-                    <a href="./image/<?= $product['Image'] ?>" class="card-thumbnail">
-                        <img src="image/<?= $product['Thumbnail'] ?>" alt="<?= $product['Name'] ?>" class="img-thumbnail-product">
+                    <a href="./image/<?= $fields[8] ?>.jpg" class="card-thumbnail">
+                        <img src="image/<?= $fields[3] ?>.jpg" alt="<?= $fields[2] ?>" class="img-thumbnail">
                     </a>
                     <div class="card-text-container">
-                        <a href="./ProductDetails.php?id=<?= $product['ID'] ?>" class="card-item">
-                            <h2 class="card-name"><?= $product['Name'] ?></h2>
+                        <a href="./ProductDetails.php?id=<?= $fields[1] ?>" class="card-item">
+                            <h2 class="card-name"><?= $fields[2] ?></h2>
                         </a>
-                        <p class="card-price"><?= $product['S'] ?>$ ~ <?= $product['L'] ?>$</p>
-                        <a href="./ProductDetails.php?id=<?= $product['ID'] ?>" class="card-btn btn">Add to cart</a>
+                        <p class="card-price"><?= $fields[9] ?>$ ~ <?= $fields[11] ?>$</p>
+                        <a href="./ProductDetails.php?id=<?= $fields[1] ?>" class="card-btn btn">View</a>
                     </div>
                 </div>
             <?php

@@ -45,13 +45,14 @@ $count = mysqli_num_rows($rs);
          <div class="right" >
             <div class="url" >Home > Menu > <?= $fields[2] ?></div>
             <div class="pname" ><?= $fields[2] ?></div>
-            <div class="ratings" >
+            <br>
+            <!-- <div class="ratings" >
                <i class="fas fa-star" ></i>
                <i class="fas fa-star" ></i>
                <i class="fas fa-star" ></i>
                <i class="fas fa-star" ></i>
                <i class="fas fa-star-half-alt" ></i>
-            </div>
+            </div> -->
             <p class="card-description-menu"><?= (substr($fields[4], 0, 100) . ' ... ' )?></p><br>  
             <div class="size" > 
             <div class="price">Size :</div>
@@ -65,7 +66,7 @@ $count = mysqli_num_rows($rs);
             </div>
             <div class="btn-box" >
                <button class="cart-btn" >Add To Cart</button>
-               <button class="buy-btn" >Buy Now</button>
+               <!-- <button class="buy-btn" >Buy Now</button> -->
             </div>
          </div>
       </div>

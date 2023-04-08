@@ -1,24 +1,31 @@
 <?php
-include_once 'dbconnect.php';
+include_once "../config/dbconnect.php";
 
-// Kiểm tra nếu có dữ liệu gửi lên
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
+if (isset($_POST['addproduct'])) 
+{
     // Lấy dữ liệu từ form
     $name = $_POST['name'];
     $categoryID = $_POST['category_id'];
+    $thumbnail = $_POST['thumbnail'];
     $description = $_POST['description'];
     $createdDate = date('Y-m-d H:i:s');
     $updatedDate = date('Y-m-d H:i:s');
-
+    $delete = 0; // Mặc định là chưa xóa
+    $image = $_POST['image'];
+    $s = $_POST['s'];
+    $m = $_POST['m'];
+    $l = $_POST['l'];
     // Thêm dữ liệu vào cơ sở dữ liệu
-    $sql = "INSERT INTO products (CategoryID, Name, Description, CreatedDate, UpdatedDate) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("issss", $categoryID, $name, $description, $createdDate, $updatedDate);
-    if ($stmt->execute()) {
-        echo "Thêm sản phẩm thành công.";
+    $insert = mysqli_query($conn,"INSERT INTO product (product_Name,product_CategoryID, product_Thumbnail, product_Description, product_CreatedDate, product_UpdatedDate, product_Deleted, product_Image, product_S, product_M, product_L) VALUES ('$name, $categoryID, $thumbnail, $description,$createdDate ,$updatedDate , $delete, $image, $s, $m, $l')");
+    
+    if ($insert) {
+        header("Location: ../index.php?size=success");
+        exit;
     } else {
-        echo "Lỗi: Không thể thêm sản phẩm. Vui lòng thử lại.";
+        header("Location: ../index.php?size=error");
+        exit;
     }
-    $stmt->close();
+}else{
+    header("Location: ../index.php?size=success");
 }
 ?>

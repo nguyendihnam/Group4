@@ -57,16 +57,16 @@
                     while ($fields = mysqli_fetch_array($rsProduct)):
                         ?>
                     <div class="card">
-                        <a href="./image/<?= $fields[8] ?>" class="card-thumbnail">
-                            <img src="image/<?= $fields[8] ?>" alt="<?= $fields[2] ?>" class="img-thumbnail">
+                        <a href="./image/<?= $fields[8] ?>.jpg" class="card-thumbnail">
+                            <img src="image/<?= $fields[8] ?>.jpg" alt="<?= $fields[2] ?>" class="img-thumbnail">
                         </a>
                         <div class="card-text-container">
-                            <a href="<?= $fields[8] ?>" class="card-item">
+                            <a href="<?= $fields[8] ?>.jpg" class="card-item">
                                 <h2 class="card-name"><?= $fields[2] ?></h2>
                             </a>
                             <p class="card-price"><?= $fields[9] ?>$ ~ <?= $fields[11] ?>$</p>
                             
-                            <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="card-btn btn">Add to cart</a>
+                            <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="view-btn btn">View</a>
                         </div>
                     </div>
                     <?php
