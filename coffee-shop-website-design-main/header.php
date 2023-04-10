@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,19 +43,31 @@
                 <i class="fa fa-cart-arrow-down"></i>
             </a>
             <?php 
-                if(isset($_SESSION['User'])){                   
+                if(isset($_SESSION['User'])){          
+                    if($_SESSION['Role'] == "User"){
+
+                          
             ?>
-            <p>Xin chào <?= $_SESSION['User'] ?></p>
+           <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
             <a href='./Logout.php' clas="btn">Log out</a>
             <?php
             }
             else {
                 ?>
-            <a href="./SignIn.php" class="btn">Login</a>
-            <a href="./admin_panel/index.php" class="btn">Register</a>
+           <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+           <a href='./admin_panel/index.php' clas="btn">Admin Page</a>
+            <a href='./Logout.php' clas="btn">Log out</a>
             <?php
             }
+        } 
+        else {
             ?>
+             <a href="./SignIn.php" class="btn">Login</a>
+        <a href="./admin_panel/index.php" class="btn">Register</a>
+        <?php
+        }
+        ?>
+            
         </nav>
         
     </header>

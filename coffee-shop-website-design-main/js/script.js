@@ -32,6 +32,44 @@ function GetDetailOrder(id){
     }
 });
 }
+function Signin(){
+    var vali = true;
+    var UsernameVal = document.getElementById("UserName");
+    setDefault(UsernameVal);
+    var PasswordVal = document.getElementById("Password");
+    setDefault(PasswordVal);
+    if(UsernameVal.value == "")
+    {
+      setError(UsernameVal,"Username cannot be empty");
+      vali = false;
+    }
+      
+    if(PasswordVal.value == "")
+    {
+      setError(PasswordVal,"Password cannot be empty");  
+      vali = false;
+    }
+    if(vali){
+      $.ajax({
+        url:"Sign_in_process.php",
+        method:"POST",
+        data:{UserName: UsernameVal.value,
+          Password : PasswordVal.value},
+        success:function(result){
+            if(result > 0){
+              window.location = 'menu.php'
+            }else{
+              Swal.fire({                  
+                title: 'Fail',
+                text: 'Wrong UserName Or Password'
+              });
+            }
+        }
+      });
+    }
+      
+    
+}
 function SendOrder(){
     var noteData = $("#txtNote").val();
     $.ajax({
@@ -144,3 +182,17 @@ function DeleteOrder(id){
         }
       });
 }
+function setError(element, message) {
+  var inputControl = element.parentElement;
+  var errorDisplay = inputControl.querySelector('.error');
+
+  errorDisplay.innerText = message;
+  inputControl.classList.add('error');
+  inputControl.classList.remove('success')
+}
+function setDefault(element) {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector('.error');
+  errorDisplay.innerText = '';
+  inputControl.classList.remove('error');
+};

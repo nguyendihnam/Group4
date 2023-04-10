@@ -294,6 +294,13 @@
   padding: 6px;
   border-radius: 5px;
 }
+.shoppage {
+  background-color: #584e46;
+  color: #fff;
+  font-size: 25px;
+  padding: 6px;
+  border-radius: 5px;
+}
 
 /* *******************   cart to login icon styling   ********************* */
 .cart-login-btn{
