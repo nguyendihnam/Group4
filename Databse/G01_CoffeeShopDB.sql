@@ -1,3 +1,9 @@
+-- Tạo database
+CREATE DATABASE IF NOT EXISTS DBTheCoffee;
+
+-- Sử dụng database
+USE DBTheCoffee;
+
 CREATE TABLE `Role` (
   `ID` int PRIMARY KEY AUTO_INCREMENT,
   `Name` varchar(20) NOT NULL
