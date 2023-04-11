@@ -1,5 +1,10 @@
 <?php
    session_start();
+
+    if($_SESSION['Role'] != 'Admin'){
+        header("location:../index.php");
+    }
+
    include_once "./config/dbconnect.php";
 
 ?>

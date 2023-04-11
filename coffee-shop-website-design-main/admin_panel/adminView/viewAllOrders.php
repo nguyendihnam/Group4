@@ -18,9 +18,11 @@
       us.UserName, 
       ord.Note,
       ord.OrderDate, 
-      case when ord.Status = 0 then 'Waiting Approve' 
-         when ord.Status = 1 then 'Approved' 
-      end StatusOrder 
+      case when ord.Status = 0 then 'Order Draf' 
+         when ord.Status = 1 then 'Waiting Approved' 
+         when ord.Status = 2 then 'Approved' 
+      end StatusOrder,
+      ord.Status
       from orders ord 
       inner join user us on ord.UserID = us.ID";
       $result=$conn-> query($sql);
@@ -35,7 +37,16 @@
           <td><?=$row["OrderDate"]?></td>
           <td><?=$row["StatusOrder"]?></td>
                     
-        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewOrderDetail.php?orderID=<?=$row['ID']?>" href="javascript:void(0);">View</a></td>
+        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewOrderDetail.php?orderID=<?=$row['ID']?>" href="javascript:void(0);">View</a>
+        <?php
+          if($row["Status"] == 1){
+
+           ?>
+           <button class="btn btn-primary openPopup" onclick="UpdateStatuOrder(<?=$row["ID"]?>)">Update Status</button>
+        <?php 
+          }
+        ?>
+        
         </tr>
     <?php
             

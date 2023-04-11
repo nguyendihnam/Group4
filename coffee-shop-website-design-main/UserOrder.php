@@ -14,7 +14,11 @@ else{
     SUM( case when ordD.Size = 'S' then pd.S * ordD.Qty
         when ordD.Size = 'M' then pd.M * ordD.Qty
         when ordD.Size = 'L' then pd.L * ordD.Qty
-        END ) as TotalPrice
+        END ) as TotalPrice,
+    case
+        when ord.Status = 1 then 'Waiting Approved' 
+        when ord.Status = 2 then 'Complete' 
+     end StatusOrder
     FROM 
     orders ord 
     inner join orderdetails ordD on ord.ID = ordD.OrderID
@@ -43,8 +47,9 @@ else{
 				<thead>
 					<tr>
 						<th class="Order-Text-Table">Order ID</th>
-                        <th colspan ="4" class="Order-Text-Table">Note</th>
+                        <!-- <th colspan ="4" class="Order-Text-Table">Note</th> -->
 						<th class="Order-Text-Table">Total Price</th>
+                        <th class="Order-Text-Table">Status</th>
 						<th class="Order-Text-Table">Action</th>
 					</tr>
 				</thead>
@@ -58,8 +63,9 @@ else{
             ?>
 					<tr>
 						<td class="Order-Text-Table"><?=$field[0]?></td>
-						<td colspan ="4" class="Order-Text-Table"><?=$field[1]?></td>
+						<!-- <td colspan ="4" class="Order-Text-Table"><?=$field[1]?></td> -->
 						<td class="Order-Text-Table"><?=$field[2]?> VNĐ</td>
+                        <td class="Order-Text-Table"><?=$field[3]?></td>
                         <td><button class="btn" id="btnDetail" onclick="GetDetailOrder(<?=$field[0]?>)">View</button></td>
 					</tr>
                     <?php

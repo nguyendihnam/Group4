@@ -86,7 +86,7 @@ else{
 						<td class="Order-Text-Table" colspan="5"><?=$field[0]?></td>
 						<td class="Order-Text-Table"><?=$field[1]?></td>
                         <td><button onclick="document.getElementById('myNumber_<?=$count?>').stepDown()">-</button>
-                        <span><input type="number" id="myNumber_<?=$count?>" class="Order-Qty" value="<?=$field[2]?>" min="1" max="100" step="1"></span>
+                        <span><input type="number" id="myNumber_<?=$count?>" class="Order-Qty" value="<?=$field[2]?>" min="1"  onchange="CheckNumber(<?=$count?>)" step="1" max="30"></span>
                         <button onclick="document.getElementById('myNumber_<?=$count?>').stepUp()">+</button> </td>
 						<!-- <td class="Order-Text-Table"><?=$field[2]?></td> -->
                         <td class="Order-Text-Table"><?=$field[3]?> VNĐ</td>
