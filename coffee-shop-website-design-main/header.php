@@ -17,8 +17,7 @@
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="./js/script.js"></script>   
+ 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 

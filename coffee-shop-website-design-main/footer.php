@@ -38,3 +38,5 @@
 
         <div class="credit">created by <span>Group 4</span> | all rights reserved</div>
     </section>
+	
+	<script type="text/javascript" src="./js/script.js"></script>   
