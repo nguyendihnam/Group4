@@ -31,7 +31,325 @@ function GetDetailOrder(id){
             $('#OrderDetail').html(data);
     }
 });
+//Huy
+//Define variable
+const userName = document.getElementById("userName");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const address = document.getElementById("address");
+const pass = document.getElementById("pass");
+const pass2 = document.getElementById("pass2");
+const name = document.getElementById("name");
+const subject = document.getElementById("subject");
+const mess = document.getElementById("mess");
+const id = document.getElementById("ID");
+
+//Valid use for register
+function validInput() {
+    const userNameVal = userName.value.trim();
+    const emailVal = email.value.trim();
+    const phoneVal = phone.value.trim();
+    const addressVal = address.value.trim();
+    const passVal = pass.value.trim();
+    const pass2Val = pass2.value.trim();
+    var valid = true;
+    
+    if (userNameVal == '') {
+        setError(userName, 'Username is required');
+        valid = false;
+    } else if (userNameVal.length > 25 || userNameVal.length < 8) {
+        setError(userName, 'Username max 25 characters and min 8 characters');
+        valid = false;
+    } else {
+        setDefault(userName);
+    }
+
+    if (emailVal == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if (!isValidEmail(emailVal)) {
+        setError(email, 'Please enter a valid email address');
+        valid = false;
+    } else {
+        setDefault(email);
+    }
+
+    if (phoneVal == '') {
+        setError(phone, 'Number is required');
+        valid = false;
+    } else if (!isValidNumber(phoneVal)) {
+        setError(phone, 'Please enter number only');
+        valid = false;
+    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
+        setError(phone, 'Max 13 numbers and min 10 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
+    }
+
+    if (addressVal == '') {
+        setError(address, 'Address is required');
+        valid = false;
+    } else {
+        setDefault(address);
+    }
+
+    if (passVal == '') {
+        setError(pass, 'Password is required');
+        valid = false;
+    } else if (passVal.length > 32 || passVal.length < 8) {
+        setError(pass, 'Password max 32 characters and min 8 characters');
+        valid = false;
+    } else {
+        setDefault(pass);
+    }
+
+    if (pass2Val == '') {
+        setError(pass2, 'Please confirm your password');
+        valid = false;
+    } else if (pass2Val !== passVal) {
+        setError(pass2, "Password doesn't match");
+        valid = false;
+    } else {
+        setDefault(pass2);
+    }
+
+    return valid;
 }
+
+//Valid for update
+function validUpdate() {
+    const emailVal = email.value.trim();
+    const phoneVal = phone.value.trim();
+    const addressVal = address.value.trim();
+    var valid = true;
+    
+    if (emailVal == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if (!isValidEmail(emailVal)) {
+        setError(email, 'Please enter a valid email address');
+        valid = false;
+    } else {
+        setDefault(email);
+    }
+
+    if (phoneVal == '') {
+        setError(phone, 'Number is required');
+        valid = false;
+    } else if (!isValidNumber(phoneVal)) {
+        setError(phone, 'Please enter number only');
+        valid = false;
+    } else if (phoneVal.length > 13) {
+        setError(phone, 'Max 13 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
+    }
+
+    if (addressVal == '') {
+        setError(address, 'Address is required');
+        valid = false;
+    } else {
+        setDefault(address);
+    }
+     
+    return valid;
+}
+
+//Change password
+function changePass() {
+    const pass = document.getElementById("pass");                   
+    const passNew = document.getElementById("passNew");
+    const pass2 = document.getElementById("pass2");
+
+    const passValue = pass.value.trim();
+    const passNewValue = passNew.value.trim();
+    const pass2Value = pass2.value.trim();
+    var valid = true;
+
+    if(passValue == '') {
+        setError(pass, 'This field must not be blank');
+        valid = false;
+    } else {
+        setDefault(pass);
+    }
+
+    if(passNewValue == '') {
+        setError(passNew, 'Please enter your new password');
+        valid = false;
+    } else if (passNewValue == passValue) {
+        setError(passNew, 'Your new password can not be the same as old');
+        valid = false;
+    } else if (passNewValue.length > 32 || passNewValue.length < 8) {
+        setError(passNew, 'Password only have max 32 characters and min 8 characters');
+        valid = false;
+    } else {
+        setDefault(passNew);
+    }
+
+    if(pass2Value == '') {
+        setError(pass2, 'Please confirm your new password');
+        valid = false;
+    } else if (pass2Value != passNewValue) {
+        setError(pass2, 'Confirm password and new password field are not the same');
+        valid = false;
+    } else {
+        setDefault(pass2);
+    }
+
+    return valid;
+}
+
+//Valid for contact
+function validContact() {
+    const nameValue = name.value.trim();
+    const emailValue = email.value.trim();
+    const phoneValue = phone.value.trim();
+    const subjectValue = subject.value.trim();
+    const messValue = mess.value.trim();
+    var valid = true;
+
+    if(nameValue == '') {
+        setError(name, 'Name is required');
+        valid = false;
+    } else if(!isNaN(nameValue)) {
+        setError(name, 'Name must be only character');
+        valid = false;
+    } else {
+        setDefault(name);
+    }
+
+    if(emailValue == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+        valid = false;
+    } else {
+        setDefault(email);
+    }
+
+    if(phoneValue == '') {
+        setError(phone, 'Phone is required');
+        valid = false;
+    } else if (!isValidNumber(phoneValue)) {
+        setError(phone, 'Invalid number');
+        valid = false;
+    } else if (phoneValue.length > 13 || phoneValue.length < 10) {
+        setError(phone, 'Phone max 13 numbers and min 10 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
+    }
+
+    if(subjectValue == '') {
+        setError(subject, 'Subject is required');
+        valid = false;
+    } else {
+        setDefault(subject);
+    }
+
+    if(messValue == '') {
+        setError(mess, 'Message is required');
+        valid = false;
+    } else if(messValue.length > 500) {
+        setError(mess, 'Message max 500 characters');
+        valid = false;
+    } else {
+        setDefault(mess);
+    }
+
+    return valid;
+}
+
+//Valid for register
+function Register() {
+    if(validInput()){
+        $.ajax({
+            url:"register_process.php",
+            method:"POST",
+            data:{  txtUserName: userName.value,
+                    txtEmail: email.value,
+                    txtPhone: phone.value,
+                    txtAddress: address.value,
+                    txtPassword: pass.value
+                },
+            success:function(result){
+                switch(result) {
+                    case '1' :
+                        Swal.fire({
+                            tilte: 'Success',
+                            icon: 'success',
+                            text: 'Success register',
+                            showConfirmButton: true
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location = 'Signin.php';      
+                            }
+                        })   
+                        break;
+                    case '2' :
+                        setError(userName, 'UserName is already taken');
+                        break;
+                    case '3' :
+                        setError(email, 'Email is already taken');
+                        break;                     
+                }
+            }
+        });
+    }
+}
+
+//Edit infor user (Email, address, phone)
+function editInfo(){       
+    Swal.fire({
+        title: 'Are you sure to update new infomation?',
+        text: "You won't able to revert this",
+        showCancelButton: true,
+        showConfirmButton: true,
+        confirmButtonText: "Yes, update it",
+        icon: 'warning',
+        cancelButtonText: "Cancel",
+        customClass: "sweet-alert-custom class-button-sweet",
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            if (validUpdate()) {
+                $.ajax({
+                    url:"edit-info-user_process.php",
+                    method:"post",
+                    data:{  txtID: id.value,
+                            txtEmail: email.value,
+                            txtPhone: phone.value,
+                            txtAddress: address.value
+                        },
+                    success:function(rs){
+                        switch(rs) {
+                            case '1' :
+                                Swal.fire({
+                                    tilte: 'Success',
+                                    icon: 'success',
+                                    text: 'Success update',
+                                    showConfirmButton: true
+                                }).then((rs) => {
+                                    if (rs.value) {
+                                        window.location = 'index.php';      
+                                    }
+                                })   
+                                break;
+                            case '0' :
+                                setError(email, 'Email is already taken');
+                                break;                     
+                        }
+                    }
+                });
+            }
+        }
+    });
+}
+//--end Huy
+
 function Signin(){
     var vali = true;
     var UsernameVal = document.getElementById("UserName");
@@ -66,10 +384,8 @@ function Signin(){
             }
         }
       });
-    }
-      
-    
-}
+    }    
+}}
 function SendOrder(){
     var noteData = $("#txtNote").val();
     $.ajax({
@@ -198,16 +514,33 @@ function CheckNumber(count){
   }
 }
 function setError(element, message) {
-  var inputControl = element.parentElement;
-  var errorDisplay = inputControl.querySelector('.error');
+    var inputControl = element.parentElement;
+    var errorDisplay = inputControl.querySelector('.error');
 
-  errorDisplay.innerText = message;
-  inputControl.classList.add('error');
-  inputControl.classList.remove('success')
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
 }
+
 function setDefault(element) {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector('.error');
-  errorDisplay.innerText = '';
-  inputControl.classList.remove('error');
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.remove('error');
 };
+
+//huy
+//Valid email
+function isValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+//Valid number
+function isValidNumber(number) {
+    const re = /^[0-9]+$/;
+    var a = re.test(number);
+    return a;
+}
+//-end huy
