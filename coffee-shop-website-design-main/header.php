@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +17,9 @@
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-    
+
+    <script type="text/javascript" src="./js/script.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -42,19 +43,31 @@
                 <i class="fa fa-cart-arrow-down"></i>
             </a>
             <?php 
-                if(isset($_SESSION['User'])){                   
+                if(isset($_SESSION['User'])){          
+                    if($_SESSION['Role'] == "User"){
+
+                          
             ?>
-            <p>Xin chào <?= $_SESSION['User'] ?></p>
+           <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
             <a href='./Logout.php' clas="btn">Log out</a>
             <?php
             }
             else {
                 ?>
-            <a href="./SignIn.php" class="btn">Login</a>
-            <a href="./admin_panel/index.php" class="btn">Register</a>
+           <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+           <a href='./admin_panel/index.php' clas="btn">Admin Page</a>
+            <a href='./Logout.php' clas="btn">Log out</a>
             <?php
             }
+        } 
+        else {
             ?>
+             <a href="./SignIn.php" class="btn">Login</a>
+        <a href="./admin_panel/index.php" class="btn">Register</a>
+        <?php
+        }
+        ?>
+            
         </nav>
         
     </header>
