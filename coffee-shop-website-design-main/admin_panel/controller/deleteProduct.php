@@ -1,21 +1,21 @@
+
 <?php
-include_once 'dbconnect.php';
+#1. Start session
+session_start();
+include_once '../config/dbconnect.php';
 
-// Kiểm tra nếu có dữ liệu gửi lên
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_product'])) {
-    // Lấy dữ liệu từ form
-    $id = $_POST['id'];
+$id= $_POST['ID'];
 
-    // Xóa sản phẩm trong cơ sở dữ liệu
-    $sql = "DELETE FROM products WHERE ProductID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    if ($stmt->execute()) {
-        echo "Xóa sản phẩm thành công.";
-    } else {
-        echo "Lỗi: Không thể xóa sản phẩm. Vui lòng thử lại
-        .";
-    }
-    $stmt->close();
-}
+$query ="update product set Deleted = 1 where ID = $id";
+$rs = mysqli_query($conn, $query);
+if(!$rs)
+{
+    echo mysqli_error($conn);
+    header("Location: ../index.php?deleted=error");
+   }
+else
+{
+    header("Location: ../index.php?deleted=success");
+   }
+
 ?>

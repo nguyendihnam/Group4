@@ -20,16 +20,7 @@ function showCategory(){
         }
     });
 }
-function showProducts(){  
-    $.ajax({
-        url:"./adminView/viewProducts.php",
-        method:"post",
-        data:{record:1},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
+
 function showContact(){  
     $.ajax({
         url:"./adminView/viewContact.php",
@@ -100,92 +91,60 @@ function ChangePay(id){
 }
 
 
-//add product data
-function addItems(){
-    var p_name=$('#p_name').val();
-    var p_desc=$('#p_desc').val();
-    var p_price=$('#p_price').val();
-    var category=$('#category').val();
-    var upload=$('#upload').val();
-    var file=$('#file')[0].files[0];
-
-    var fd = new FormData();
-    fd.append('p_name', p_name);
-    fd.append('p_desc', p_desc);
-    fd.append('p_price', p_price);
-    fd.append('category', category);
-    fd.append('file', file);
-    fd.append('upload', upload);
+function showProducts() {
     $.ajax({
-        url:"./controller/addItemController.php",
-        method:"post",
-        data:fd,
-        processData: false,
-        contentType: false,
-        success: function(data){
-            alert('Product Added successfully.');
-            $('form').trigger('reset');
-            showProductItems();
-        }
-    });
-}
-
-//edit product data
-function itemEditForm(id){
-    $.ajax({
-        url:"./adminView/editItemForm.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
+        url: "./adminView/viewProducts.php",
+        method: "post",
+        data: { record: 1 },
+        success: function (data) {
             $('.allContent-section').html(data);
         }
     });
 }
 
-//update product after submit
-function updateItems(){
-    var product_id = $('#product_id').val();
-    var p_name = $('#p_name').val();
-    var p_desc = $('#p_desc').val();
-    var p_price = $('#p_price').val();
-    var category = $('#category').val();
-    var existingImage = $('#existingImage').val();
-    var newImage = $('#newImage')[0].files[0];
-    var fd = new FormData();
-    fd.append('product_id', product_id);
-    fd.append('p_name', p_name);
-    fd.append('p_desc', p_desc);
-    fd.append('p_price', p_price);
-    fd.append('category', category);
-    fd.append('existingImage', existingImage);
-    fd.append('newImage', newImage);
-   
-    $.ajax({
-      url:'./controller/updateItemController.php',
-      method:'post',
-      data:fd,
-      processData: false,
-      contentType: false,
-      success: function(data){
-        alert('Data Update Success.');
-        $('form').trigger('reset');
-        showProductItems();
-      }
-    });
+function UpdateProduct(id) {
+    if (confirm("Are you sure Update Item Products ?")){
+        $.ajax({
+          url: "./controller/UpdateProducts.php",
+          type: "post",
+          data: {ID: id},
+          success: function(data) {
+            alert('The Products has been successlly update! .');
+            showProducts();
+          }
+        }
+    );  
+}
 }
 
-//delete product data
-function itemDelete(id){
-    $.ajax({
-        url:"./controller/deleteItemController.php",
-        method:"post",
-        data:{record:id},
-        success:function(data){
-            alert('Items Successfully deleted');
-            $('form').trigger('reset');
-            showProductItems();
+
+function RestoredProduct(id) {
+    if (confirm("Are you sure Revert Item Products ?")){
+        $.ajax({
+          url: "./controller/RestoredProduct.php",
+          type: "post",
+          data: {ID: id},
+          success: function(data) {
+            alert('The Products has been successlly update! .');
+            showProducts();
+          }
         }
-    });
+    );  
+}
+}
+
+function deletedProduct(id) {
+    if (confirm("Are you sure Deleted Item Products ?")){
+        $.ajax({
+            url: "./controller/deleteProduct.php",
+            method: "post",
+            data: { ID: id },
+            success: function (data) {
+                alert('The Products has been successlly deleted! .');
+                showProducts();
+            }
+        });
+    } 
 }
 
 
@@ -221,7 +180,7 @@ function categoryDelete(id){
     $.ajax({
         url:"./controller/catDeleteController.php",
         method:"post",
-        data:{record:id},
+        data:{ID:id},
         success:function(data){
             alert('Category Successfully deleted');
             $('form').trigger('reset');
@@ -231,9 +190,9 @@ function categoryDelete(id){
 }
 
 //delete size data
-function sizeDelete(id){
+function ProductDelete(id){
     $.ajax({
-        url:"./controller/deleteSizeController.php",
+        url:"./controller/deleteProduct.php",
         method:"post",
         data:{record:id},
         success:function(data){

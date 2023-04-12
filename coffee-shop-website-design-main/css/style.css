@@ -716,28 +716,30 @@ section {
     margin: auto;
 }
 .left{
-    width: 100%;
+    width: 90%;
 }
 .big-img{
-    width: 450px;
-    height: 350px;
+    width: 65.0rem;
+    height: 40.0rem;
 }
 .big-img img{
-    width: inherit;
+    width: 60rem;
+    height: 40rem;
 }
 .images{
     display: flex;
     justify-content: space-between;
-    width: 60%;
-    margin-top: 15px;
+    width: 65%;
+    margin-top: 1.5rem;
 }
 .small-img{
-    width: 50px;
+    width: 8rem;
     overflow: hidden;
     border: 1.5px solid black;
 }
 .small-img img{
-    width: inherit;
+    width: 8rem;
+    height: 8rem;
     cursor: pointer;
     transform: all 0.5s ease;
 }
@@ -745,7 +747,7 @@ section {
     transform: scale(1.2);
 }
 .url{
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     color: rgb(255,102,0);
 }
@@ -772,8 +774,9 @@ section {
     font-weight: 500;
 }
 .psize{
-    width: 60px;
-    height: 20px;
+    font-size: 1.6rem;
+    width: 6rem;
+    height: 3rem;
     border: 1px solid #ff5e00;
     color: #000;
     text-align: center;
@@ -785,20 +788,44 @@ section {
     color: #ff5e00;
     font-weight: 500;
 }
-.quantity{
-    display: flex; 
-}
 .quantity p{
     font-size: 18px;
     font-weight: 500;
 }
-.quantity input{
-    width: 40px;
-    font-size: 17px;
-    font-weight: 500;
+/* */
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Arial, sans-serif;
+  }
+
+  .quantity button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  .quantity input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
     text-align: center;
-    margin-left: 15px;
-}
+    width: 60px;
+  }
+
+  .quantity button.decrease {
+    background-color: #dc3545;
+  }
+
+  .quantity button.increase {
+    background-color: #28a745;
+  }
+
 .btn-box{
     display: flex;
     margin-top : 40px;

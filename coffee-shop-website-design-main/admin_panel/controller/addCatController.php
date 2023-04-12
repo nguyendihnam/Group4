@@ -4,21 +4,20 @@
     if(isset($_POST['upload']))
     {
        
-        $catname = $_POST['c_name'];
+        $name = $_POST['Name'];
        
          $insert = mysqli_query($conn,"INSERT INTO category
-         (category_name) 
-         VALUES ('$catname')");
+         (Name) VALUES ('$name')");
  
          if(!$insert)
          {
              echo mysqli_error($conn);
-             header("Location: ../dashboard.php?category=error");
+             header("Location: ../index.php?category=error");
          }
          else
          {
              echo "Records added successfully.";
-             header("Location: ../dashboard.php?category=success");
+             header("Location: ../index.php?category=success");
          }
      
     }

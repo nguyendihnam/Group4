@@ -68,11 +68,11 @@
             }else if (isset($_GET['category']) && $_GET['category'] == "error") {
                 echo '<script> alert("Adding Unsuccess")</script>';
             }
-            if (isset($_GET['size']) && $_GET['size'] == "success") {
-                echo '<script> alert("Size Successfully Added")</script>';
-            }else if (isset($_GET['size']) && $_GET['size'] == "error") {
-                echo '<script> alert("Adding Unsuccess")</script>';
-            }
+            // if (isset($_GET['upload']) && $_GET['upload'] == "success") {
+            //     // echo '<script> alert("Successfully Added")</script>';
+            // }else if (isset($_GET['upload']) && $_GET['upload'] == "error") {
+            //     echo '<script> alert("Adding Unsuccess")</script>';
+            // }
             if (isset($_GET['variation']) && $_GET['variation'] == "success") {
                 echo '<script> alert("Variation Successfully Added")</script>';
             }else if (isset($_GET['variation']) && $_GET['variation'] == "error") {

@@ -1,4 +1,4 @@
-    <?php
+<?php
         #1. Start session
     session_start();
     #2. Connect to database
@@ -9,7 +9,7 @@
     $rsCategory = mysqli_query($conn, $queryCategory);
     $countCategory = mysqli_num_rows($rsCategory);
 
-    $queryProduct = "SELECT * FROM product ";
+    $queryProduct = "SELECT * FROM product ORDER BY ID DESC LIMIT 6";
     $rsProduct = mysqli_query($conn, $queryProduct);
     $countProduct = mysqli_num_rows($rsProduct);
 
@@ -27,7 +27,7 @@
         // include'./slider.php';  
     ?>
 
-    <section class="menu" id="menu">
+    <section class="menu" id="menu" >
         <div class="menu-container">
             <nav class="menu-category">
                     <h3 class="menu-header">
@@ -41,7 +41,7 @@
                             ?>
                         <ul class="menu-nav-list">
                             <li class="menu-list-item">
-                                <a href="./categoryID.php" class="menu-item"><?= $fields[1] ?></a>
+                                <a href="./CategoryID.php?categoryID=<?= $fields[0] ?>" class="menu-item"><?= $fields[1] ?></a>
                             </li>
                         </ul>
                         <?php
@@ -49,7 +49,7 @@
                     endif;
                 ?>
             </nav>
-        <div>
+            <div class="card-container" >
             <?php
                 if ($count == 0):
                     echo 'Records not founds';
@@ -75,6 +75,7 @@
             ?>
                 </div>
         </div>
+    
     </section>
         <?php
             include'./footer.php';
