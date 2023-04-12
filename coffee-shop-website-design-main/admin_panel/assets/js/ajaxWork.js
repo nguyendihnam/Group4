@@ -87,3 +87,33 @@ function UpdateStatuOrder(id){
         }
     });
 }
+
+//delete user (Huy)
+function deactiveUser(id){
+    if(confirm('Are you sure to deactive this user?')){
+        $.ajax({
+            url:"./controller/deactiveUser.php",
+            method:"post",
+            data:{record:id},
+            success:function(data){
+                alert('User Successfully Deactive');
+                showUsers();
+            }
+        });
+    } 
+}
+
+//revert delete user (HUY)
+function revertUser(id){
+    if(confirm('Are you sure to revert this user?')){
+        $.ajax({
+            url:"./controller/revertUser.php",
+            method:"post",
+            data:{record:id},
+            success:function(data){
+                alert('User revert successfull');
+                showUsers();
+            }
+        });
+    } 
+}
