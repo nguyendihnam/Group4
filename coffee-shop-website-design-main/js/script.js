@@ -202,7 +202,7 @@ function changePass() {
 }
 
 //Valid for contact
-function validContact() {
+function sendContact() {
     const nameValue = name.value.trim();
     const emailValue = email.value.trim();
     const phoneValue = phone.value.trim();
@@ -260,7 +260,32 @@ function validContact() {
         setDefault(mess);
     }
 
-    return valid;
+    if(valid) {
+        $.ajax({
+            url:"contact_process.php",
+            method:"POST",
+            data:{  txtName: name.value,
+                    txtEmail: email.value,
+                    txtPhone: phone.value,
+                    txtSubject: subject.value,
+                    txtMess: mess.value
+                },
+                success:function(result){
+                    if(result > 0) {
+                        Swal.fire({
+                            tilte: 'Success',
+                            icon: 'success',
+                            text: 'Successfully sent! we will contact later',
+                            showConfirmButton: true
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location = 'index.php';      
+                            }
+                        })                      
+                    }
+                }
+        });
+    }
 }
 
 //Valid for register

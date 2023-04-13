@@ -2,13 +2,8 @@
     <!-- Contact -->
     <section class="book" id="book">
         <h1 class="heading">Contact <span>send us message</span></h1>
-        <?php
-        if (isset($_GET['success'])):
-            echo '<div class="alert alert-success">We will contact to you shortly</div>';
-        endif;
-        ?>
 
-        <form method="post" action="contact_process.php" id="form" onsubmit="return validContact()">
+        <form method="post" id="form">
             <div class="input-control">
                 <input type="text" placeholder="Name" class="box" name="txtName" id="name" autocomplete="off">
                 <div class="error"></div>
@@ -35,7 +30,7 @@
             </div>
             <br>
 
-            <input name="btnSend" type="submit" value="send message" class="btn">
+            <input name="btnSend" style="text-align: center" value="send message" class="btn" onclick="sendContact()">
         </form>
     </section>
     <!-- FOOTER -->
