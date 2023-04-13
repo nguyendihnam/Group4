@@ -8,10 +8,6 @@
         header("location: index.php");
     endif;
     $id = $_GET['id'];
-    #Execute query  (for old data reading by id)
-    // $sql = "SELECT * FROM User WHERE ID = '{$id}'";
-    // $rs = mysqli_query($conn, $sql);
-    // $row = mysqli_fetch_array($rs);
 
     if (isset($_POST['btnUpdate'])) {
         $passOld = $_POST['txtPass'];
@@ -44,11 +40,7 @@
         endif;
         ?>
 
-        <form method="post" id="form" onsubmit="return changePass()">
-            <div class="input-control" hidden>
-                <input type="text" class="box" name="txtID" id="ID" value="<?= $row[0] ?>" autocomplete="off">
-                <div class="error"></div>
-            </div>
+        <form method="post" id="form">
             <div class="input-control">
                 <p class="input-name">Current password: </p>
                 <input type="password" class="box" name="txtPass" id="pass"autocomplete="off">
@@ -68,7 +60,7 @@
             </div>
             <br>
 
-            <input name="btnUpdate" type="submit" value="Update" class="btn update" onclick="confirm('Are you sure to change password?')">
+            <input name="btnUpdate" style="text-align: center;" value="Update" class="btn update" onclick="showConfirmDialog()">
         </form>
     </section>
     <!-- FOOTER -->

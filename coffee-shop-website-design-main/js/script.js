@@ -198,7 +198,28 @@ function changePass() {
         setDefault(pass2);
     }
 
-    return valid;
+    if (!valid) {
+        return false;
+    }
+
+    return true;
+}
+
+function showConfirmDialog() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you really want to change your password?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, change it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            changePass();
+            document.getElementById("form").submit()
+        }
+    });
 }
 
 //Valid for contact
