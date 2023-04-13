@@ -216,8 +216,9 @@ function showConfirmDialog() {
         confirmButtonText: 'Yes, change it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            changePass();
-            document.getElementById("form").submit()
+            if (changePass()) {
+                document.getElementById("form").submit();
+            }
         }
     });
 }
