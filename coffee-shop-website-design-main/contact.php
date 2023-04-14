@@ -1,3 +1,4 @@
+    <?php session_start()?>
     <?php include_once 'header.php'?>
     <!-- Contact -->
     <section class="book" id="book">
@@ -5,7 +6,7 @@
 
         <form method="post" id="form">
             <div class="input-control">
-                <input type="text" placeholder="Name" class="box" name="txtName" id="name" autocomplete="off">
+                <input type="text" placeholder="Name" class="box" name="txtName" id="nameFull" autocomplete="off">
                 <div class="error"></div>
             </div>
             
@@ -30,7 +31,7 @@
             </div>
             <br>
 
-            <input name="btnSend" style="text-align: center" value="send message" class="btn" onclick="sendContact()">
+            <input readonly name="btnSend" style="text-align: center" value="send message" class="btn" onclick="sendContact()">
         </form>
     </section>
     <!-- FOOTER -->

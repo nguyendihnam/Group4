@@ -50,7 +50,7 @@
             </div>
             <br>
 
-            <input style="text-align: center;" name="btnUpdate" value="Update" id="btn-update" class="btn" onclick="return editInfo()">
+            <input readyonly style="text-align: center;" name="btnUpdate" value="Update" id="btn-update" class="btn" onclick="return editInfo()">
         </form>
     </section>
     <!-- FOOTER -->

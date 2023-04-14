@@ -30,7 +30,8 @@ function GetDetailOrder(id){
     success:function(data){
             $('#OrderDetail').html(data);
     }
-});
+    });
+}
 //Huy
 //Define variable
 const userName = document.getElementById("userName");
@@ -39,7 +40,7 @@ const phone = document.getElementById("phone");
 const address = document.getElementById("address");
 const pass = document.getElementById("pass");
 const pass2 = document.getElementById("pass2");
-const name = document.getElementById("name");
+const nameFull = document.getElementById("nameFull");
 const subject = document.getElementById("subject");
 const mess = document.getElementById("mess");
 const id = document.getElementById("ID");
@@ -225,7 +226,7 @@ function showConfirmDialog() {
 
 //Valid for contact
 function sendContact() {
-    const nameValue = name.value.trim();
+    const nameValue = nameFull.value.trim();
     const emailValue = email.value.trim();
     const phoneValue = phone.value.trim();
     const subjectValue = subject.value.trim();
@@ -233,13 +234,13 @@ function sendContact() {
     var valid = true;
 
     if(nameValue == '') {
-        setError(name, 'Name is required');
+        setError(nameFull, 'Name is required');
         valid = false;
     } else if(!isNaN(nameValue)) {
-        setError(name, 'Name must be only character');
+        setError(nameFull, 'Name must be only character');
         valid = false;
     } else {
-        setDefault(name);
+        setDefault(nameFull);
     }
 
     if(emailValue == '') {
@@ -286,7 +287,7 @@ function sendContact() {
         $.ajax({
             url:"contact_process.php",
             method:"POST",
-            data:{  txtName: name.value,
+            data:{  txtName: nameFull.value,
                     txtEmail: email.value,
                     txtPhone: phone.value,
                     txtSubject: subject.value,
@@ -432,7 +433,7 @@ function Signin(){
         }
       });
     }    
-}}
+}
 function SendOrder(){
     var noteData = $("#txtNote").val();
     $.ajax({

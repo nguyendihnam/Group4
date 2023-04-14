@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- J Query -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+
     <!-- Custom CSS File Link  -->
     <link rel="stylesheet" href="css/style.css">
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
- 
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -62,7 +63,7 @@
         else {
             ?>
              <a href="./SignIn.php" class="btn">Login</a>
-        <a href="./admin_panel/index.php" class="btn">Register</a>
+        <a href="./register-user.php" class="btn">Register</a>
         <?php
         }
         ?>

@@ -60,7 +60,7 @@
             </div>
             <br>
 
-            <input name="btnUpdate" style="text-align: center;" value="Update" class="btn update" onclick="showConfirmDialog()">
+            <input readonly name="btnUpdate" style="text-align: center;" value="Update" class="btn update" onclick="showConfirmDialog()">
         </form>
     </section>
     <!-- FOOTER -->

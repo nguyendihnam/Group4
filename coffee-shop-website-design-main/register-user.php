@@ -45,7 +45,7 @@
             </div>
             <br>
 
-            <input style="text-align: center;" name="btnSend" value="Register" class="btn" onclick="return Register()">
+            <input readonly style="text-align: center;" name="btnSend" value="Register" class="btn" onclick="return Register()">
         </form>
     </section>
     <!-- FOOTER -->
