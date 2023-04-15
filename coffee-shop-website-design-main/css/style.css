@@ -124,7 +124,7 @@ section {
 }
 
 .dropdown {
-    opacity: 0;
+    display: none;
     width: 20rem;
     top: 7.2rem;
     position: absolute;
@@ -165,7 +165,7 @@ section {
 }
 
 .has-dropdown:hover .dropdown   {
-    opacity: 1;
+    display: block;
     cursor: pointer;
 }
 
