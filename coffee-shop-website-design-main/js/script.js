@@ -16,12 +16,12 @@ user scrolls. */
 // };
 
 /* This is a function that changes the main image when the user clicks on the thumbnail image. */
-// document.querySelectorAll('.image-slider img').forEach(images => {
-//     images.onclick = () => {
-//         var src = images.getAttribute('src');
-//         document.querySelector('.main-home-image').src = src;
-//     };
-// });
+document.querySelectorAll('.image-slider img').forEach(images => {
+    images.onclick = () => {
+        var src = images.getAttribute('src');
+        document.querySelector('.main-home-image').src = src;
+    };
+});
 function GetDetailOrder(id){
     $.ajax({
     url:"viewOrderDetail.php",
