@@ -1,24 +1,50 @@
 <?php
-include_once 'dbconnect.php';
+include_once "../config/dbconnect.php";
 
-// Kiểm tra nếu có dữ liệu gửi lên
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_product'])) {
-    // Lấy dữ liệu từ form
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $categoryID = $_POST['category_id'];
+#6. Check form is submitted
+if (isset($_POST['btnUpdate'])){
+$id = $_POST['ID'];
+    $name = $_POST['Name'];
+    $categoryID = $_POST['categoryID'];
+    $thumbnail = $_POST['thumbnail'];
     $description = $_POST['description'];
-    $updatedDate = date('Y-m-d H:i:s');
+    $createdDate = date('createdDate');
+    $updatedDate = date('UpdatedDate');
+    $delete = 0; // Mặc định là chưa xóa
+    $image = $_POST['image'];
+    $s = $_POST['s'];
+    $m = $_POST['m'];
+    $l = $_POST['l'];
 
-    // Cập nhật dữ liệu sản phẩm trong cơ sở dữ liệu
-    $sql = "UPDATE products SET CategoryID = ?, Name = ?, Description = ?, UpdatedDate = ? WHERE ProductID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isssi", $categoryID, $name, $description, $updatedDate, $id);
-    if ($stmt->execute()) {
-        echo "Cập nhật sản phẩm thành công.";
-    } else {
-        echo "Lỗi: Không thể cập nhật sản phẩm. Vui lòng thử lại.";
+if (isset($_FILES['newImage'])) {
+    $location = "../images/";
+    $img = $_FILES['newImage']['Name'];
+    $tmp = $_FILES['newImage']['Name'];
+    $dir = '../images/';
+    $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'webp');
+    $image = rand(1000, 1000000) . "." . $ext;
+    $final_image = $location . $image;
+    if (in_array($ext, $valid_extensions)) {
+        $path = $location . $image;
+        move_uploaded_file($tmp, $dir . $image);
     }
-    $stmt->close();
+} else {
+    $final_image = $_POST['existingImage'];
+}
+
+$update = mysqli_query($conn,"UPDATE product SET 
+     Name = '$name',categoryID = '$categoryID',thumbnail = '$thumbnail',description = '$description',
+createdDate = '$createdDate',UpdatedDate = '$updatedDate',deleted = '$delete',image = '$image',s = '$s',m = '$m',l = '$l'
+ where ID = '$id'");
+
+if($update)
+{
+    echo "true";
+}
+// else
+// {
+//     echo mysqli_error($conn);
+// }
 }
 ?>

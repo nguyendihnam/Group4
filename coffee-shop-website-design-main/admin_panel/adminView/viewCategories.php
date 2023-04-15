@@ -4,7 +4,7 @@
   <table class="table ">
     <thead>
       <tr>
-        <th class="text-center">#</th>
+        <th class="text-center">ID</th>
         <th class="text-center">Category Name</th>
         <th class="text-center" colspan="2">Action</th>
       </tr>
@@ -21,7 +21,7 @@
       <td><?=$count?></td>
       <td><?=$row["Name"]?></td>   
       <!-- <td><button class="btn btn-primary" >Edit</button></td> -->
-      <td><button class="btn btn-danger" style="height:40px" onclick="categoryDelete('<?=$row['ID']?>')">Delete</button></td>
+      <td><button class="btn btn-danger" style="height:40px" onclick="deleteCategory('<?=$row['ID']?>')">Delete</button></td>
       </tr>
       <?php
             $count=$count+1;
@@ -47,6 +47,10 @@
         </div>
         <div class="modal-body">
           <form  id="addCategory" enctype='multipart/form-data' action="./controller/addCatController.php" method="POST">
+          <div class="form-group">
+              <label for="c_name">Category ID :</label>
+              <input type="text" class="form-control" name="ID" required>
+            </div>
             <div class="form-group">
               <label for="c_name">Category Name:</label>
               <input type="text" class="form-control" name="Name" required>
