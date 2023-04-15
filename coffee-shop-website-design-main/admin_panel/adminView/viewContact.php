@@ -1,5 +1,5 @@
 
-<div style="width: 1200px;">
+<div style="width: 1356px; height: 620px; overflow: scroll;">
   <h2>List Contact</h2>
   <table class="table ">
     <thead>

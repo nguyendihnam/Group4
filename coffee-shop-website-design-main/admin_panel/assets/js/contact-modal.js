@@ -16,7 +16,7 @@ $(document).ready(function(){
 			dataType: 'html'
 		})
 		.done(function(data){
-			console.log(data);	
+			// console.log(data);	
 			$('#dynamic-content').html('');    
 			$('#dynamic-content').html(data); // load response 
 			$('#modal-loader').hide();		  // hide ajax loader	
