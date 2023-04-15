@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['UserID'])):
+        header("Location: Signin.php");
+    endif;
+
     include_once 'DBConnect.php';
     $db = $conn;
     $passErr = "";

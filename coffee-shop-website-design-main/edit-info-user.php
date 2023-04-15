@@ -3,9 +3,9 @@
     session_start();
 
     #2. Check session
-    // if(!isset($_SESSION['sesAdmin'])):
-    //     header("Location: Login.php");
-    // endif;
+    if(!isset($_SESSION['UserID'])):
+        header("Location: Signin.php");
+    endif;
     #3. Connect to database
     include_once 'DBConnect.php';
    
