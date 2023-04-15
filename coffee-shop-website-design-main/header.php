@@ -51,7 +51,7 @@
                           
                 ?>
                 <li class="nav-item has-dropdown">
-                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Hi <?= $_SESSION['User'] ?></a>
                     <ul class="dropdown">
                         <li class="dropdown-item">
                             <a href="edit-info-user.php?id=<?=$_SESSION['UserID']?>">Change infomation</a>
@@ -70,7 +70,7 @@
                 else {
             ?>
                 <li class="nav-item has-dropdown">
-                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Hi <?= $_SESSION['User'] ?></a>
                     <ul class="dropdown">
                         <li class="dropdown-item">
                             <a href="edit-info-user.php?id=<?=$_SESSION['UserID']?>">Change infomation</a>
