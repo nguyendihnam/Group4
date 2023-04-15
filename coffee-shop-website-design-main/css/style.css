@@ -940,7 +940,9 @@ section {
     margin: .7rem 0;
 }
 
-
+.swal2-popup {
+    font-size: 2rem !important;
+}
 
 
 
