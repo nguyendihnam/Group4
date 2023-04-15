@@ -84,7 +84,6 @@ function UpdateStatuOrder(id){
     });
 }
 
-<<<<<<< HEAD
 //delete user (Huy)
 function deactiveUser(id){
     if(confirm('Are you sure to deactive this user?')){
@@ -95,8 +94,11 @@ function deactiveUser(id){
             success:function(data){
                 alert('User Successfully Deactive');
                 showUsers();
-=======
-//Nam
+            }
+        });
+    } 
+}
+
 
 function deleteProduct(ID) {
     if (confirm("Are you sure Deleted Item Products ?")){
@@ -107,12 +109,28 @@ function deleteProduct(ID) {
             success: function (data) {
                 alert('The Products has been successlly deleted! .');
                 showProducts();
->>>>>>> Nam1
             }
         });
     } 
 }
 
+=======
+//nam oc
+function deleteProduct(ID) {
+    if (confirm("Are you sure Deleted Item Products ?")){
+        $.ajax({
+            url: "./controller/deleteProduct.php",
+            method: "post",
+            data: { ID: ID },
+            success: function (data) {
+                alert('The Products has been successlly deleted! .');
+                showProducts();
+            }
+        });
+    } 
+}
+
+>>>>>>> Huy
 <<<<<<< HEAD
 //revert delete user (HUY)
 function revertUser(id){
