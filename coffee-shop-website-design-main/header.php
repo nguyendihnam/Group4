@@ -38,31 +38,63 @@
         </nav>
 
         <nav class="navbar">
-            <a href="./Order.php" class="btn">
-                <i class="fa fa-cart-arrow-down"></i>
-            </a>
-            <?php 
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="./Order.php" class="btn">
+                        <i class="fa fa-cart-arrow-down"></i>
+                    </a>
+                </li>
+                <?php 
                 if(isset($_SESSION['User'])){          
                     if($_SESSION['Role'] == "User"){
 
                           
-            ?>
-                <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
-                <a href='./Logout.php' clas="btn">Log out</a>
-            <?php
+                ?>
+                <li class="nav-item has-dropdown">
+                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="edit-info-user.php?id=<?=$_SESSION['UserID']?>">Change infomation</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="change-password.php?id=<?=$_SESSION['UserID']?>">Change password</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href='./Logout.php' clas="btn">Log out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+           <?php
                 }
                 else {
             ?>
-                <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+                <li class="nav-item has-dropdown">
+                    <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' clas="btn">Xin chào <?= $_SESSION['User'] ?></a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="edit-info-user.php?id=<?=$_SESSION['UserID']?>">Change infomation</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="change-password.php?id=<?=$_SESSION['UserID']?>">Change password</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href='./Logout.php' clas="btn">Log out</a>
+                        </li>
+                    </ul>
+                </li>
                 <a href='./admin_panel/index.php' clas="btn">Admin Page</a>
-                <a href='./Logout.php' clas="btn">Log out</a>
             <?php
                 }
             }    
                 else {
             ?>
-                <a href="./SignIn.php" class="btn">Login</a>
-                <a href="./admin_panel/index.php" class="btn">Register</a>
+                <li class="nav-item">
+                    <a href="./SignIn.php" class="btn">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./register-user.php" class="btn">Register</a>
+                </li>
             <?php
                 }
             ?>
