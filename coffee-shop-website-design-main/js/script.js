@@ -1,5 +1,5 @@
-// let menu = document.querySelector('#menu-btn');
-// let navbar = document.querySelector('.navbar');
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
 
 /* This is a function that toggles the class `fa-times` and `active` on the menu and navbar when the
 user clicks on the menu button. */
@@ -545,21 +545,6 @@ function DeleteOrder(id){
             });
         }
       });
-}
-function CheckNumber(count){
-  var id = "myNumber_" + count;
-  var QtyNumber = document.getElementById(id).value;
-  var Qty = document.getElementById(id);
-  if(QtyNumber > 30){
-    Swal.fire({                  
-      title: 'Fail',
-      text: 'Please fill number below 31',
-      showConfirmButton: false
-    }).then((result) =>{
-      document.getElementById(id).value = 30;
-        
-    })
-  }
 }
 function setError(element, message) {
     var inputControl = element.parentElement;
