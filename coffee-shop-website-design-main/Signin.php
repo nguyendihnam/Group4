@@ -30,7 +30,7 @@
                     <div class="error"></div>
                 </div>
                 
-                <div class="nput-control">
+                <div class="input-control">
                     <h2>Password</h2>
                     <input type="password" placeholder="Password" class="box" name="Password" id="Password">
                     <div class="error"></div>

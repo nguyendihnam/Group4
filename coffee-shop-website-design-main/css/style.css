@@ -906,6 +906,29 @@ section {
     background-color: #0066ff;
 }
 
+.Signin {
+    margin: 0 auto 2rem auto;
+    max-width: 60rem;
+    border-radius: var(--border-radius-hover);
+    padding: 3rem;
+    border: var(--border);
+}
+.Signin textarea {
+    height: 15rem;
+    resize: none;
+}
+.Signin .box {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    background: none;
+    text-transform: none;
+    color: var(--main-color);
+    border: var(--border);
+    margin: .7rem 0;
+}
+
 .swal2-popup {
     font-size: 2rem !important;
 }
