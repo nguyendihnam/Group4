@@ -114,8 +114,8 @@ function deleteProduct(ID) {
     } 
 }
 
-=======
-//nam oc
+
+//nam
 function deleteProduct(ID) {
     if (confirm("Are you sure Deleted Item Products ?")){
         $.ajax({
@@ -130,8 +130,6 @@ function deleteProduct(ID) {
     } 
 }
 
->>>>>>> Huy
-<<<<<<< HEAD
 //revert delete user (HUY)
 function revertUser(id){
     if(confirm('Are you sure to revert this user?')){
@@ -146,7 +144,7 @@ function revertUser(id){
         });
     } 
 }
-=======
+
 function deleteCategory(ID) {
     if (confirm("Are you sure Deleted Name?")){
         $.ajax({
@@ -205,4 +203,4 @@ function updateProduct(){
     });
 }
 
->>>>>>> Nam1
+
