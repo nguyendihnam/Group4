@@ -522,9 +522,6 @@ section {
     padding-top: 8rem;
     background: url(../image/menu-bg.jpg);
 }
-.Order-Qty{
-    text-align: center;
-}
 .Order-Title {
     font-size: 3rem;
 }
@@ -544,11 +541,6 @@ section {
     padding: 0 10px;
   }
 
-.Order-Text-Price {
-    font-size: 2rem;
-    text-align: right;
-    padding-right: 185px;
-}
 .Order-Text .box {
     width: 80%;
     padding-left:5px;
@@ -591,18 +583,18 @@ section {
     padding-left: 10rem;
     flex: 1;
     padding-right: 20px;
-    height: 500px; 
+    height: 200px; 
     overflow-y: scroll;
 }
 .order-list {
     padding-left: 20rem;
     flex: 1;
-    height: 500px; 
+    height: 200px; 
     overflow-y: scroll;
 }
 /* BOOK */
 #book {
-    padding-top: 15rem;
+    padding-top: 8rem;
 }
 
 .book {
@@ -808,13 +800,13 @@ section {
     font-family: Arial, sans-serif;
   }
 
-  .quantity button {
+  .quantitybutton {
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    font-size: 16px;
+    padding: 0.8rem 2rem;
+        font-size: 16px;
     border-radius: 4px;
   }
 
@@ -826,12 +818,8 @@ section {
     width: 60px;
   }
 
-  .quantity button.decrease {
+  .quantitybutton:hover {
     background-color: #dc3545;
-  }
-
-  .quantity button.increase {
-    background-color: #28a745;
   }
 
 .btn-box{
@@ -859,28 +847,6 @@ section {
 }
 .buy-btn:hover{
     background-color: #0066ff;
-}
-.Signin {
-    margin: 0 auto 2rem auto;
-    max-width: 60rem;
-    border-radius: var(--border-radius-hover);
-    padding: 3rem;
-    border: var(--border);
-}
-.Signin textarea {
-    height: 15rem;
-    resize: none;
-}
-.Signin .box {
-    width: 100%;
-    padding: 1rem 1.2rem;
-    border-radius: .5rem;
-    font-size: 1.6rem;
-    background: none;
-    text-transform: none;
-    color: var(--main-color);
-    border: var(--border);
-    margin: .7rem 0;
 }
 
 

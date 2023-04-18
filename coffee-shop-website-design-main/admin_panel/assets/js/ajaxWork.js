@@ -84,7 +84,7 @@ function UpdateStatuOrder(id){
     });
 }
 
-<<<<<<< HEAD
+
 //delete user (Huy)
 function deactiveUser(id){
     if(confirm('Are you sure to deactive this user?')){
@@ -95,25 +95,12 @@ function deactiveUser(id){
             success:function(data){
                 alert('User Successfully Deactive');
                 showUsers();
-=======
-//Nam
-
-function deleteProduct(ID) {
-    if (confirm("Are you sure Deleted Item Products ?")){
-        $.ajax({
-            url: "./controller/deleteProduct.php",
-            method: "post",
-            data: { ID: ID },
-            success: function (data) {
-                alert('The Products has been successlly deleted! .');
-                showProducts();
->>>>>>> Nam1
             }
         });
-    } 
+    }
 }
 
-<<<<<<< HEAD
+
 //revert delete user (HUY)
 function revertUser(id){
     if(confirm('Are you sure to revert this user?')){
@@ -128,7 +115,39 @@ function revertUser(id){
         });
     } 
 }
-=======
+
+
+
+//Nam
+
+function deleteProduct(ID) {
+    if (confirm("Are you sure Deleted Item Products ?")){
+        $.ajax({
+            url: "./controller/deleteProduct.php",
+            method: "post",
+            data: { ID: ID },
+            success: function (data) {
+                alert('The Products has been successlly deleted! .');
+                showProducts();
+            }
+        });
+    } 
+}
+
+function RestoredProduct(id) {
+    if (confirm("Are you sure Revert Item Products ?")){
+        $.ajax({
+          url: "./controller/RestoredProduct.php",
+          type: "post",
+          data: {ID: id},
+          success: function(data) {
+            alert('The Products has been successlly update! .');
+            showProducts();
+          }
+        });
+    }  
+}
+
 function deleteCategory(ID) {
     if (confirm("Are you sure Deleted Name?")){
         $.ajax({
@@ -144,47 +163,7 @@ function deleteCategory(ID) {
 }
 
 
-function RestoredItem(id) {
-    if (confirm("Are you sure Revert Item Products ?")){
-        $.ajax({
-          url: "./controller/RestoredProduct.php",
-          type: "post",
-          data: {ID: id},
-          success: function(data) {
-            alert('The Products has been successlly update! .');
-            showProducts();
-          }
-        });
-    }  
-}
 
 
 
-function updateProduct(){
-    var ID = $('#ID').val();
-    var category = $('#categoryID').val();
-    var Name = $('#Name').val();
-    var Desc = $('#Description').val();
-    var Thumbnail = $('#Thumbnail').val(); // Thêm giá trị của cột Thumbnail
-    var Description = $('#Description').val(); // Thêm giá trị của cột Description
-    var CreatedDate = $('#CreatedDate').val(); // Thêm giá trị của cột CreatedDate
-    var UpdatedDate = $('#UpdatedDate').val(); // Thêm giá trị của cột UpdatedDate
-    var Status = $('#Status').val(); // Thêm giá trị của cột Status
-    var existingImage = $('#existingImage').val();
-    var newImage = $('#newImage')[0].files[0];
-    var S = $('#S').val(); // Thêm giá trị của cột S
-    var M = $('#M').val(); // Thêm giá trị của cột M
-    var L = $('#L').val(); // Thêm giá trị của cột L
 
-    $.ajax({
-        url:"./controller/updateProduct.php", // Chỉnh sửa đường dẫn đến file xử lý update
-        method:"POST",
-        data: {ID: id},
-        success:function(data){
-            // Thực hiện các thao tác cần thiết sau khi cập nhật thành công
-            showProducts(); // Ví dụ: sau khi cập nhật thành công, gọi hàm showProducts() để hiển thị danh sách sản phẩm đã được cập nhật
-        }
-    });
-}
-
->>>>>>> Nam1

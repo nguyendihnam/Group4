@@ -354,3 +354,8 @@
 .btn-danger1:hover{
   background-color: #0066ff;
 }
+.homebackground {
+  background: url(../images/coffee.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}

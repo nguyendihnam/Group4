@@ -15,6 +15,7 @@ include_once "../config/dbconnect.php";
     $s = $_POST['s'];
     $m = $_POST['m'];
     $l = $_POST['l'];
+    
 
     // Thêm dữ liệu vào cơ sở dữ liệu
     $update = mysqli_query($conn,"INSERT INTO product 
