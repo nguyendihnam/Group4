@@ -66,7 +66,7 @@
                 <div class="quantity">
                    <p>Quantity :</p>
                   <button type="submit" onclick="decreaseQuantity()" class="quantitybutton" > - </button>
-                  <input type="number" min="1" max="30" value="1" id="quantityInput">
+                  <input type="number" min="1" max="30" value="1" id="Qty">
                   <button onclick="increaseQuantity()" class="quantitybutton"> + </button>
                 </div>
                 <div class="btn-box" >
@@ -124,5 +124,6 @@ let sizeButtons = document.querySelectorAll('.psize');
                bigImg.src = pic;
             }  
 </script>
+
  </section>
  

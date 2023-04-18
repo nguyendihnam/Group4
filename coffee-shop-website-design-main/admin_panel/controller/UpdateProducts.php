@@ -47,12 +47,12 @@ m = '{$m}',
 l = '{$l}'
 where ID = '{$id}'";
 $rs = mysqli_query($conn, $query);
-if(!$rs):
+if(!$rs){
   error_clear_last();
   echo'Nothing to update';
-  endif;
-  echo'Update Item Success! ';
+}else{
   header("location: ../index.php?Update=success" );
+}
 }
 mysqli_close($conn);
 ?>
@@ -63,6 +63,9 @@ mysqli_close($conn);
     <h4 class="modal-title">Update Product</h4>
       <form method="post" >
           <table class="table table-borderedless">
+          <div class="form-group">
+                <input type="text" class="form-control" id="ID" name="ID" value="<?= $row[0] ?>" hidden>
+            </div>
             <div class="form-group">
                 <label for="Name">Name:</label>
                 <input type="text" class="form-control" id="Name" name="Name" value="<?= $row[2] ?>" required>

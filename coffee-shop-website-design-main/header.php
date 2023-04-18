@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
  
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+	<script type="text/javascript" src="js/script.js" defer></script>   
 </head>
 
 <body>
