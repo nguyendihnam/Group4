@@ -52,7 +52,7 @@ else{
             <p class="Order-Text"><strong>Note:</strong> 
             <input type="text"class="box" name="txtNote" id="txtNote" autocomplete="off">
                 <div class="error"></div></p>
-            <a href='edit-info-user.php?id=<?=$_SESSION['UserID']?>' class="Order-btn">Edit User's Information</a>
+            <a href='edit-address.php?id=<?=$_SESSION['UserID']?>' class="Order-btn">Edit User's Information</a>
             <button class="Order-btn" onclick=SendOrder()>Send Order</button>
 		</div>
 		<div class="order-list">

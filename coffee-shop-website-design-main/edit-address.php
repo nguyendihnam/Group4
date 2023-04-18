@@ -31,7 +31,7 @@
                 <input type="text" placeholder="Email" class="box" name="txtID" id="ID" value="<?= $fields[0] ?>">
                 <div class="error"></div>
             </div>
-            <div class="input-control">
+            <div class="input-control" hidden>
                 <p class="input-name">Email: </p>
                 <input type="text" placeholder="Email" class="box" name="txtEmail" id="email" autocomplete="off" value="<?= $fields[2] ?>">
                 <div class="error"></div>

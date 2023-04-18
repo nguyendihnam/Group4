@@ -3,7 +3,7 @@
         <div class="row">
             <div class="content">
                 <h3>fresh coffee in the morning</h3>
-                <a href="#" class="btn">buy one now</a>
+                <a href="./menu.php" class="btn">buy one now</a>
             </div>
 
             <div class="image">

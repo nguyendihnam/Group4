@@ -97,8 +97,9 @@ function deactiveUser(id){
                 showUsers();
             }
         });
-    }
+    } 
 }
+
 
 
 //revert delete user (HUY)
@@ -115,7 +116,6 @@ function revertUser(id){
         });
     } 
 }
-
 
 
 //Nam
@@ -161,9 +161,3 @@ function deleteCategory(ID) {
         });
     } 
 }
-
-
-
-
-
-

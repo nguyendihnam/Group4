@@ -16,12 +16,12 @@ user scrolls. */
 // };
 
 /* This is a function that changes the main image when the user clicks on the thumbnail image. */
-// document.querySelectorAll('.image-slider img').forEach(images => {
-//     images.onclick = () => {
-//         var src = images.getAttribute('src');
-//         document.querySelector('.main-home-image').src = src;
-//     };
-// });
+document.querySelectorAll('.image-slider img').forEach(images => {
+    images.onclick = () => {
+        var src = images.getAttribute('src');
+        document.querySelector('.main-home-image').src = src;
+    };
+});
 function GetDetailOrder(id){
     $.ajax({
     url:"viewOrderDetail.php",
@@ -45,7 +45,7 @@ const subject = document.getElementById("subject");
 const mess = document.getElementById("mess");
 const id = document.getElementById("ID");
 
-//Valid use for register
+//Valid use for register (Huy)
 function validInput() {
     const userNameVal = userName.value.trim();
     const emailVal = email.value.trim();
@@ -54,111 +54,162 @@ function validInput() {
     const passVal = pass.value.trim();
     const pass2Val = pass2.value.trim();
     var valid = true;
-    
-    if (userNameVal == '') {
-        setError(userName, 'Username is required');
-        valid = false;
-    } else if (userNameVal.length > 25 || userNameVal.length < 8) {
-        setError(userName, 'Username max 25 characters and min 8 characters');
-        valid = false;
-    } else {
-        setDefault(userName);
+
+    switch (true) {
+        case (userNameVal == ''):
+            setError(userName, 'Username is required');
+            valid = false;
+            break;
+        case (userNameVal.length > 25 || userNameVal.length < 8):
+            setError(userName, 'Username max 25 characters and min 8 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(userName);
+            break;
     }
 
-    if (emailVal == '') {
-        setError(email, 'Email is required');
-        valid = false;
-    } else if (!isValidEmail(emailVal)) {
-        setError(email, 'Please enter a valid email address');
-        valid = false;
-    } else {
-        setDefault(email);
+    switch (true) {
+        case (emailVal == ''):
+            setError(email, 'Email is required');
+            valid = false;
+            break;
+        case (!isValidEmail(emailVal)):
+            setError(email, 'Please enter a valid email address');
+            valid = false;
+            break;
+        case (emailVal.length > 150):
+            setError(email, 'Max 150 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(email);
+            break;
     }
 
-    if (phoneVal == '') {
-        setError(phone, 'Number is required');
-        valid = false;
-    } else if (!isValidNumber(phoneVal)) {
-        setError(phone, 'Please enter number only');
-        valid = false;
-    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
-        setError(phone, 'Max 13 numbers and min 10 numbers');
-        valid = false;
-    } else {
-        setDefault(phone);
+    switch (true) {
+        case (phoneVal == ''):
+            setError(phone, 'Number is required');
+            valid = false;
+            break;
+        case (!isValidNumber(phoneVal)):
+            setError(phone, 'Please enter number only');
+            valid = false;
+            break;
+        case (phoneVal.length > 13 || phoneVal.length < 10):
+            setError(phone, 'Max 13 numbers and min 10 numbers');
+            valid = false;
+            break;
+        default:
+            setDefault(phone);
+            break;
     }
 
-    if (addressVal == '') {
-        setError(address, 'Address is required');
-        valid = false;
-    } else {
-        setDefault(address);
+    switch (true) {
+        case (addressVal == ''):
+            setError(address, 'Address is required');
+            valid = false;
+            break;
+        case (addressVal.length > 200):
+            setError(address, 'Max 200 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(address);
+            break;
     }
 
-    if (passVal == '') {
-        setError(pass, 'Password is required');
-        valid = false;
-    } else if (passVal.length > 32 || passVal.length < 8) {
-        setError(pass, 'Password max 32 characters and min 8 characters');
-        valid = false;
-    } else {
-        setDefault(pass);
+    switch (true) {
+        case (passVal == ''):
+            setError(pass, 'Password is required');
+            valid = false;
+            break;
+        case (passVal.length > 32 || passVal.length < 8):
+            setError(pass, 'Password max 32 characters and min 8 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(pass);
+            break;
     }
 
-    if (pass2Val == '') {
-        setError(pass2, 'Please confirm your password');
-        valid = false;
-    } else if (pass2Val !== passVal) {
-        setError(pass2, "Password doesn't match");
-        valid = false;
-    } else {
-        setDefault(pass2);
+    switch (true) {
+        case (pass2Val == ''):
+            setError(pass2, 'Please confirm your password');
+            valid = false;
+            break;
+        case (pass2Val !== passVal):
+            setError(pass2, "Password doesn't match");
+            valid = false;
+            break;
+        default:
+            setDefault(pass2);
+            break;
     }
 
     return valid;
 }
 
-//Valid for update
+
+//Valid for update (Huy)
 function validUpdate() {
     const emailVal = email.value.trim();
     const phoneVal = phone.value.trim();
     const addressVal = address.value.trim();
     var valid = true;
     
-    if (emailVal == '') {
-        setError(email, 'Email is required');
-        valid = false;
-    } else if (!isValidEmail(emailVal)) {
-        setError(email, 'Please enter a valid email address');
-        valid = false;
-    } else {
-        setDefault(email);
+    switch(true) {
+        case emailVal == '':
+            setError(email, 'Email is required');
+            valid = false;
+            break;
+        case !isValidEmail(emailVal):
+            setError(email, 'Please enter a valid email address');
+            valid = false;
+            break;
+        case emailVal.length > 150:
+            setError(email, 'Max 150 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(email);
     }
 
-    if (phoneVal == '') {
-        setError(phone, 'Number is required');
-        valid = false;
-    } else if (!isValidNumber(phoneVal)) {
-        setError(phone, 'Please enter number only');
-        valid = false;
-    } else if (phoneVal.length > 13) {
-        setError(phone, 'Max 13 numbers');
-        valid = false;
-    } else {
-        setDefault(phone);
+    switch(true) {
+        case phoneVal == '':
+            setError(phone, 'Number is required');
+            valid = false;
+            break;
+        case !isValidNumber(phoneVal):
+            setError(phone, 'Please enter number only');
+            valid = false;
+            break;
+        case phoneVal.length > 13:
+            setError(phone, 'Max 13 numbers');
+            valid = false;
+            break;
+        default:
+            setDefault(phone);
     }
 
-    if (addressVal == '') {
-        setError(address, 'Address is required');
-        valid = false;
-    } else {
-        setDefault(address);
+    switch(true) {
+        case addressVal == '':
+            setError(address, 'Address is required');
+            valid = false;
+            break;
+        case addressVal.length > 200:
+            setError(address, 'Max 200 characters');
+            valid = false;
+            break;
+        default:
+            setDefault(address);
     }
      
     return valid;
 }
 
-//Change password
+
+//Change password (Huy)
 function changePass() {
     const pass = document.getElementById("pass");                   
     const passNew = document.getElementById("passNew");
@@ -199,13 +250,14 @@ function changePass() {
         setDefault(pass2);
     }
 
+    //return false instead of true if there are errors, so that the form doesn't get submitted if the user cancels the SweetAlert dialog
     if (!valid) {
         return false;
     }
 
     return true;
 }
-
+//Huy
 function showConfirmDialog() {
     Swal.fire({
         title: 'Are you sure?',
@@ -224,7 +276,7 @@ function showConfirmDialog() {
     });
 }
 
-//Valid for contact
+//Valid for contact (Huy)
 function sendContact() {
     const nameValue = nameFull.value.trim();
     const emailValue = email.value.trim();
@@ -233,54 +285,81 @@ function sendContact() {
     const messValue = mess.value.trim();
     var valid = true;
 
-    if(nameValue == '') {
-        setError(nameFull, 'Name is required');
-        valid = false;
-    } else if(!isNaN(nameValue)) {
-        setError(nameFull, 'Name must be only character');
-        valid = false;
-    } else {
-        setDefault(nameFull);
+    switch (true) {
+        case nameValue == '':
+          setError(nameFull, 'Name is required');
+          valid = false;
+          break;
+        case !/^[A-Za-z]+$/.test(nameValue):
+          setError(nameFull, 'Name must be only characters');
+          valid = false;
+          break;
+        case nameValue.length > 50:
+          setError(nameFull, 'Max 50 characters');
+          valid = false;
+          break;
+        default:
+          setDefault(nameFull);
     }
-
-    if(emailValue == '') {
-        setError(email, 'Email is required');
-        valid = false;
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-        valid = false;
-    } else {
-        setDefault(email);
+    
+    switch (true) {
+        case emailValue == '':
+          setError(email, 'Email is required');
+          valid = false;
+          break;
+        case !isValidEmail(emailValue):
+          setError(email, 'Provide a valid email address');
+          valid = false;
+          break;
+        case emailValue.length > 150:
+          setError(email, 'Max 150 characters');
+          valid = false;
+          break;
+        default:
+          setDefault(email);
     }
-
-    if(phoneValue == '') {
-        setError(phone, 'Phone is required');
-        valid = false;
-    } else if (!isValidNumber(phoneValue)) {
-        setError(phone, 'Invalid number');
-        valid = false;
-    } else if (phoneValue.length > 13 || phoneValue.length < 10) {
-        setError(phone, 'Phone max 13 numbers and min 10 numbers');
-        valid = false;
-    } else {
-        setDefault(phone);
+    
+    switch (true) {
+        case phoneValue == '':
+          setError(phone, 'Phone is required');
+          valid = false;
+          break;
+        case !isValidNumber(phoneValue):
+          setError(phone, 'Invalid number');
+          valid = false;
+          break;
+        case phoneValue.length > 13 || phoneValue.length < 10:
+          setError(phone, 'Phone max 13 numbers and min 10 numbers');
+          valid = false;
+          break;
+        default:
+          setDefault(phone);
     }
-
-    if(subjectValue == '') {
-        setError(subject, 'Subject is required');
-        valid = false;
-    } else {
-        setDefault(subject);
+    
+    switch (true) {
+        case subjectValue == '':
+          setError(subject, 'Subject is required');
+          valid = false;
+          break;
+        case subjectValue.length > 200:
+          setError(subject, 'Max 200 characters');
+          valid = false;
+          break;
+        default:
+          setDefault(subject);
     }
-
-    if(messValue == '') {
-        setError(mess, 'Message is required');
-        valid = false;
-    } else if(messValue.length > 500) {
-        setError(mess, 'Message max 500 characters');
-        valid = false;
-    } else {
-        setDefault(mess);
+    
+    switch (true) {
+        case messValue == '':
+          setError(mess, 'Message is required');
+          valid = false;
+          break;
+        case messValue.length > 500:
+          setError(mess, 'Message max 500 characters');
+          valid = false;
+          break;
+        default:
+          setDefault(mess);
     }
 
     if(valid) {
@@ -311,7 +390,7 @@ function sendContact() {
     }
 }
 
-//Valid for register
+//Valid for register (Huy)
 function Register() {
     if(validInput()){
         $.ajax({
@@ -349,7 +428,7 @@ function Register() {
     }
 }
 
-//Edit infor user (Email, address, phone)
+//Edit infor user (Email, address, phone) (Huy)
 function editInfo(){       
     Swal.fire({
         title: 'Are you sure to update new infomation?',
