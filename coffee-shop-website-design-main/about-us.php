@@ -14,10 +14,8 @@
 
             <div class="content">
                 <h3 class="title">what's make our coffee special!</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rerum laboriosam reprehenderit ipsa id
-                    repellat odio illum, voluptas, necessitatibus assumenda adipisci. Hic, maiores iste? Excepturi illo
-                    dolore mollitia qui quia.
-                </p>
+                <p>
+                Our coffee is special for three reasons: quality, convenience, and service. We source only the finest beans and roast them to perfection. With branches conveniently located, you can enjoy our coffee wherever you go. Plus, we offer free delivery to bring our delicious coffee right to your doorstep.</p>
                 <div class="icons-container">
                     <div class="icons">
                         <img src="image/about-icon-1.png" alt="">
