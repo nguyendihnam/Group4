@@ -1,5 +1,5 @@
-let menu = document.querySelector('#menu-btn');
-let navbar = document.querySelector('.navbar');
+// let menu = document.querySelector('#menu-btn');
+// let navbar = document.querySelector('.navbar');
 
 /* This is a function that toggles the class `fa-times` and `active` on the menu and navbar when the
 user clicks on the menu button. */
@@ -55,100 +55,75 @@ function validInput() {
     const pass2Val = pass2.value.trim();
     var valid = true;
 
-    switch (true) {
-        case (userNameVal == ''):
-            setError(userName, 'Username is required');
-            valid = false;
-            break;
-        case (userNameVal.length > 25 || userNameVal.length < 8):
-            setError(userName, 'Username max 25 characters and min 8 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(userName);
-            break;
+    if (userNameVal == '') {
+        setError(userName, 'Username is required');
+        valid = false;
+    } else if (userNameVal.length > 25 || userNameVal.length < 8) {
+        setError(userName, 'Username max 25 characters and min 8 characters');
+        valid = false;
+    } else {
+        setDefault(userName);
     }
 
-    switch (true) {
-        case (emailVal == ''):
-            setError(email, 'Email is required');
-            valid = false;
-            break;
-        case (!isValidEmail(emailVal)):
-            setError(email, 'Please enter a valid email address');
-            valid = false;
-            break;
-        case (emailVal.length > 150):
-            setError(email, 'Max 150 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(email);
-            break;
+    if (emailVal == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if (!isValidEmail(emailVal)) {
+        setError(email, 'Please enter a valid email address');
+        valid = false;
+    } else if (emailVal.length > 150) {
+        setError(email, 'Max 150 characters');
+        valid = false;
+    } else {
+        setDefault(email);
     }
 
-    switch (true) {
-        case (phoneVal == ''):
-            setError(phone, 'Number is required');
-            valid = false;
-            break;
-        case (!isValidNumber(phoneVal)):
-            setError(phone, 'Please enter number only');
-            valid = false;
-            break;
-        case (phoneVal.length > 13 || phoneVal.length < 10):
-            setError(phone, 'Max 13 numbers and min 10 numbers');
-            valid = false;
-            break;
-        default:
-            setDefault(phone);
-            break;
+    if (phoneVal == '') {
+        setError(phone, 'Number is required');
+        valid = false;
+    } else if (!isValidNumber(phoneVal)) {
+        setError(phone, 'Please enter number only');
+        valid = false;
+    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
+        setError(phone, 'Max 13 numbers and min 10 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
     }
 
-    switch (true) {
-        case (addressVal == ''):
-            setError(address, 'Address is required');
-            valid = false;
-            break;
-        case (addressVal.length > 200):
-            setError(address, 'Max 200 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(address);
-            break;
+    if (addressVal == '') {
+        setError(address, 'Address is required');
+        valid = false;
+    } else if (addressVal.length > 200) {
+        setError(address, 'Max 200 characters');
+        valid = false;
+    } else {
+        setDefault(address);
     }
 
-    switch (true) {
-        case (passVal == ''):
-            setError(pass, 'Password is required');
-            valid = false;
-            break;
-        case (passVal.length > 32 || passVal.length < 8):
-            setError(pass, 'Password max 32 characters and min 8 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(pass);
-            break;
+    if (passVal == '') {
+        setError(pass, 'Password is required');
+        valid = false;
+    } else if (passVal.length > 32 || passVal.length < 8) {
+        setError(pass, 'Password max 32 characters and min 8 characters');
+        valid = false;
+    } else {
+        setDefault(pass);
     }
 
-    switch (true) {
-        case (pass2Val == ''):
-            setError(pass2, 'Please confirm your password');
-            valid = false;
-            break;
-        case (pass2Val !== passVal):
-            setError(pass2, "Password doesn't match");
-            valid = false;
-            break;
-        default:
-            setDefault(pass2);
-            break;
+    if (pass2Val == '') {
+        setError(pass2, 'Please confirm your password');
+        valid = false;
+    } else if (pass2Val !== passVal) {
+        setError(pass2, "Password doesn't match");
+        valid = false;
+    } else {
+        setDefault(pass2);
     }
 
     return valid;
 }
+
 
 
 //Valid for update (Huy)
@@ -157,56 +132,46 @@ function validUpdate() {
     const phoneVal = phone.value.trim();
     const addressVal = address.value.trim();
     var valid = true;
-    
-    switch(true) {
-        case emailVal == '':
-            setError(email, 'Email is required');
-            valid = false;
-            break;
-        case !isValidEmail(emailVal):
-            setError(email, 'Please enter a valid email address');
-            valid = false;
-            break;
-        case emailVal.length > 150:
-            setError(email, 'Max 150 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(email);
+
+    if (emailVal == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if (!isValidEmail(emailVal)) {
+        setError(email, 'Please enter a valid email address');
+        valid = false;
+    } else if (emailVal.length > 150) {
+        setError(email, 'Max 150 characters');
+        valid = false;
+    } else {
+        setDefault(email);
     }
 
-    switch(true) {
-        case phoneVal == '':
-            setError(phone, 'Number is required');
-            valid = false;
-            break;
-        case !isValidNumber(phoneVal):
-            setError(phone, 'Please enter number only');
-            valid = false;
-            break;
-        case phoneVal.length > 13:
-            setError(phone, 'Max 13 numbers');
-            valid = false;
-            break;
-        default:
-            setDefault(phone);
+    if (phoneVal == '') {
+        setError(phone, 'Number is required');
+        valid = false;
+    } else if (!isValidNumber(phoneVal)) {
+        setError(phone, 'Please enter number only');
+        valid = false;
+    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
+        setError(phone, 'Max 13 numbers and min 10 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
     }
 
-    switch(true) {
-        case addressVal == '':
-            setError(address, 'Address is required');
-            valid = false;
-            break;
-        case addressVal.length > 200:
-            setError(address, 'Max 200 characters');
-            valid = false;
-            break;
-        default:
-            setDefault(address);
+    if (addressVal == '') {
+        setError(address, 'Address is required');
+        valid = false;
+    } else if (addressVal.length > 200) {
+        setError(address, 'Max 200 characters');
+        valid = false;
+    } else {
+        setDefault(address);
     }
-     
+
     return valid;
 }
+
 
 
 //Change password (Huy)
@@ -285,81 +250,63 @@ function sendContact() {
     const messValue = mess.value.trim();
     var valid = true;
 
-    switch (true) {
-        case nameValue == '':
-          setError(nameFull, 'Name is required');
-          valid = false;
-          break;
-        case !/^[A-Za-z]+$/.test(nameValue):
-          setError(nameFull, 'Name must be only characters');
-          valid = false;
-          break;
-        case nameValue.length > 50:
-          setError(nameFull, 'Max 50 characters');
-          valid = false;
-          break;
-        default:
-          setDefault(nameFull);
+    if(nameValue == '') {
+        setError(nameFull, 'Name is required');
+        valid = false;
+    } else if(!/^[A-Za-z]+$/.test(nameValue)) {
+        setError(nameFull, 'Name must be only characters');
+        valid = false;
+    } else if(nameValue.length > 50) {
+        setError(nameFull, 'Max 50 characters');
+        valid = false;
+    } else {
+        setDefault(nameFull);
     }
-    
-    switch (true) {
-        case emailValue == '':
-          setError(email, 'Email is required');
-          valid = false;
-          break;
-        case !isValidEmail(emailValue):
-          setError(email, 'Provide a valid email address');
-          valid = false;
-          break;
-        case emailValue.length > 150:
-          setError(email, 'Max 150 characters');
-          valid = false;
-          break;
-        default:
-          setDefault(email);
+
+    if(emailValue == '') {
+        setError(email, 'Email is required');
+        valid = false;
+    } else if(!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+        valid = false;
+    } else if(emailValue.length > 150) {
+        setError(email, 'Max 150 characters');
+        valid = false;
+    } else {
+        setDefault(email);
     }
-    
-    switch (true) {
-        case phoneValue == '':
-          setError(phone, 'Phone is required');
-          valid = false;
-          break;
-        case !isValidNumber(phoneValue):
-          setError(phone, 'Invalid number');
-          valid = false;
-          break;
-        case phoneValue.length > 13 || phoneValue.length < 10:
-          setError(phone, 'Phone max 13 numbers and min 10 numbers');
-          valid = false;
-          break;
-        default:
-          setDefault(phone);
+
+    if(phoneValue == '') {
+        setError(phone, 'Phone is required');
+        valid = false;
+    } else if(!isValidNumber(phoneValue)) {
+        setError(phone, 'Invalid number');
+        valid = false;
+    } else if(phoneValue.length > 13 || phoneValue.length < 10) {
+        setError(phone, 'Phone max 13 numbers and min 10 numbers');
+        valid = false;
+    } else {
+        setDefault(phone);
     }
-    
-    switch (true) {
-        case subjectValue == '':
-          setError(subject, 'Subject is required');
-          valid = false;
-          break;
-        case subjectValue.length > 200:
-          setError(subject, 'Max 200 characters');
-          valid = false;
-          break;
-        default:
-          setDefault(subject);
+
+    if(subjectValue == '') {
+        setError(subject, 'Subject is required');
+        valid = false;
+    } else if(subjectValue.length > 200) {
+        setError(subject, 'Max 200 characters');
+        valid = false;
+    } else {
+        setDefault(subject);
     }
-    
-    switch (true) {
-        case messValue == '':
-          setError(mess, 'Message is required');
-          valid = false;
-          break;
-        case messValue.length > 500:
-          setError(mess, 'Message max 500 characters');
-          valid = false;
-          break;
-        default:
-          setDefault(mess);
+
+    if(messValue == '') {
+        setError(mess, 'Message is required');
+        valid = false;
+    } else if(messValue.length > 500) {
+        setError(mess, 'Message max 500 characters');
+        valid = false;
+    } else {
+        setDefault(mess);
     }
 
     if(valid) {
@@ -389,6 +336,7 @@ function sendContact() {
         });
     }
 }
+
 
 //Valid for register (Huy)
 function Register() {
@@ -590,10 +538,11 @@ function UpdateQuantity(count,id){
         Swal.fire({                  
             title: 'Sucess',
             text: 'Add Order Sucess',
-            showConfirmButton: false,
-            timer: 1000
+            showConfirmButton: false
+          }).then(() =>{
+            window.location = "Order.php";
           })
-        window.location = "Order.php";
+        
     }
 });
 }
@@ -656,3 +605,19 @@ function isValidNumber(number) {
     return a;
 }
 //-end huy
+
+//Tú
+function CheckNumber(count){
+    var id = "myNumber_" + count;
+    var QtyNumber = document.getElementById(id).value;
+    if(QtyNumber > 30){
+      Swal.fire({                  
+        title: 'Fail',
+        text: 'Please fill number max 30',
+        showConfirmButton: false
+      }).then((result) =>{
+        document.getElementById(id).value = 30;
+          
+      })
+    }
+  }

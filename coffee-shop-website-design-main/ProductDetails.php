@@ -23,9 +23,8 @@
  ?>
  
  <?php include './header.php'; ?>
-
-<?php include './header.php'; ?>
 <!-- <link href='https://unpkg.com/css.gg@2.0.0/icons/css/coffee.css' rel='stylesheet'> -->
+
 <section class="menu" id="menu">
 <div class="menu-container">
    <?php if ($count == 0): ?>
@@ -59,14 +58,14 @@
             <i class="gg-coffee"></i>
             <div class="size" > 
             <div class="price">Size :</div>
-               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" > S : <?= $fields[9] ?> </div>
-               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2" > M : <?= $fields[10] ?> </div>
-               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3" > L : <?= $fields[11] ?> </div>
+               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?> </div>
+               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?> </div>
+               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?> </div>
             </div>
             <div class="quantity">
                    <p>Quantity :</p>
                   <button type="submit" onclick="decreaseQuantity()" class="quantitybutton" > - </button>
-                  <input type="number" min="1" max="30" value="1" id="Qty">
+                  <input type="number" min="1" max="30" value="1" id="Qty" on>
                   <button onclick="increaseQuantity()" class="quantitybutton"> + </button>
                 </div>
                 <div class="btn-box" >
@@ -80,21 +79,22 @@
  </div>
 <script>
 function decreaseQuantity() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value > 1) {
         input.value = parseInt(input.value) - 1;
     }
 }
 
 function increaseQuantity() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value < 30) {
         input.value = parseInt(input.value) + 1;
     }
 }
 
+
 function checkQuantityInput() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value < 1) {
         input.value = 1;
     } else if (input.value > 30) {
@@ -102,9 +102,7 @@ function checkQuantityInput() {
     }
 }
 
-document.getElementById('quantityInput').addEventListener('input', checkQuantityInput);
-
-
+document.getElementById('Qty').addEventListener('input', checkQuantityInput);
 
 let sizeButtons = document.querySelectorAll('.psize');
 
