@@ -58,9 +58,9 @@
             <i class="gg-coffee"></i>
             <div class="size" > 
             <div class="price">Size :</div>
-               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?> </div>
-               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?> </div>
-               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?> </div>
+               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?>$ </div>
+               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?>$ </div>
+               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?>$ </div>
             </div>
             <div class="quantity">
                    <p>Quantity :</p>
