@@ -16,15 +16,11 @@
  $rs = mysqli_query($conn, $query);
  $count = mysqli_num_rows($rs);
  
- 
  $queryCategory = "SELECT * FROM category ";
  $rsCategory = mysqli_query($conn, $queryCategory);
  $countCategory = mysqli_num_rows($rsCategory);
  ?>
- 
  <?php include './header.php'; ?>
-<!-- <link href='https://unpkg.com/css.gg@2.0.0/icons/css/coffee.css' rel='stylesheet'> -->
-
 <section class="menu" id="menu">
 <div class="menu-container">
    <?php if ($count == 0): ?>
@@ -54,13 +50,13 @@
          <div class="right" >
             <div class="url" ><span style="font-size: 18px;"><a href="./index.php"> Home </a> > <a href="./menu.php" > Menu </a> > <?= $fields[2] ?></div></span>
             <div class="pname" ><?= $fields[2] ?></div>
-            <p class="card-description-menu"><?= (substr($fields[4], 0, 100) . ' ... ' )?></p><br>  
+            <p class="card-description-menu"><?= (substr($fields[4], 0, 80) . ' ... ' )?></p><br>  
             <i class="gg-coffee"></i>
             <div class="size" > 
             <div class="price">Size :</div>
-               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?>$ </div>
-               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?>$ </div>
-               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?>$ </div>
+               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?> $</div>
+               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?> $</div>
+               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?> $</div>
             </div>
             <div class="quantity">
                    <p>Quantity :</p>
@@ -84,9 +80,7 @@
             </div>
          <?php  
          }
-      ?>
-      
-               
+      ?>     
           </div>
        </div>
        <?php
@@ -107,7 +101,6 @@ function increaseQuantity() {
         input.value = parseInt(input.value) + 1;
     }
 }
-
 
 function checkQuantityInput() {
     var input = document.getElementById('Qty');
@@ -138,6 +131,7 @@ let sizeButtons = document.querySelectorAll('.psize');
                bigImg.src = pic;
             }  
 </script>
+</section>
 
- </section>
+
  

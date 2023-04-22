@@ -72,8 +72,7 @@ mysqli_close($conn);
                 <input type="text" class="form-control" id="Name" name="Name" value="<?= $row[2] ?>" required>
             </div>
             <div class="form-group">
-              <label for="categoryID">Category ID:</label>
-              <input class="form-control" id="categoryID" name="categoryID" value="<?= $row[1] ?> "required>
+              <input class="form-control" id="categoryID" name="categoryID" value="<?= $row[1] ?> "hidden >
             </div>
             <div class="form-group">
               <label for="thumbnail">Thumbnail:</label>
