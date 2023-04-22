@@ -58,7 +58,7 @@ else{
 		<div class="order-list">
             <?php
                 if($countOrder == 0):
-                
+                    echo "Nothing";
                 else:
                 
             ?>
