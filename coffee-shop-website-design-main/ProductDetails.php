@@ -23,8 +23,6 @@
  ?>
  
  <?php include './header.php'; ?>
-
-<?php include './header.php'; ?>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/coffee.css' rel='stylesheet'>
 <section class="menu" id="menu">
 <div class="menu-container">
@@ -59,9 +57,9 @@
             <i class="gg-coffee"></i>
             <div class="size" > 
             <div class="price">Size :</div>
-               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" onclick="changeSize(this)">S : <?= $fields[9] ?> </div>
-               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2" onclick="changeSize(this)">M : <?= $fields[10] ?> </div>
-               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3" onclick="changeSize(this)">L : <?= $fields[11] ?> </div>
+               <div id="S" class="psize <?= $fields[9] == 1 ? 'active' : '' ?>" value="1" >S : <?= $fields[9] ?> </div>
+               <div id="M" class="psize <?= $fields[10] == 1 ? 'active' : '' ?>" value="2">M : <?= $fields[10] ?> </div>
+               <div id="L" class="psize <?= $fields[11] == 1 ? 'active' : '' ?>" value="3">L : <?= $fields[11] ?> </div>
             </div>
                 <div class="quantity">
                    <p>Quantity :</p>
@@ -80,30 +78,27 @@
  </div>
 <script>
 function decreaseQuantity() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value > 1) {
         input.value = parseInt(input.value) - 1;
     }
 }
 
 function increaseQuantity() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value < 30) {
         input.value = parseInt(input.value) + 1;
     }
 }
 
 function checkQuantityInput() {
-    var input = document.getElementById('quantityInput');
+    var input = document.getElementById('Qty');
     if (input.value < 1) {
         input.value = 1;
     } else if (input.value > 30) {
         input.value = 30;
     }
 }
-
-document.getElementById('quantityInput').addEventListener('input', checkQuantityInput);
-
 
 
 let sizeButtons = document.querySelectorAll('.psize');

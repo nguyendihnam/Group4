@@ -538,10 +538,11 @@ function UpdateQuantity(count,id){
         Swal.fire({                  
             title: 'Sucess',
             text: 'Add Order Sucess',
-            showConfirmButton: false,
-            timer: 1000
+            showConfirmButton: false
+          }).then(() =>{
+            window.location = "Order.php";
           })
-        window.location = "Order.php";
+        
     }
 });
 }
@@ -604,3 +605,19 @@ function isValidNumber(number) {
     return a;
 }
 //-end huy
+
+//Tú
+function CheckNumber(count){
+    var id = "myNumber_" + count;
+    var QtyNumber = document.getElementById(id).value;
+    if(QtyNumber > 30){
+      Swal.fire({                  
+        title: 'Fail',
+        text: 'Please fill number max 30',
+        showConfirmButton: false
+      }).then((result) =>{
+        document.getElementById(id).value = 30;
+          
+      })
+    }
+  }

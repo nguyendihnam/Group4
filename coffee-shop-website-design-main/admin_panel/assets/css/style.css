@@ -359,3 +359,6 @@
   background-position: center;
   background-size: cover;
 }
+.table-scroll{
+  overflow-y: scroll;
+}
