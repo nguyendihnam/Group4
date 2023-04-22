@@ -91,8 +91,9 @@ else{
 						<!-- <td class="Order-Text-Table"><?=$field[2]?></td> -->
                         <td class="Order-Text-Table"><?=$field[3]?> VNĐ</td>
                         <td></td>
-                        <td><input type="button" id="EditQty" class="Order-btn" value ="Update" onclick="UpdateQuantity(<?=$count?>,<?=$field[4]?>)"></td>
+                        <!-- <td><input type="button" id="EditQty" class="Order-btn" value ="Update" onclick="UpdateQuantity(<?=$count?>,<?=$field[4]?>)"></td> -->
                         <td><input type="button" id="DeleteOrder" class="Order-btn" value ="Delete" onclick="DeleteOrder(<?=$field[4]?>)"></td>
+                        <input id="id_<?=$count?>" value="<?=$field[4]?>" hidden>
 					</tr>
                     <?php
                     $count += 1;
@@ -105,6 +106,7 @@ else{
             <?php
                 if($countOrder > 0):
                     ?>
+                <input type="button" id="DeleteOrder" class="Order-btn" value ="Update" onclick="UpdateQuantityOrder(<?=$count?>)">
                 <p class="Order-Text-Price"><strong class="Order-Text">Total Price:</strong><?=$sum?> VNĐ</p>
                 <?php
                    endif;

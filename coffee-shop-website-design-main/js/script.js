@@ -632,3 +632,36 @@ function CheckNumber(count){
       })
     }
   }
+  function UpdateQuantityOrder(count){
+    Swal.fire({                  
+        title: 'Confirm',
+        text: 'Are you sure you want to update?',
+        showConfirmButton: true,
+        showCancelButton : true
+      }).then((result) => {
+        if (result.value) {
+            for(var i = 0 ; i < count ; i++){
+                var quantity = "myNumber_" + i;
+                var QtyNumber = document.getElementById(quantity).value;
+                var IDV = "id_" + i;
+                var IDVal = document.getElementById(IDV).value;
+                $.ajax({
+                    url:"UpdateOrder.php",
+                    method:"POST",
+                    data:{ID: IDVal,
+                        Qty : QtyNumber
+                        },
+                    success:function(result){}
+                    });
+            }
+            Swal.fire({                  
+                title: 'Sucess',
+                text: 'Update Order Sucess',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+      })
+     
+
+    }
