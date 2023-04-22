@@ -46,11 +46,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <form  id="addCategory" enctype='multipart/form-data' action="./controller/addCatController.php" method="POST">
-          <div class="form-group">
+          <form  id="addCategory" enctype='multipart/form-data' action="./controller/AddCatController.php" method="POST">
+          <!-- <div class="form-group">
               <label for="c_name">Category ID :</label>
               <input type="text" class="form-control" name="ID" required>
-            </div>
+            </div> -->
             <div class="form-group">
               <label for="c_name">Category Name:</label>
               <input type="text" class="form-control" name="Name" required>
@@ -70,7 +70,7 @@
   </div>
 <script>
 function confirmAddCategory() {
-  if (confirm("Are you sure List-name Item Product ?")) {
+  if (confirm("Are you sure  Category ?-?")) {
     // gửi dữ liệu form lên server
     document.getElementById("addCategory").submit();
   }

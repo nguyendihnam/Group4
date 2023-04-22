@@ -355,6 +355,8 @@
   background-color: #0066ff;
 }
 .homebackground {
+  min-height: 100vh;
+  padding-top: 10rem;
   background: url(../images/coffee.jpg) no-repeat;
   background-position: center;
   background-size: cover;

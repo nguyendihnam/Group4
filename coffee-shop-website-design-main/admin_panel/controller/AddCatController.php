@@ -7,8 +7,8 @@
         $Name = $_POST['Name'];
        
          $insert = mysqli_query($conn,"INSERT INTO category
-         (ID , Name) 
-         VALUES ('$ID','$Name')");
+         ( Name) 
+         VALUES ('$Name')");
  
          if(!$insert)
          {

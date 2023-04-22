@@ -57,10 +57,10 @@ if(!$rs){
 mysqli_close($conn);
 ?>
 <body class="homebackground" >
-<!-- <link rel="stylesheet" href="../assets/css/style.css"/> -->
+<link rel="stylesheet" href="../assets/css/style.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="container" class="modal fade" id="myModalUpdate" role="dialog">
-    <h4 class="modal-title">Update Product</h4>
+    <h1 class="modal-title">Update Product</h1>
       <form method="post" >
           <table class="table table-borderedless">
           <div class="form-group">

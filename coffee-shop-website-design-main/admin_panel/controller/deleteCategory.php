@@ -7,7 +7,8 @@
     $data=mysqli_query($conn,$query);
 
     if($data){
-        echo"Category Item Deleted";
+        echo"Category Deleted :v ";
+        header("Location: ../index.php?category=success");
     }
     else{
         echo"Not able to delete";

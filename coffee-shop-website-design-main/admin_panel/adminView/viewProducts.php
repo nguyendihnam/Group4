@@ -155,7 +155,7 @@
   </div>
 <script>
 function confirmAddProduct() {
-  if (confirm("Bạn có chắc chắn muốn thêm sản phẩm này?")) {
+  if (confirm("Are You sure Add Item Product :) ?")) {
     // gửi dữ liệu form lên server
     document.getElementById("addProductForm").submit();
   }

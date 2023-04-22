@@ -392,6 +392,24 @@ section {
     font-style: italic;
     line-height: 3.6rem;
 }
+a:link {
+    color: black;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: pink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: black;
+  } 
 .menu-container-menu{
     min-height: 130vh;
     padding-top: 9rem;
