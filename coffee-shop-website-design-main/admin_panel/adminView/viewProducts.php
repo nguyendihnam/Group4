@@ -60,7 +60,7 @@
         <td><button class="btn btn-danger" style="height:60px"  onclick="deleteProduct('<?= $row['ID'] ?>')">Delete</button></td>
         <td><button class="btn btn-danger1" style="height:60px" onclick="RestoredProduct('<?= $row['ID'] ?>')">Revert</button></td>
         <td><button class="btn btn-warning" style="height:60px" type="button" data-toggle="modal"
-         data-target="#myModalUpdate"><a href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>" > Update</a></button></td>
+         data-target="#myModalUpdate"><a href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>" onclick="return confirm('Are you sure to Update Item?')" > Update</a></button></td>
     </tr>
       <?php
             $count=$count+1;
@@ -129,18 +129,18 @@
               </div>
             <div class="form-group">
                 <label for="s">S :</label>
-                <input type="number" class="form-control" id="s" name="s" required>
+                <input type="number" class="form-control" min="1" max="10"  name="s" id="s" required>
             </div>            
             <div class="form-group">
                 <label for="m">M :</label>
-                <input type="number" class="form-control" id="m" name="m" required>
+                <input type="number" class="form-control" min="1" max="10"  name="m" id="m" required>
             </div>
             <div class="form-group">
                 <label for="m">L :</label>
-                <input type="number" class="form-control" id="l" name="l" required>
+                <input type="number" class="form-control" min="1" max="10"  name="l" id="l" required>
             </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary" id="upload" style="height:40px">Add Item</button>
+                <button type="submit" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Add Item</button>
               </div>
             </form>
 
@@ -160,6 +160,37 @@ function confirmAddProduct() {
     document.getElementById("addProductForm").submit();
   }
 }
+  function checks() {
+    var input = document.getElementById('s');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+
+document.getElementById('s').addEventListener('input', checks);
+
+function checkm() {
+    var input = document.getElementById('m');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('m').addEventListener('input', checkm);
+
+function checkl() {
+    var input = document.getElementById('l');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('l').addEventListener('input', checkl);
+
 </script>
 </div>
 

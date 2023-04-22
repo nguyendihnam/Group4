@@ -460,7 +460,7 @@ a:link {
     font-size: 2.0rem;
 }
 .card-description-menu {
-    font-size: 3.0rem;
+    font-size: 2.0rem;
 }
 .product-details {
     display: flex;
@@ -807,40 +807,41 @@ a:link {
     width: 90%;
 }
 .big-img{
-    width: 65.0rem;
-    height: 40.0rem;
+    width: 70.0rem;
+    height: 50.0rem;
 }
 .big-img img{
     width: 60rem;
-    height: 40rem;
+    height: 50rem;
 }
 .images{
     display: flex;
-    justify-content: space-between;
-    width: 65%;
-    margin-top: 1.5rem;
+    flex-direction: row-reverse;
+    width: 75%;
+    margin-top: 2rem;
 }
 .small-img{
-    width: 8rem;
+    width: 9rem;
+    height: 9rem;
     overflow: hidden;
-    border: 1.5px solid black;
+    border: 0.5px solid black;
 }
 .small-img img{
     width: 8rem;
     height: 8rem;
     cursor: pointer;
-    transform: all 0.5s ease;
+    transform: all 1.5s ease;
 }
 .small-img:hover img{
     transform: scale(1.2);
 }
 .url{
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 400;
     color: rgb(255,102,0);
 }
 .pname{
-    font-size: 22px;
+    font-size: 4rem;
     font-weight: 600;
     margin-top: 50px;
 }

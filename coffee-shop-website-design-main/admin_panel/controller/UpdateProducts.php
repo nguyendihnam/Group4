@@ -51,6 +51,7 @@ if(!$rs){
   error_clear_last();
   echo'Nothing to update';
 }else{
+  echo'Are you sure to Update Item ?';
   header("location: ../index.php?Update=success" );
 }
 }
@@ -71,8 +72,7 @@ mysqli_close($conn);
                 <input type="text" class="form-control" id="Name" name="Name" value="<?= $row[2] ?>" required>
             </div>
             <div class="form-group">
-              <label for="categoryID">Category ID:</label>
-              <input class="form-control" id="categoryID" name="categoryID" value="<?= $row[1] ?> "required>
+              <input class="form-control" id="categoryID" name="categoryID" value="<?= $row[1] ?> "hidden >
             </div>
             <div class="form-group">
               <label for="thumbnail">Thumbnail:</label>
@@ -97,9 +97,42 @@ mysqli_close($conn);
               <label for="l">L:</label>
               <input type="number" class="form-control" id="l" name="l" value="<?= $row[11] ?>" required>
             </div>
-            <input type="submit" name="btnUpdate" class="btn btn-secondary" value="Update Item" onclick="return confirm('Are you sure to Update Item <?=$fields[0]?>?')" >
+            <input type="submit" name="btnUpdate" class="btn btn-secondary" value="Update Item" onclick="return confirm('Are you sure to Item .=(+-+)=.?')" >
           </table>
         </form>
       </div>
+      <script>
+          function checks() {
+    var input = document.getElementById('s');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+
+document.getElementById('s').addEventListener('input', checks);
+
+function checkm() {
+    var input = document.getElementById('m');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('m').addEventListener('input', checkm);
+
+function checkl() {
+    var input = document.getElementById('l');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('l').addEventListener('input', checkl);
+
+      </script>
   </body>
   
