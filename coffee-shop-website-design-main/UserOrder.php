@@ -15,6 +15,7 @@ else{
         when ordD.Size = 'M' then pd.M * ordD.Qty
         when ordD.Size = 'L' then pd.L * ordD.Qty
         END ) as TotalPrice,
+    DATE_FORMAT(OrderDate,'%d/%m/%Y') as OrderDate,
     case
         when ord.Status = 1 then 'Waiting Approved' 
         when ord.Status = 2 then 'Complete' 
@@ -49,6 +50,7 @@ else{
 						<th class="Order-Text-Table">Order ID</th>
                         <!-- <th colspan ="4" class="Order-Text-Table">Note</th> -->
 						<th class="Order-Text-Table">Total Price</th>
+                        <th class="Order-Text-Table">Order Date</th>
                         <th class="Order-Text-Table">Status</th>
 						<th class="Order-Text-Table">Action</th>
 					</tr>
@@ -66,6 +68,7 @@ else{
 						<!-- <td colspan ="4" class="Order-Text-Table"><?=$field[1]?></td> -->
 						<td class="Order-Text-Table"><?=$field[2]?> VNĐ</td>
                         <td class="Order-Text-Table"><?=$field[3]?></td>
+                        <td class="Order-Text-Table"><?=$field[4]?></td>
                         <td><button class="btn" id="btnDetail" onclick="GetDetailOrder(<?=$field[0]?>)">View</button></td>
 					</tr>
                     <?php

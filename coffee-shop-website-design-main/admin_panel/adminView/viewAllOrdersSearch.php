@@ -1,24 +1,46 @@
 <?php
       include_once "../config/dbconnect.php";
-      $sql="select 
-      ord.ID, 
-      us.UserName, 
-      ord.Note,
-      ord.OrderDate, 
-      case when ord.Status = 0 then 'Order Draf' 
-         when ord.Status = 1 then 'Waiting Approved' 
-         when ord.Status = 2 then 'Approved' 
-      end StatusOrder,
-      ord.Status
-      from orders ord 
-      inner join user us on ord.UserID = us.ID";
+      $sql ="";
+      if(isset($_POST["Search"]))
+      {
+        $search = $_POST["Search"];
+        $sql="
+        select * from (
+          select 
+        ord.ID, 
+        us.UserName, 
+        ord.Note,
+        ord.OrderDate, 
+        case when ord.Status = 0 then 'Order Draf' 
+           when ord.Status = 1 then 'Waiting Approved' 
+           when ord.Status = 2 then 'Approved' 
+        end StatusOrder,
+        ord.Status
+        from orders ord 
+        inner join user us on ord.UserID = us.ID
+        ) main
+        where main.UserName like  '%{$search}%' 
+        OR main.Note like '%{$search}%' 
+        OR main.StatusOrder like '%{$search}%' 
+        ";
+      }
+      else{
+        $sql="select 
+        ord.ID, 
+        us.UserName, 
+        ord.Note,
+        ord.OrderDate, 
+        case when ord.Status = 0 then 'Order Draf' 
+           when ord.Status = 1 then 'Waiting Approved' 
+           when ord.Status = 2 then 'Approved' 
+        end StatusOrder,
+        ord.Status
+        from orders ord 
+        inner join user us on ord.UserID = us.ID";
+      }
+     
       $result=$conn-> query($sql);
 ?>
-<div>
-  <lable>Search</lable>
-  <input id="tbSearch" type = "textbox" placeholder="">
-  <input type="button" onclick="SearchOrder()" value="Search"> 
-</div>  
 <div id="ordersBtn" >
   <h2>Order Details</h2>
   <table class="table table-striped">

@@ -161,3 +161,14 @@ function deleteCategory(ID) {
         });
     } 
 }
+function SearchOrder() {
+    var searchContent = $("#tbSearch").val();
+    $.ajax({
+        url: "./adminView/viewAllOrdersSearch.php",
+        method: "POST",
+        data: { Search: searchContent },
+        success: function (data) {
+           $("#ordersBtn").html(data);
+        }
+    });
+}
