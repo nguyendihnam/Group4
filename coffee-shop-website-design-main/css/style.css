@@ -729,6 +729,9 @@ a:link {
     color: #ff3860;
     font-size: 1.6rem;
 }
+.field-required {
+    color: #ff3860 !important;
+}
 
 .alert-success {
     font-size: 1.8rem;

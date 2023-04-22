@@ -25,13 +25,13 @@
         <h1 class="heading">Sign In</h1>
         <div class="Signin">
             <div class="input-control">
-                    <h2>User Name</h2>
+                    <h2>User Name <span class="field-required">*</span></h2>
                     <input type="text" placeholder="Name" class="box" name="UserName" id="UserName"  >
                     <div class="error"></div>
                 </div>
                 
                 <div class="input-control">
-                    <h2>Password</h2>
+                    <h2>Password <span class="field-required">*</span></h2>
                     <input type="password" placeholder="Password" class="box" name="Password" id="Password">
                     <div class="error"></div>
                 </div>
