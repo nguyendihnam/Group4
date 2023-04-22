@@ -5,6 +5,7 @@
         <h1 class="heading">Contact <span>send us message</span></h1>
 
         <form method="post" id="form">
+            <p style="color: red; font-size: 1.4rem;">* All fields are required</p>
             <div class="input-control">
                 <input type="text" placeholder="Name" class="box" name="txtName" id="nameFull" autocomplete="off">
                 <div class="error"></div>
