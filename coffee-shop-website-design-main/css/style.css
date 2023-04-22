@@ -599,9 +599,11 @@ a:link {
 }
 .Order-Title {
     font-size: 3rem;
+   
 }
 .Order-Text {
-    font-size: 2rem;
+    font-size: 2rem ;
+    text-transform: none !important;
 }
 .Order-Text-Table {
     text-align: center !important; 
