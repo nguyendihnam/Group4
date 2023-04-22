@@ -68,9 +68,25 @@
                   <input type="number" min="1" max="30" value="1" id="Qty" on>
                   <button onclick="increaseQuantity()" class="quantitybutton"> + </button>
                 </div>
-                <div class="btn-box" >
+      <?php
+         if(isset($_SESSION['User'])){
+            ?>
+         
+         <div class="btn-box" >
                <button class="cart-btn" onclick="AddOrder(<?=$id?>)">Add To Cart</button>
             </div>
+         <?php
+         }
+         else{
+            ?>
+             <div class="btn-box" >
+               <a href="Signin.php" class="Order-btn">Please Login To Add Product</a>
+            </div>
+         <?php  
+         }
+      ?>
+      
+               
           </div>
        </div>
        <?php
