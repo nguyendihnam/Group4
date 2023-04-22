@@ -526,25 +526,36 @@ function AddOrder(id){
     })
 }
 function UpdateQuantity(count,id){
-    var Qty = "myNumber_" + count;
-    var QtyNumber = document.getElementById(Qty).value;
-    $.ajax({
-    url:"UpdateOrder.php",
-    method:"POST",
-    data:{ID: id,
-          Qty : QtyNumber
-        },
-    success:function(result){
-        Swal.fire({                  
-            title: 'Sucess',
-            text: 'Add Order Sucess',
-            showConfirmButton: false
-          }).then(() =>{
-            window.location = "Order.php";
-          })
+    Swal.fire({                  
+        title: 'Confirm',
+        text: 'Are you sure you want to update?',
+        showConfirmButton: true,
+        showCancelButton : true
+      }).then((result) => {
+        if (result.value) {
+            var Qty = "myNumber_" + count;
+        var QtyNumber = document.getElementById(Qty).value;
+        $.ajax({
+        url:"UpdateOrder.php",
+        method:"POST",
+        data:{ID: id,
+            Qty : QtyNumber
+            },
+        success:function(result){
+            Swal.fire({                  
+                title: 'Sucess',
+                text: 'Update Order Sucess',
+                showConfirmButton: false
+            }).then(() =>{
+                window.location = "Order.php";
+            })
         
-    }
-});
+            }
+        });
+        }
+
+      });
+    
 }
 function DeleteOrder(id){
     Swal.fire({                  

@@ -74,14 +74,17 @@ function viewDetailOrder(id){
 }
 //Tú
 function UpdateStatuOrder(id){
-    $.ajax({
-        url:"./controller/updateOrderStatus.php",
-        method:"POST",
-        data:{ID : id},
-        success:function(result){
-            showOrders();
-        }
-    });
+    if (confirm("Are you sure Update Status Order?")){
+        $.ajax({
+            url:"./controller/updateOrderStatus.php",
+            method:"POST",
+            data:{ID : id},
+            success:function(result){
+                showOrders();
+            }
+        });
+    }
+    
 }
 
 
