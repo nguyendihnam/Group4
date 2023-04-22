@@ -65,7 +65,7 @@
             <div class="quantity">
                    <p>Quantity :</p>
                   <button type="submit" onclick="decreaseQuantity()" class="quantitybutton" > - </button>
-                  <input type="number" min="1" max="30" value="1" id="Qty" on>
+                  <input type="number" min="1" max="30" value="1" id="Qty" >
                   <button onclick="increaseQuantity()" class="quantitybutton"> + </button>
                 </div>
       <?php
