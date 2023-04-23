@@ -9,7 +9,7 @@
     $rsCategory = mysqli_query($conn, $queryCategory);
     $countCategory = mysqli_num_rows($rsCategory);
 
-    $queryProduct = "SELECT * FROM product ORDER BY ID DESC LIMIT 6";
+    $queryProduct = "SELECT * FROM product WHERE Deleted = 0 ORDER BY ID DESC LIMIT 6";
     $rsProduct = mysqli_query($conn, $queryProduct);
     $countProduct = mysqli_num_rows($rsProduct);
 
