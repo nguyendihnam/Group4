@@ -82,10 +82,7 @@ function validInput() {
         setError(phone, 'Number is required');
         valid = false;
     } else if (!isValidNumber(phoneVal)) {
-        setError(phone, 'Please enter number only');
-        valid = false;
-    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
-        setError(phone, 'Max 13 numbers and min 10 numbers');
+        setError(phone, 'Please enter valid phone number which is max 13 and min 10 digits include 0 at start');
         valid = false;
     } else {
         setDefault(phone);
@@ -150,10 +147,7 @@ function validUpdate() {
         setError(phone, 'Number is required');
         valid = false;
     } else if (!isValidNumber(phoneVal)) {
-        setError(phone, 'Please enter number only');
-        valid = false;
-    } else if (phoneVal.length > 13 || phoneVal.length < 10) {
-        setError(phone, 'Max 13 numbers and min 10 numbers');
+        setError(phone, 'Please enter valid phone number which is max 13 and min 10 digits include 0 at start');
         valid = false;
     } else {
         setDefault(phone);
@@ -280,10 +274,7 @@ function sendContact() {
         setError(phone, 'Phone is required');
         valid = false;
     } else if(!isValidNumber(phoneValue)) {
-        setError(phone, 'Invalid number');
-        valid = false;
-    } else if(phoneValue.length > 13 || phoneValue.length < 10) {
-        setError(phone, 'Phone max 13 numbers and min 10 numbers');
+        setError(phone, 'Please enter valid phone number which is max 13 and min 10 digits include 0 at start');
         valid = false;
     } else {
         setDefault(phone);
@@ -609,12 +600,12 @@ function isValidEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-//Valid number
+//Valid number will match phone numbers that start with 0, have between 9 and 12 digits, and do not contain any digit that repeats more than 8 times in a row. 
 function isValidNumber(number) {
-    const re = /^[0-9]+$/;
-    var a = re.test(number);
-    return a;
+    const pattern = /^0(?!.*(\d)\1{8})\d{9,12}$/;
+    return pattern.test(number);
 }
+  
 //-end huy
 
 //Tú

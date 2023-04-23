@@ -1,7 +1,7 @@
  <!-- FOOTER -->
  <section class="footer">
         <div class="box-container">
-            <div class="box">
+            <!-- <div class="box">
                 <h3>our branches</h3>
                 <a href="#"><i class="fas fa-arrow-right"></i> india</a>
                 <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
@@ -17,7 +17,7 @@
                 <a href="#menu"><i class="fas fa-arrow-right"></i> menu</a>
                 <a href="#review"><i class="fas fa-arrow-right"></i> review</a>
                 <a href="#book"><i class="fas fa-arrow-right"></i> book</a>
-            </div>
+            </div> -->
 
             <div class="box">
                 <h3>contact info</h3>

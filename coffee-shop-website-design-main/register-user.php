@@ -9,6 +9,7 @@
         ?>
 
         <form method="post" action="register_process.php" id="form">
+            <p style="color: red; font-size: 1.4rem;">* All fields are required</p>
             <div class="input-control">
                 <input type="text" placeholder="User Name" class="box" name="txtUserName" id="userName"
                     autocomplete="off">
