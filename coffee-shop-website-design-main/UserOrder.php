@@ -66,7 +66,7 @@ else{
 					<tr>
 						<td class="Order-Text-Table"><?=$field[0]?></td>
 						<!-- <td colspan ="4" class="Order-Text-Table"><?=$field[1]?></td> -->
-						<td class="Order-Text-Table"><?=$field[2]?> VNĐ</td>
+						<td class="Order-Text-Table"><?=$field[2]?> $</td>
                         <td class="Order-Text-Table"><?=$field[3]?></td>
                         <td class="Order-Text-Table"><?=$field[4]?></td>
                         <td><button class="btn" id="btnDetail" onclick="GetDetailOrder(<?=$field[0]?>)">View</button></td>

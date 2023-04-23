@@ -89,7 +89,7 @@ else{
                         <span><input type="number" id="myNumber_<?=$count?>" class="Order-Qty" value="<?=$field[2]?>" min="1"  onchange="CheckNumber(<?=$count?>)" step="1" max="30"></span>
                         <button onclick="document.getElementById('myNumber_<?=$count?>').stepUp()">+</button> </td>
 						<!-- <td class="Order-Text-Table"><?=$field[2]?></td> -->
-                        <td class="Order-Text-Table"><?=$field[3]?> VNĐ</td>
+                        <td class="Order-Text-Table"><?=$field[3]?> $</td>
                         <td></td>
                         <!-- <td><input type="button" id="EditQty" class="Order-btn" value ="Update" onclick="UpdateQuantity(<?=$count?>,<?=$field[4]?>)"></td> -->
                         <td><input type="button" id="DeleteOrder" class="Order-btn" value ="Delete" onclick="DeleteOrder(<?=$field[4]?>)"></td>
@@ -107,7 +107,7 @@ else{
                 if($countOrder > 0):
                     ?>
                 <input type="button" id="DeleteOrder" class="Order-btn" value ="Update" onclick="UpdateQuantityOrder(<?=$count?>)">
-                <p class="Order-Text-Price"><strong class="Order-Text">Total Price:</strong><?=$sum?> VNĐ</p>
+                <p class="Order-Text-Price"><strong class="Order-Text">Total Price: </strong><?=$sum?> $</p>
                 <?php
                    endif;
 
