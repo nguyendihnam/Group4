@@ -159,7 +159,7 @@ function deleteCategory(ID) {
             data: { ID: ID },
             success: function (data) {
                 alert('The Products has been successlly deleted! .');
-                showProducts();
+                showCategory();
             }
         });
     } 
