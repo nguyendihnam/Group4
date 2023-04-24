@@ -191,8 +191,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `UserName`, `Email`, `PhoneNumber`, `Address`, `Password`, `RoleID`, `CreateDate`, `UpdateDate`, `Deleted`) VALUES
-(1, 'Admin', 'admin@gmail.com', '1234567890', 'admin', '123', 1, NULL, '2023-04-12 20:39:32', 0),
-(2, 'user', 'user@gmail.com', '1234567890', 'user', '123', 2, NULL, NULL, 0);
+(1, 'Admin', 'admin@gmail.com', '1234567890', 'admin', '123456789', 1, NULL, '2023-04-12 20:39:32', 0),
+(2, 'user', 'user@gmail.com', '1234567890', 'user', '987654321', 2, NULL, NULL, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
