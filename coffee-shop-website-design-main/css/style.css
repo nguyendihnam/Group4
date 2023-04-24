@@ -403,7 +403,7 @@ a:link {
   
   /* mouse over link */
   a:hover {
-    color: pink;
+    color: black;
   }
   
   /* selected link */

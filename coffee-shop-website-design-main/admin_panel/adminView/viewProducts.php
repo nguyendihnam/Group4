@@ -1,19 +1,19 @@
 
 <div >
   <h2>Product Items</h2>
-    <div class="outer">
+    <div class="outer" style="height: 600px; width: 1350px;">
       <table class="table ">
         <thead>
           <tr>
-              <th class="text-center">ID</th>
+              <!-- <th class="text-center">ID</th> -->
               <th class="text-center">Name</th>
               <th class="text-center">CategoryID </th>
-              <th class="text-center">Thumbnail</th>
-              <th class="text-center">Description</th>
-              <th class="text-center">CreatedDate</th>
-              <th class="text-center">UpdatedDate</th>
+              <!-- <th class="text-center">Thumbnail</th>
+              <th class="text-center">Description</th> -->
+              <!-- <th class="text-center">CreatedDate</th>
+              <th class="text-center">UpdatedDate</th> -->
               <th class="text-center">Status</th>
-              <th class="text-center">Image</th>
+              <!-- <th class="text-center">Image</th> -->
               <th class="text-center">S</th>
               <th class="text-center">M</th>
               <th class="text-center">L</th>
@@ -45,15 +45,15 @@
       while ($row = $result->fetch_assoc()) {
     ?>
     <tr>
-        <td><?= $row['ID'] ?></td>
+        <!-- <td><?= $row['ID'] ?></td> -->
         <td><?= substr($row["Name"],0,10) ?></td>
         <td><?= $row["CategoryName"] ?></td>
-        <td><?= substr($row["Thumbnail"],0,10) ?></td>
-        <td><?= substr($row["Description"],0,10) ?></td>
-        <td><?= substr($row["CreatedDate"],0,10)?></td>
-        <td><?= substr($row["UpdatedDate"],0,10) ?></td>
+        <!-- <td><?= substr($row["Thumbnail"],0,10) ?></td>
+        <td><?= substr($row["Description"],0,10) ?></td> -->
+        <!-- <td><?= substr($row["CreatedDate"],0,10)?></td>
+        <td><?= substr($row["UpdatedDate"],0,10) ?></td> -->
         <td><?= $row["Status"] ?></td>
-        <td><?= substr($row["Image"],0,10) ?></td>
+        <!-- <td><?= substr($row["Image"],0,10) ?></td> -->
         <td><?= $row["S"] ?></td>
         <td><?= $row["M"] ?></td>
         <td><?= $row["L"] ?></td>
