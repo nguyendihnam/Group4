@@ -1,5 +1,5 @@
 LIST OF FILES:
-1. G01_Doc.docx
-2. G01_Install.docx
-3. G01_shows.pptx
-4. G01_Clip.mp4
+1. 01. Design Docs - The Coffee & Cake_Group4.docx
+2. 02. Installation Guide - 04. Installation_Guide.docx
+3. 03. Presentation - The Coffee & Cake_Group4.pptx
+4. 04. Video Clip - link_video.txt ( Bạn hãy nhấp vào link_video.txt copy đoạn link trong file và lên mạng thưởng thức video thành quả >.<)
