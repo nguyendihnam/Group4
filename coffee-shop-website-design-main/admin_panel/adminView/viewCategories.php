@@ -4,7 +4,7 @@
   <table class="table ">
     <thead>
       <tr>
-        <th class="text-center">#</th>
+        <th class="text-center">ID</th>
         <th class="text-center">Category Name</th>
         <th class="text-center" colspan="2">Action</th>
       </tr>
@@ -21,7 +21,7 @@
       <td><?=$count?></td>
       <td><?=$row["Name"]?></td>   
       <!-- <td><button class="btn btn-primary" >Edit</button></td> -->
-      <td><button class="btn btn-danger" style="height:40px" onclick="categoryDelete('<?=$row['ID']?>')">Delete</button></td>
+      <td><button class="btn btn-danger" style="height:40px" onclick="deleteCategory('<?=$row['ID']?>')">Delete</button></td>
       </tr>
       <?php
             $count=$count+1;
@@ -46,13 +46,17 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <form  enctype='multipart/form-data' action="./controller/addCatController.php" method="POST">
+          <form  id="addCategory" enctype='multipart/form-data' action="./controller/AddCatController.php" method="POST">
+          <!-- <div class="form-group">
+              <label for="c_name">Category ID :</label>
+              <input type="text" class="form-control" name="ID" required>
+            </div> -->
             <div class="form-group">
               <label for="c_name">Category Name:</label>
-              <input type="text" class="form-control" name="c_name" required>
+              <input type="text" class="form-control" name="Name" required>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-secondary" name="upload" style="height:40px">Add Category</button>
+              <button type="submit" class="btn btn-secondary" name="upload" style="height:40px" onclick="confirmAddCategory()" >Add Category</button>
             </div>
           </form>
 
@@ -64,7 +68,14 @@
       
     </div>
   </div>
-
+<script>
+function confirmAddCategory() {
+  if (confirm("Are you sure  Category ?-?")) {
+    // gửi dữ liệu form lên server
+    document.getElementById("addCategory").submit();
+  }
+}
+</script>
   
 </div>
    

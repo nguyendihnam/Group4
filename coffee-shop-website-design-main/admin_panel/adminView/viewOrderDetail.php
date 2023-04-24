@@ -1,16 +1,4 @@
-<div class="container">
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Quantity</th>
-            <th>Unit Price</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <?php
+<?php
         include_once "../config/dbconnect.php";
         $ID= $_GET['orderID'];
         //echo $ID;
@@ -26,6 +14,27 @@
         inner join product pr on ordD.ProductID = pr.ID
         where ordD.OrderID = '$ID'";
         $result=$conn-> query($sql);
+?>
+
+<?php 
+    if ($result-> num_rows == 0)
+        echo 'Nothing';
+    else{
+        ?>
+      
+<div class="container">
+<table class="table table-striped table-scroll">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <?php
         $count=1;
         if ($result-> num_rows > 0){
             while ($row=$result-> fetch_assoc()) {               
@@ -42,5 +51,8 @@
             }
         }
     ?>
+      <?php
+    }
+?>
 </table>
 </div>

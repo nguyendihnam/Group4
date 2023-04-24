@@ -4,8 +4,8 @@
 <h4>Edit Product Detail</h4>
 <?php
     include_once "../config/dbconnect.php";
-	$ID=$_POST['record'];
-	$qry=mysqli_query($conn, "SELECT * FROM product WHERE product_id='$ID'");
+	$ID=$_POST['ID'];
+	$qry=mysqli_query($conn, "SELECT * FROM product WHERE ID ='$ID'");
 	$numberOfRow=mysqli_num_rows($qry);
 	if($numberOfRow>0){
 		while($row1=mysqli_fetch_array($qry)){

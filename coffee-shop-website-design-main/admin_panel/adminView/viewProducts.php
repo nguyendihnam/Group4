@@ -1,101 +1,197 @@
 
 <div >
-  <h3>List Product</h3>
-  <table class="table ">
-    <thead>
-      <tr>
-        <th class="text-center">#</th>
-        <th class="text-center">Name</th>       
-        <th class="text-center" >CategoryID </th>
-        <th class="text-center">Thumbnail</th>
-        <th class="text-center">Description</th>
-        <th class="text-center">CreatedDate</th>
-        <th class="text-center">Status</th>
-        <th class="text-center">Image</th>
-        <th class="text-center">S</th>
-        <th class="text-center">M</th>
-        <th class="text-center">L</th>
-        <th class="text-center">Action</th>
-      </tr>
-    </thead>
+  <h2>Product Items</h2>
+    <div class="outer">
+      <table class="table ">
+        <thead>
+          <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">CategoryID </th>
+              <th class="text-center">Thumbnail</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">CreatedDate</th>
+              <th class="text-center">UpdatedDate</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Image</th>
+              <th class="text-center">S</th>
+              <th class="text-center">M</th>
+              <th class="text-center">L</th>
+              <th class="text-center" colspan="3" >Action</th>
+            </tr>
+        </thead>
     <?php
-      include_once "../config/dbconnect.php";
-      $sql="select 
-      pr.ID,
-      pr.Name,
-      ct.Name as CategoryName,
-      pr.Thumbnail,
-      pr.Description,
-      pr.CreatedDate,
-      case when pr.Deleted = 0 then 'Active' else 'Deactive' END as Status,
-      pr.Image,
-      pr.S,
-      pr.M,
-      pr.L
-      from product pr
-      inner join category ct on pr.CategoryID = ct.ID";
-      $result=$conn-> query($sql);
-      $count=1;
-      if ($result-> num_rows > 0){
-        while ($row=$result-> fetch_assoc()) {
+    #1. Start session
+    session_start();
+    include_once "../config/dbconnect.php";
+    $sql = "SELECT 
+    pr.ID,
+    pr.Name,
+    ct.Name as CategoryName,
+    pr.Thumbnail,
+    pr.Description,
+    pr.CreatedDate,
+    pr.UpdatedDate,
+    CASE WHEN pr.Deleted = 0 THEN 'Active' ELSE 'Deactive' END as Status,
+    pr.Image,
+    pr.S,
+    pr.M,
+    pr.L
+    FROM product pr
+    INNER JOIN category ct ON pr.CategoryID = ct.ID";
+    $result = $conn->query($sql);
+    $count = 1;
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
     ?>
     <tr>
-      <td><?=$count?></td>
-      <td><?=$row["Name"]?></td>
-      <td><?=$row["CategoryName"]?></td>
-      <td><?=$row["Thumbnail"]?></td>
-      <td><?=$row["Description"]?></td>
-      <td><?=$row["CreatedDate"]?></td>
-      <td><?=$row["Status"]?></td>
-      <td><?=$row["Image"]?></td>
-      <td><?=$row["S"]?></td>
-      <td><?=$row["M"]?></td>
-      <td><?=$row["L"]?></td>
-      <!-- <td><button class="btn btn-primary" >Edit</button></td> -->
-      <td><button class="btn btn-danger" style="height:40px" onclick="sizeDelete('<?=$row['ID']?>')">Delete</button></td>
-      </tr>
+        <td><?= $row['ID'] ?></td>
+        <td><?= substr($row["Name"],0,10) ?></td>
+        <td><?= $row["CategoryName"] ?></td>
+        <td><?= substr($row["Thumbnail"],0,10) ?></td>
+        <td><?= substr($row["Description"],0,10) ?></td>
+        <td><?= substr($row["CreatedDate"],0,10)?></td>
+        <td><?= substr($row["UpdatedDate"],0,10) ?></td>
+        <td><?= $row["Status"] ?></td>
+        <td><?= substr($row["Image"],0,10) ?></td>
+        <td><?= $row["S"] ?></td>
+        <td><?= $row["M"] ?></td>
+        <td><?= $row["L"] ?></td>
+        <td><button class="btn btn-danger" style="height:60px"  onclick="deleteProduct('<?= $row['ID'] ?>')">Delete</button></td>
+        <td><button class="btn btn-danger1" style="height:60px" onclick="RestoredProduct('<?= $row['ID'] ?>')">Revert</button></td>
+        <td><button class="btn btn-warning" style="height:60px" type="button" data-toggle="modal"
+         data-target="#myModalUpdate"><a href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>" onclick="return confirm('Are you sure to Update Item?')" > Update</a></button></td>
+    </tr>
       <?php
             $count=$count+1;
           }
         }
       ?>
   </table>
-
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-secondary" style="height:40px" data-toggle="modal" data-target="#myModal">
+  </div>
+   <!-- Trigger the modal with a button -->
+   <button type="button" class="btn btn-secondary " style="height:50px" data-toggle="modal" data-target="#myModal">
     Add Product
   </button>
-
-  <!-- Modal -->
+<div id="AddproductItem" >
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">New Product Record</h4>
+          <h4 class="modal-title">Add Product</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">
-          <form  enctype='multipart/form-data' action="./controller/addSizeController.php" method="POST">
-            <div class="form-group">
-              <label for="size">Size Number:</label>
-              <input type="text" class="form-control" name="size" required>
+          <div class="modal-body">
+            <form id="addProductForm" enctype='multipart/form-data' action="./controller/addProduct.php" method="POST">
+              <div class="form-group">
+                  <label for="Name">Name :</label>
+                  <input type="text" class="form-control" id="Name" name="Name" required>
+              </div>
+              <div class="form-group">
+                <label for="categoryID">Category ID :</label>
+                <select class="form-control" id="categoryID" name="categoryID" required>
+                  <?php
+                  include_once "../config/dbconnect.php";
+                  $sql = "SELECT * FROM category";
+                  $result = $conn->query($sql);
+                  if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                  ?>
+                      <option value="<?= $row['ID'] ?>"><?= $row['Name'] ?></option>
+                  <?php
+                    }
+                  }
+                  ?>
+                </select>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-secondary" name="upload" style="height:40px">Add Size</button>
+                <label for="thumbnail">Thumbnail :</label>
+                <input type="text" class="form-control" id="thumbnail" name="thumbnail" required>
             </div>
-          </form>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="createdDate">Created Date :</label>
+                <input type="date" class="form-control" id="createdDate" name="createdDate" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status :</label>
+                <select class="form-control" id="status" name="status" required>
+                  <option value="0">Active</option>
+                  <option value="1">Deactive</option>
+                </select>
+            </div>
+            <div class="form-group">
+                  <label for="image">Image :</label>
+                  <input type="text" class="form-control" id="image" name="image" required >
+              </div>
+            <div class="form-group">
+                <label for="s">S :</label>
+                <input type="number" class="form-control" min="1" max="10"  name="s" id="s" required>
+            </div>            
+            <div class="form-group">
+                <label for="m">M :</label>
+                <input type="number" class="form-control" min="1" max="10"  name="m" id="m" required>
+            </div>
+            <div class="form-group">
+                <label for="m">L :</label>
+                <input type="number" class="form-control" min="1" max="10"  name="l" id="l" required>
+            </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Add Item</button>
+              </div>
+            </form>
 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="height:40px">Close</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="height:40px">Close</button>
-        </div>
+        
       </div>
-      
     </div>
   </div>
+<script>
+function confirmAddProduct() {
+  if (confirm("Are You sure Add Item Product :) ?")) {
+    // gửi dữ liệu form lên server
+    document.getElementById("addProductForm").submit();
+  }
+}
+  function checks() {
+    var input = document.getElementById('s');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
 
-  
+document.getElementById('s').addEventListener('input', checks);
+
+function checkm() {
+    var input = document.getElementById('m');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('m').addEventListener('input', checkm);
+
+function checkl() {
+    var input = document.getElementById('l');
+    if (input.value < 1) {
+        input.value = 1;
+    } else if (input.value > 10) {
+        input.value = 10;
+    }
+}
+document.getElementById('l').addEventListener('input', checkl);
+
+</script>
 </div>
-   
+
+</div>

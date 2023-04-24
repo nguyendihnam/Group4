@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
         <?php
             include "./adminHeader.php";
             include "./sidebar.php";
-           
             include_once "./config/dbconnect.php";
         ?>
 
@@ -68,11 +68,11 @@
             }else if (isset($_GET['category']) && $_GET['category'] == "error") {
                 echo '<script> alert("Adding Unsuccess")</script>';
             }
-            if (isset($_GET['size']) && $_GET['size'] == "success") {
-                echo '<script> alert("Size Successfully Added")</script>';
-            }else if (isset($_GET['size']) && $_GET['size'] == "error") {
-                echo '<script> alert("Adding Unsuccess")</script>';
-            }
+            // if (isset($_GET['upload']) && $_GET['upload'] == "success") {
+            //     // echo '<script> alert("Successfully Added")</script>';
+            // }else if (isset($_GET['upload']) && $_GET['upload'] == "error") {
+            //     echo '<script> alert("Adding Unsuccess")</script>';
+            // }
             if (isset($_GET['variation']) && $_GET['variation'] == "success") {
                 echo '<script> alert("Variation Successfully Added")</script>';
             }else if (isset($_GET['variation']) && $_GET['variation'] == "error") {
@@ -86,6 +86,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+	<script src="./assets/js/contact-modal.js"></script>
 </body>
  
 </html>

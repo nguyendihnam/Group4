@@ -3,12 +3,12 @@ session_start();
 include_once 'DBconnect.php';
 
 // Query to get all categories
-$queryCategory = "SELECT * FROM Category";
+$queryCategory = "SELECT * FROM category";
 $rsCategory = mysqli_query($conn, $queryCategory);
 $countCategory = mysqli_num_rows($rsCategory);
 
 // Query to get products by CategoryID
-$queryProduct = "SELECT * FROM Product WHERE Deleted = 0";
+$queryProduct = "SELECT * FROM product WHERE Deleted = 0";
 if (isset($_GET['categoryID'])) {
     $categoryID = $_GET['categoryID'];
     $queryProduct .= " AND CategoryID = $categoryID";
@@ -38,24 +38,24 @@ else:
                 <?php endwhile; ?>
                 </ul>
             </nav>
-            <div>
+            <div class="card-container" >
             <?php
             // Loop through products and display
             if ($countProduct == 0):
                 echo 'Records not found';
             else:
-                while ($product = mysqli_fetch_array($rsProduct)):
+                while ($fields = mysqli_fetch_array($rsProduct)):
             ?>
                 <div class="card">
-                    <a href="./image/<?= $product['Image'] ?>" class="card-thumbnail">
-                        <img src="image/<?= $product['Thumbnail'] ?>" alt="<?= $product['Name'] ?>" class="img-thumbnail-product">
+                    <a href="./image/<?= $fields[8] ?>.jpg" class="card-thumbnail">
+                        <img src="./image/<?= $fields[8] ?>.jpg" alt="<?= $fields[2] ?>" class="img-thumbnail">
                     </a>
                     <div class="card-text-container">
-                        <a href="./ProductDetails.php?id=<?= $product['ID'] ?>" class="card-item">
-                            <h2 class="card-name"><?= $product['Name'] ?></h2>
+                        <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="card-item">
+                            <h2 class="card-name"><?= $fields[2] ?></h2>
                         </a>
-                        <p class="card-price"><?= $product['S'] ?>$ ~ <?= $product['L'] ?>$</p>
-                        <a href="./ProductDetails.php?id=<?= $product['ID'] ?>" class="card-btn btn">Add to cart</a>
+                        <p class="card-price"><?= $fields[9] ?>$ ~ <?= $fields[11] ?>$</p>
+                        <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="card-btn btn">View</a>
                     </div>
                 </div>
             <?php

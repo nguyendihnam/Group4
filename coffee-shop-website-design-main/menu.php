@@ -1,4 +1,4 @@
-    <?php
+<?php
         #1. Start session
     session_start();
     #2. Connect to database
@@ -9,7 +9,7 @@
     $rsCategory = mysqli_query($conn, $queryCategory);
     $countCategory = mysqli_num_rows($rsCategory);
 
-    $queryProduct = "SELECT * FROM product ";
+    $queryProduct = "SELECT * FROM product ORDER BY ID DESC LIMIT 6";
     $rsProduct = mysqli_query($conn, $queryProduct);
     $countProduct = mysqli_num_rows($rsProduct);
 
@@ -20,7 +20,6 @@
     $countProduct = mysqli_num_rows($rsProduct);
     endif;
 
-
     $count = mysqli_num_rows($rsCategory); // Define $count here
             ?>
     <?php
@@ -28,7 +27,7 @@
         // include'./slider.php';  
     ?>
 
-    <section class="menu" id="menu">
+    <section class="menu" id="menu" >
         <div class="menu-container">
             <nav class="menu-category">
                     <h3 class="menu-header">
@@ -42,7 +41,7 @@
                             ?>
                         <ul class="menu-nav-list">
                             <li class="menu-list-item">
-                                <a href="./categoryID.php" class="menu-item"><?= $fields[1] ?></a>
+                                <a href="./CategoryID.php?categoryID=<?= $fields[0] ?>" class="menu-item"><?= $fields[1] ?></a>
                             </li>
                         </ul>
                         <?php
@@ -50,7 +49,7 @@
                     endif;
                 ?>
             </nav>
-        <div>
+            <div class="card-container" >
             <?php
                 if ($count == 0):
                     echo 'Records not founds';
@@ -58,16 +57,16 @@
                     while ($fields = mysqli_fetch_array($rsProduct)):
                         ?>
                     <div class="card">
-                        <a href="./image/<?= $fields[8] ?>" class="card-thumbnail">
-                            <img src="image/<?= $fields[8] ?>" alt="<?= $fields[2] ?>" class="img-thumbnail">
+                        <a href="./image/<?= $fields[8] ?>.jpg" class="card-thumbnail">
+                            <img src="image/<?= $fields[8] ?>.jpg" alt="<?= $fields[2] ?>" class="img-thumbnail">
                         </a>
                         <div class="card-text-container">
-                            <a href="<?= $fields[8] ?>" class="card-item">
+                            <a href="<?= $fields[8] ?>.jpg" class="card-item">
                                 <h2 class="card-name"><?= $fields[2] ?></h2>
                             </a>
                             <p class="card-price"><?= $fields[9] ?>$ ~ <?= $fields[11] ?>$</p>
                             
-                            <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="card-btn btn">Add to cart</a>
+                            <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="view-btn btn">View</a>
                         </div>
                     </div>
                     <?php
@@ -76,6 +75,7 @@
             ?>
                 </div>
         </div>
+    
     </section>
         <?php
             include'./footer.php';

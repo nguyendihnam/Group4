@@ -105,11 +105,30 @@
     box-shadow: 0 2px 15px rgba(64, 64, 64, .7);
     border-radius: 12px 12px 0 0;
     margin-bottom: 50px;
+    height: 20rem;
+   overflow-y: scroll;
+   -layout: fixed;
+   
+  }
+  .outer {
+    overflow-y: auto;
+    height: 40rem;
+  }
+
+  .outer {
+    width: 145%;
+   display: fixed;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
   }
 
   td,
   th {
-    padding: 10px 16px;
+    padding: 20px 20px;
     text-align: center;
   }
 
@@ -294,6 +313,13 @@
   padding: 6px;
   border-radius: 5px;
 }
+.shoppage {
+  background-color: #584e46;
+  color: #fff;
+  font-size: 25px;
+  padding: 6px;
+  border-radius: 5px;
+}
 
 /* *******************   cart to login icon styling   ********************* */
 .cart-login-btn{
@@ -318,4 +344,23 @@
 .footer-hover:hover{
   color: #ECDAC9;
   text-decoration: none;
+}
+
+.btn-danger1 {
+  color: #fff;
+  background-color: #4399e9;
+  border-color: #040c1a;
+}
+.btn-danger1:hover{
+  background-color: #0066ff;
+}
+.homebackground {
+  min-height: 100vh;
+  padding-top: 10rem;
+  background: url(../images/coffee.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.table-scroll{
+  overflow-y: scroll;
 }

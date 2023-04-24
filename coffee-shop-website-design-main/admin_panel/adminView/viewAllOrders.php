@@ -1,3 +1,24 @@
+<?php
+      include_once "../config/dbconnect.php";
+      $sql="select 
+      ord.ID, 
+      us.UserName, 
+      ord.Note,
+      ord.OrderDate, 
+      case when ord.Status = 0 then 'Order Draf' 
+         when ord.Status = 1 then 'Waiting Approved' 
+         when ord.Status = 2 then 'Approved' 
+      end StatusOrder,
+      ord.Status
+      from orders ord 
+      inner join user us on ord.UserID = us.ID";
+      $result=$conn-> query($sql);
+?>
+<div>
+  <lable>Search</lable>
+  <input id="tbSearch" type = "textbox" placeholder="">
+  <input type="button" onclick="SearchOrder()" value="Search"> 
+</div>  
 <div id="ordersBtn" >
   <h2>Order Details</h2>
   <table class="table table-striped">
@@ -11,20 +32,7 @@
         <th>Action</th>
      </tr>
     </thead>
-     <?php
-      include_once "../config/dbconnect.php";
-      $sql="select 
-      ord.ID, 
-      us.UserName, 
-      ord.Note,
-      ord.OrderDate, 
-      case when ord.Status = 0 then 'Waiting Approve' 
-         when ord.Status = 1 then 'Approved' 
-      end StatusOrder 
-      from orders ord 
-      inner join user us on ord.UserID = us.ID";
-      $result=$conn-> query($sql);
-      
+    <?php
       if ($result-> num_rows > 0){
         while ($row=$result-> fetch_assoc()){ 
     ?>
@@ -35,7 +43,16 @@
           <td><?=$row["OrderDate"]?></td>
           <td><?=$row["StatusOrder"]?></td>
                     
-        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewOrderDetail.php?orderID=<?=$row['ID']?>" href="javascript:void(0);">View</a></td>
+        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewOrderDetail.php?orderID=<?=$row['ID']?>" href="javascript:void(0);">View</a>
+        <?php
+          if($row["Status"] == 1){
+
+           ?>
+           <button class="btn btn-primary openPopup" onclick="UpdateStatuOrder(<?=$row["ID"]?>)">Update Status</button>
+        <?php 
+          }
+        ?>
+        
         </tr>
     <?php
             
