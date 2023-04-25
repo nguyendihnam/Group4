@@ -502,7 +502,15 @@ function AddOrder(id){
                     timer: 1000
                   })
             }
-            else {
+            else if (result == -1) {
+                Swal.fire({                  
+                    title: 'Fail',
+                    text: 'Quantity has exceeded 30',
+                    showConfirmButton: false,
+                    timer: 1000
+                  })
+            }
+            else{
                 Swal.fire({                  
                     title: 'Fail',
                     text: 'Add Order Fail',

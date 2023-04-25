@@ -67,7 +67,7 @@
       <?php
          if(isset($_SESSION['User'])){
             ?>
-         
+          <p class="Order-Text" style="text-align:left">Maximum quantity is 30</p>
          <div class="btn-box" >
                <button class="cart-btn" onclick="AddOrder(<?=$id?>)">Add To Cart</button>
             </div>
