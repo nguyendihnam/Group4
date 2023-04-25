@@ -23,6 +23,10 @@
             {
                 $arrayQty = mysqli_fetch_array($rsSelectOrderDetail);
                 $TotalQty = $Qty + $arrayQty[0];
+                if($TotalQty > 30){
+                    echo '-1';
+                    exit();
+                }
                 $queryUpdateOrderDetail= "Update orderdetails set Qty = $TotalQty where OrderID = $array[0] and ProductID = $ProductID and Size =  '$Size'  ";
                 $rsUpdateOrderDetail = mysqli_query($conn, $queryUpdateOrderDetail);
                 echo '1';
