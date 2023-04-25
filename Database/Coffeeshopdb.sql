@@ -137,7 +137,6 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`ID`, `CategoryID`, `Name`, `Thumbnail`, `Description`, `CreatedDate`, `UpdatedDate`, `Deleted`, `Image`, `S`, `M`, `L`) VALUES
 (1, 3, 'Espresso', 'espresso', 'Espresso is a concentrated form of coffee served in small, strong shots and is the base for many coffee drinks', '2023-04-22 20:00:20', '2023-04-22 20:00:20', 0, 'espresso', 1, 2, 3),
-(3, 1, 'Croissant', 'croissant', 'A croissant (French pronunciation: [kʁwasɑ̃] ( listen)) is a buttery, flaky, viennoiserie pastry inspired by the shape of the Austrian kipferl but using the French yeast-leavened laminated dough.', '2023-04-20 15:18:59', '2023-04-20 15:18:59', 0, 'croissant', 1, 2, 5),
 (42, 3, 'Coffee milk', 'Cafe sữa', 'Pure Dak Lak coffee is mixed with a traditional filter combined with condensed milk to create a rich and harmonious taste between the sweetness of the tongue and the elegant bitterness of the aftertaste.', '2023-04-22 18:22:31', '2023-04-22 18:22:31', 0, 'Cafesua', 1, 2, 3),
 (43, 3, 'Coffee Caramen', 'Cafe kem caramen', 'Caramel coffee is a drink present on the menus of many famous restaurants, hotels, and coffee brands. This drink is a blend of passionate coffee juice, fatty fresh milk and a little bit of bitter caramel.', '2023-04-22 18:23:47', '2023-04-22 18:23:47', 0, 'Cafekemcaramen', 1, 2, 3),
 (44, 3, 'Coffee Bac Xiu', 'Bạc xỉu', 'Coffee Bac Xiu is a drink made from coffee with milk, but the milk part will be more than the coffee part.', '2023-04-22 18:24:48', '2023-04-22 18:24:48', 0, 'Bacxiu', 1, 2, 3),
