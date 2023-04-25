@@ -247,7 +247,7 @@ function sendContact() {
     if(nameValue == '') {
         setError(nameFull, 'Name is required');
         valid = false;
-    } else if(!/^[A-Za-z]+$/.test(nameValue)) {
+    } else if(!/^[a-zA-Z\s]+$/.test(nameValue)) {
         setError(nameFull, 'Name must be only characters');
         valid = false;
     } else if(nameValue.length > 50) {
