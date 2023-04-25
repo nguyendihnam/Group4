@@ -50,7 +50,7 @@
          <div class="right" >
             <div class="url" ><span style="font-size: 18px;"><a href="./index.php"> Home </a> > <a href="./menu.php" > Menu </a> > <?= $fields[2] ?></div></span>
             <div class="pname" ><?= $fields[2] ?></div>
-            <p class="card-description-menu"><?= (substr($fields[4], 0, 80) . ' ... ' )?></p><br>  
+            <p class="card-description-menu"><?= (substr($fields[4], 0, 200) . ' ... ' )?></p><br>  
             <i class="gg-coffee"></i>
             <div class="size" > 
             <div class="price">Size :</div>

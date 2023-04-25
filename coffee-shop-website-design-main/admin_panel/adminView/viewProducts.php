@@ -60,7 +60,7 @@
         <td><button class="btn btn-danger" style="height:60px"  onclick="deleteProduct('<?= $row['ID'] ?>')">Delete</button></td>
         <td><button class="btn btn-danger1" style="height:60px" onclick="RestoredProduct('<?= $row['ID'] ?>')">Revert</button></td>
         <td><button class="btn btn-warning" style="height:60px" type="button" data-toggle="modal"
-         data-target="#myModalUpdate"><a href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>" onclick="return confirm('Are you sure to Update Item?')" > Update</a></button></td>
+         data-target="#myModalUpdate"><a href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>">Update</a></button></td>
     </tr>
       <?php
             $count=$count+1;
