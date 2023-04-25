@@ -16,7 +16,7 @@
 ?>
 <div>
   <lable>Search</lable>
-  <input id="tbSearch" type = "textbox" placeholder="">
+  <input id="tbSearch" type = "textbox" placeholder="Search with UserName, Note and Status">
   <input type="button" onclick="SearchOrder()" value="Search"> 
 </div>  
 <div id="ordersBtn" >
