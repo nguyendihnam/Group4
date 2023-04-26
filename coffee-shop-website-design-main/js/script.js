@@ -58,6 +58,9 @@ function validInput() {
     if (userNameVal == '') {
         setError(userName, 'Username is required');
         valid = false;
+    } else if (!(/^[A-Za-z0-9]+$/.test(userNameVal))){
+        setError(userName, 'Username contains character and number only');
+        valid = false;
     } else if (userNameVal.length > 25 || userNameVal.length < 8) {
         setError(userName, 'Username max 25 characters and min 8 characters');
         valid = false;
