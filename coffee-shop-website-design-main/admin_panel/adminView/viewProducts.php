@@ -1,5 +1,5 @@
 
-<div >
+<div id="productpr" >
   <h2>Product Items</h2>
     <div class="outer" style="height: 600px; width: 1350px;">
       <table class="table ">
@@ -13,7 +13,7 @@
               <!-- <th class="text-center">CreatedDate</th>
               <th class="text-center">UpdatedDate</th> -->
               <th class="text-center">Status</th>
-              <!-- <th class="text-center">Image</th> -->
+              <th class="text-center">Image</th>
               <th class="text-center">S</th>
               <th class="text-center">M</th>
               <th class="text-center">L</th>
@@ -24,7 +24,32 @@
     #1. Start session
     session_start();
     include_once "../config/dbconnect.php";
-    $sql = "SELECT 
+    $sql="";
+    if(isset($_POST["Search"]))
+      {
+        $search = $_POST["Search"];
+    $sql = "SELECT  * FROM(
+      SELECT
+    pr.ID,
+    pr.Name,
+    ct.Name as CategoryName,
+    pr.Thumbnail,
+    pr.Description,
+    pr.CreatedDate,
+    pr.UpdatedDate,
+    CASE WHEN pr.Deleted = 0 THEN 'Active' ELSE 'Deactive' END as Status,
+    pr.Image,
+    pr.S,
+    pr.M,
+    pr.L
+    FROM product pr
+    INNER JOIN category ct ON pr.CategoryID = ct.ID
+    )main where main.Name like '%{$search}'
+    OR main.CategoryName like '%{$search}'
+    OR main.Deleted like '{$search}'
+    ";
+      }else{
+        $sql = "SELECT 
     pr.ID,
     pr.Name,
     ct.Name as CategoryName,
@@ -39,8 +64,14 @@
     pr.L
     FROM product pr
     INNER JOIN category ct ON pr.CategoryID = ct.ID";
+      }
     $result = $conn->query($sql);
     $count = 1;
+    if (isset($_POST['search'])) {
+      $search = $_POST['search'];
+      $sql .= " WHERE pr.Name LIKE '%$search%' OR pr.CategoryID LIKE '%$search%' OR pr.Deleted = '$search'";
+    }
+
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
     ?>
@@ -53,10 +84,10 @@
         <!-- <td><?= substr($row["CreatedDate"],0,10)?></td>
         <td><?= substr($row["UpdatedDate"],0,10) ?></td> -->
         <td><?= $row["Status"] ?></td>
-        <!-- <td><?= substr($row["Image"],0,10) ?></td> -->
-        <td><?= $row["S"] ?></td>
-        <td><?= $row["M"] ?></td>
-        <td><?= $row["L"] ?></td>
+        <td><img src=".<?=$row["Image"] ?> " style="height: 4rem; width: 8rem"  > </td>
+        <td><?= $row["S"] ?>$</td>
+        <td><?= $row["M"] ?>$</td>
+        <td><?= $row["L"] ?>$</td>
         <td><button class="btn btn-danger" style="height:60px"  onclick="deleteProduct('<?= $row['ID'] ?>')">Delete</button></td>
         <td><button class="btn btn-danger1" style="height:60px" onclick="RestoredProduct('<?= $row['ID'] ?>')">Revert</button></td>
         <td><a class="btn btn-warning" style="height:60px; line-height: 48px;"  href="./controller/UpdateProducts.php?ID=<?=$row['ID']?>">Update</a></td>
@@ -109,22 +140,20 @@
             </div>
             <div class="form-group">
                 <label for="description">Description :</label>
-                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                <textarea class="form-control" id="description" name="description" min="20" max="100" rows="3" required></textarea>
             </div>
             <div class="form-group">
-                <label for="createdDate">Created Date :</label>
-                <input type="date" class="form-control" id="createdDate" name="createdDate" required>
+                <input type="date" class="form-control" id="createdDate" name="createdDate" hidden>
             </div>
             <div class="form-group">
-                <label for="status">Status :</label>
-                <select class="form-control" id="status" name="status" required>
+                <select class="form-control" id="status" name="status" hidden>
                   <option value="0">Active</option>
                   <option value="1">Deactive</option>
                 </select>
             </div>
             <div class="form-group">
                   <label for="image">Image :</label>
-                  <input type="text" class="form-control" id="image" name="image" required >
+                  <input type="file" class="form-control" id="image" name="image" required >
               </div>
             <div class="form-group">
                 <label for="s">S :</label>
@@ -139,7 +168,7 @@
                 <input type="number" class="form-control" min="1" max="10"  name="l" id="l" required>
             </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Add Item</button>
+                <button type="submit" name="btnAdd" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Add Item</button>
               </div>
             </form>
 

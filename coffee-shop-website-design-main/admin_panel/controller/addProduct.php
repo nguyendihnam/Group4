@@ -11,12 +11,19 @@ include_once "../config/dbconnect.php";
     $createdDate = date('createdDate');
     $updatedDate = date('UpdatedDate');
     $delete = 0; // Mặc định là chưa xóa
-    $image = $_POST['image'];
+    
     $s = $_POST['s'];
     $m = $_POST['m'];
     $l = $_POST['l'];
+    #a. Process Image value
+    $folder   = "./image/";
+    $fileName = $_FILES['image']['name'];
+    $fileTemp = $_FILES['image']['tmp_name'];
+    $image     = $folder.$fileName;
+   
+    #b. Upload file 
+    move_uploaded_file($fileTemp, $image);
     
-
     // Thêm dữ liệu vào cơ sở dữ liệu
     $update = mysqli_query($conn,"INSERT INTO product 
     (Name,categoryID, thumbnail, description, 

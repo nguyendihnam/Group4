@@ -27,10 +27,19 @@ if (isset($_POST['btnUpdate'])){
     $createdDate = date('createdDate');
     $updatedDate = date('Y-m-d H:i:s'); 
     $delete = 0; // Mặc định là chưa xóa
+    $image     = $folder.$_FILES['image']['name'];
     $image = $_POST['image'];
     $s = $_POST['s'];
     $m = $_POST['m'];
     $l = $_POST['l'];
+    #a. Process Image value
+    $folder   = "./image/";
+    $fileName = $_FILES['image']['name'];
+    $fileTemp = $_FILES['image']['tmp_name'];
+    $image     = $folder.$fileName;
+   
+    #b. Upload file 
+    move_uploaded_file($fileTemp, $image);
   
 #8. Excute query (for update new data)
 $query ="UPDATE product SET 
@@ -62,7 +71,7 @@ mysqli_close($conn);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="container" class="modal fade" id="myModalUpdate" role="dialog">
     <h1 class="modal-title">Update Product</h1>
-      <form method="post" >
+    <form method="post" enctype="multipart/form-data">
           <table class="table table-borderedless">
           <div class="form-group">
                 <input type="text" class="form-control" id="ID" name="ID" value="<?= $row[0] ?>" hidden>
@@ -84,7 +93,8 @@ mysqli_close($conn);
             </div>
             <div class="form-group">
                   <label for="image">Image :</label>
-                  <input type="text" class="form-control" id="image" name="image" value="<?= $row[8] ?>" required >
+                  <input type="text" class="form-control" value="<?= $row[8] ?>" required >
+                  <input type="file" class="form-control" id="image" name="image" value="<?= $row[8] ?>" required >
               </div>
             <div class="form-group">
               <label for="s">S:</label>

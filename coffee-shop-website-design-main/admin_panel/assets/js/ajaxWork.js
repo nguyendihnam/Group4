@@ -124,13 +124,13 @@ function revertUser(id){
 //Nam
 
 function deleteProduct(ID) {
-    if (confirm("Are you sure Deleted Item Products ?")){
+    if (confirm("Are you sure Deleted Item Products +.=?")){
         $.ajax({
             url: "./controller/deleteProduct.php",
             method: "post",
             data: { ID: ID },
             success: function (data) {
-                alert('The Products has been successlly deleted! .');
+                alert('The Products has been successlly deleted >~< ');
                 showProducts();
             }
         });
@@ -138,13 +138,13 @@ function deleteProduct(ID) {
 }
 
 function RestoredProduct(id) {
-    if (confirm("Are you sure Revert Item Products ?")){
+    if (confirm("Are you sure Revert Item Products ^.^ ?")){
         $.ajax({
           url: "./controller/RestoredProduct.php",
           type: "post",
           data: {ID: id},
           success: function(data) {
-            alert('The Products has been successlly update! .');
+            alert('The Products has been successlly update >.^ ?');
             showProducts();
           }
         });
@@ -152,18 +152,30 @@ function RestoredProduct(id) {
 }
 
 function deleteCategory(ID) {
-    if (confirm("Are you sure Deleted Name?")){
+    if (confirm("Are you sure Deleted Name @.@ ?")){
         $.ajax({
             url: "./controller/deleteCategory.php",
             method: "post",
             data: { ID: ID },
             success: function (data) {
-                alert('The Products has been successlly deleted! .');
+                alert('The Products has been successlly deleted >.^ !');
                 showCategory();
             }
         });
     } 
 }
+function SearchProduct() {
+    var searchContent = $("#PrSearch").val();
+    $.ajax({
+        url: "./adminView/viewProducts.php",
+        method: "POST",
+        data: { Search: searchContent },
+        success: function (data) {
+           $("#Productpr").html(data);
+        }
+    });
+}
+
 function SearchOrder() {
     var searchContent = $("#tbSearch").val();
     $.ajax({

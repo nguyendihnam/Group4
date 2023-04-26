@@ -30,21 +30,7 @@
       <div class="flex-box">
          <div class="left" >
             <div class="big-img" >
-               <img src="./image/<?= $fields[8] ?>.jpg" onclick="showImg(this.src)" >
-            </div>
-            <div class="images" >
-               <div class="small-img" >
-                  <img src="./image/<?= $fields[8] ?>1.jpg" onclick="showImg(this.src)" >
-               </div>
-               <div class="small-img" >
-                  <img src="./image/<?= $fields[8] ?>2.jpg" onclick="showImg(this.src)" >
-               </div>
-               <div class="small-img" >
-                  <img src="./image/<?= $fields[8] ?>3.jpg" onclick="showImg(this.src)" >
-               </div>
-               <div class="small-img" >
-                  <img src="./image/<?= $fields[8] ?>.jpg" onclick="showImg(this.src)" >
-               </div>
+               <img src="<?= $fields[8] ?>" onclick="showImg(this.src)" >
             </div>
          </div>
          <div class="right" >

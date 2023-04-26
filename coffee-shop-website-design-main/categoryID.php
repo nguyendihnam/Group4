@@ -47,8 +47,8 @@ else:
                 while ($fields = mysqli_fetch_array($rsProduct)):
             ?>
                 <div class="card">
-                    <a href="./image/<?= $fields[8] ?>.jpg" class="card-thumbnail">
-                        <img src="./image/<?= $fields[8] ?>.jpg" alt="<?= $fields[2] ?>" class="img-thumbnail">
+                    <a href="<?= $fields[8] ?>" class="card-thumbnail">
+                        <img src="<?= $fields[8] ?>" alt="<?= $fields[2] ?>" class="img-thumbnail">
                     </a>
                     <div class="card-text-container">
                         <a href="./ProductDetails.php?id=<?= $fields[0] ?>" class="card-item">
