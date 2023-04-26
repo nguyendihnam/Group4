@@ -1,5 +1,7 @@
 
+
 <div>
+  
   <h2>Product Items</h2>
     <div class="outer" style="height: 600px; width: 1350px;">
       <table class="table ">
@@ -122,7 +124,8 @@
             </div>
             <div class="form-group">
                   <label for="image">Image :</label>
-                  <input type="file" class="form-control" id="image" name="image" required >
+                  <input type="file" class="form-control" id="image" name="image">
+                  
               </div>
             <div class="form-group">
                 <label for="s">S :</label>
@@ -137,7 +140,7 @@
                 <input type="number" class="form-control" min="1" max="10"  name="l" id="l" required>
             </div>
               <div class="form-group">
-                <button type="submit" name="btnAdd" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Add Item</button>
+                <button type="submit" name="btnAdd" class="btn btn-secondary" id="upload" style="height:40px" onclick="confirmAddProduct()" >Save</button>
               </div>
             </form>
 

@@ -1,69 +1,70 @@
-
 <?php
-#1. Start session
+// Start session
 session_start();
-date_default_timezone_set('Asia/Ho_Chi_Minh'); // Đặt timezone theo múi giờ địa phương của bạn
+date_default_timezone_set('Asia/Ho_Chi_Minh'); // Set timezone according to your local time zone
 
-#4. Get Item Code from Read
-if (!isset($_GET['ID'])):
-    header("location:./adminView/viewProduct.php");
-endif;
+// Get Item Code from Read
+if (!isset($_GET['ID'])) {
+  header("location:./adminView/viewProducts.php");
+  exit; // Stop further execution
+}
+
 $id = $_GET['ID'];
 
 include_once "../config/dbconnect.php";
 
-#5. Execute query  (for old data reading by Item)
-$query = "select * from product where ID = '{$id}'";
+// Execute query  (for old data reading by Item)
+$query = "SELECT * FROM product WHERE ID = '{$id}'";
 $rs = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($rs);
-#6. Check form is submitted
-if (isset($_POST['btnUpdate'])){
-#7. Read new data from Input elements
-    $id = $_POST['ID'];
-    $name = $_POST['Name'];
-    $categoryID = $_POST['categoryID'];
-    $thumbnail = $_POST['thumbnail'];
-    $description = $_POST['description'];
-    $createdDate = date('createdDate');
-    $updatedDate = date('Y-m-d H:i:s'); 
-    $delete = 0; // Mặc định là chưa xóa
-    $image     = $folder.$_FILES['image']['name'];
-    $image = $_POST['image'];
-    $s = $_POST['s'];
-    $m = $_POST['m'];
-    $l = $_POST['l'];
-    #a. Process Image value
-    $folder   = "./image/";
-    $fileName = $_FILES['image']['name'];
-    $fileTemp = $_FILES['image']['tmp_name'];
-    $image     = $folder.$fileName;
-   
-    #b. Upload file 
-    move_uploaded_file($fileTemp, $image);
+
+// Check form is submitted
+if (isset($_POST['btnUpdate'])) {
+  // Read new data from Input elements
+  $id = $_POST['ID'];
+  $name = $_POST['Name'];
+  $categoryID = $_POST['categoryID'];
+  $thumbnail = $_POST['thumbnail'];
+  $description = $_POST['description'];
+  $createdDate = date('Y-m-d H:i:s');
+  $updatedDate = date('Y-m-d H:i:s');
+  $deleted = 0; // Default is not deleted
+  $s = $_POST['s'];
+  $m = $_POST['m'];
+  $l = $_POST['l'];
+
+  // Process Image value
+  $folder = "./image/";
+  $fileName = $_FILES["image"]["name"];
+  $image = $folder . $fileName;
+
+ 
+
+  // Execute query (for update new data)
+  $query = "UPDATE product SET   
+    Name = '{$name}',
+    categoryID = '{$categoryID}',
+    thumbnail = '{$thumbnail}',
+    description = '{$description}',
+    createdDate = '{$createdDate}',
+    updatedDate = '$updatedDate',
+    deleted = '{$deleted}',
+    image = '{$image}',
+    s = '{$s}',
+    m = '{$m}',
+    l = '{$l}'
+    WHERE ID = '{$id}'";
   
-#8. Excute query (for update new data)
-$query ="UPDATE product SET 
-Name = '{$name}',
-categoryID = '{$categoryID}',
-thumbnail = '{$thumbnail}',
-description = '{$description}',
-createdDate = '{$createdDate}',
-updatedDate = '$updatedDate',
-deleted = '{$delete}',
-image = '{$image}',
-s = '{$s}',
-m = '{$m}',
-l = '{$l}'
-where ID = '{$id}'";
-$rs = mysqli_query($conn, $query);
-if(!$rs){
-  error_clear_last();
-  echo'Nothing to update';
-}else{
-  echo'Are you sure to Update Item ?';
-  header("location: ../index.php?Update=success" );
+  $rs = mysqli_query($conn, $query);
+  if (!$rs) {
+    error_clear_last();
+    echo 'Nothing to update';
+  } else {
+    echo 'Are you sure to Update Item ?';
+    header("location: ../index.php" );
+  }
 }
-}
+
 mysqli_close($conn);
 ?>
 <body class="homebackground" >
@@ -93,7 +94,7 @@ mysqli_close($conn);
             </div>
             <div class="form-group">
                   <label for="image">Image :</label>
-                  <input type="text" class="form-control" value="<?= $row[8] ?>" required >
+                <input type="text" class="form-control" value="<?= $row[8] ?>" required >
                   <input type="file" class="form-control" id="image" name="image" value="<?= $row[8] ?>" required >
               </div>
             <div class="form-group">
